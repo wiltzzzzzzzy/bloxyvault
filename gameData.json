@@ -1,0 +1,6607 @@
+{
+  "petCatalog": {
+    "new400": {
+      "name": "Shiny Mythic Sinister Lord 2.0",
+      "value": 160000000,
+      "rarity": "secret"
+    },
+    "b4_0": {
+      "name": "Mythic Sinister Lord 2.0",
+      "value": 80000000,
+      "rarity": "secret"
+    },
+    "b0_0": {
+      "name": "Shiny Levithan",
+      "value": 46000000,
+      "rarity": "secret"
+    },
+    "new82": {
+      "name": "Shiny Mythic Almighty Pumpkin",
+      "value": 40000000,
+      "rarity": "secret"
+    },
+    "b1_0": {
+      "name": "Shiny Giant Robot",
+      "value": 34500000,
+      "rarity": "secret"
+    },
+    "new407": {
+      "name": "Shiny Mythic King Skull",
+      "value": 30000000,
+      "rarity": "secret"
+    },
+    "b0_2": {
+      "name": "Levithan",
+      "value": 20000000,
+      "rarity": "mythic"
+    },
+    "b3_0": {
+      "name": "Levithan",
+      "value": 20000000,
+      "rarity": "mythic"
+    },
+    "b4_1": {
+      "name": "Mythic Almighty Pumpkin",
+      "value": 20000000,
+      "rarity": "mythic"
+    },
+    "new408": {
+      "name": "Shiny Mythic Sinister Skull",
+      "value": 20000000,
+      "rarity": "secret"
+    },
+    "new338": {
+      "name": "Shiny Mythic Peppermint Leviathan",
+      "value": 18000000,
+      "rarity": "secret"
+    },
+    "new405": {
+      "name": "Shiny Mythic Wolf Skull",
+      "value": 17000000,
+      "rarity": "secret"
+    },
+    "new311": {
+      "name": "Shiny Mythic Lucky Pyramidium",
+      "value": 16000000,
+      "rarity": "secret"
+    },
+    "new404": {
+      "name": "Shiny Mythic Angelic Skull",
+      "value": 16000000,
+      "rarity": "secret"
+    },
+    "new406": {
+      "name": "Shiny Mythic Guardian Skull",
+      "value": 16000000,
+      "rarity": "secret"
+    },
+    "b1_1": {
+      "name": "Giant Robot",
+      "value": 15000000,
+      "rarity": "mythic"
+    },
+    "b2_1": {
+      "name": "Shiny Mythic Dream Catcher",
+      "value": 15000000,
+      "rarity": "epic"
+    },
+    "b3_1": {
+      "name": "Giant Robot",
+      "value": 15000000,
+      "rarity": "legendary"
+    },
+    "b4_3": {
+      "name": "Mythic King Skull",
+      "value": 15000000,
+      "rarity": "mythic"
+    },
+    "new346": {
+      "name": "Shiny Mythic Plasma Wolflord",
+      "value": 14000000,
+      "rarity": "secret"
+    },
+    "b4_2": {
+      "name": "Mythic Sinister Skull",
+      "value": 10000000,
+      "rarity": "legendary"
+    },
+    "new132": {
+      "name": "Shiny Dementor",
+      "value": 11500000,
+      "rarity": "secret"
+    },
+    "b0_1": {
+      "name": "Mythic Peppermint Leviathan",
+      "value": 9000000,
+      "rarity": "legendary"
+    },
+    "b4_4": {
+      "name": "Mythic Wolf Skull",
+      "value": 8500000,
+      "rarity": "mythic"
+    },
+    "b2_0": {
+      "name": "Mythic Lucky Pyramidium",
+      "value": 8000000,
+      "rarity": "mythic"
+    },
+    "b4_5": {
+      "name": "Mythic Angelic Skull",
+      "value": 8000000,
+      "rarity": "epic"
+    },
+    "b4_6": {
+      "name": "Mythic Guardian Skull",
+      "value": 8000000,
+      "rarity": "epic"
+    },
+    "new276": {
+      "name": "Shiny Mythic Godly Shamrock",
+      "value": 8000000,
+      "rarity": "secret"
+    },
+    "b0_3": {
+      "name": "Mythic Plasma Wolflord",
+      "value": 7000000,
+      "rarity": "legendary"
+    },
+    "b1_3": {
+      "name": "Shiny Robot 2.0",
+      "value": 3500000,
+      "rarity": "rare"
+    },
+    "new268": {
+      "name": "Shiny Godly Gem",
+      "value": 6900000,
+      "rarity": "secret"
+    },
+    "b1_2": {
+      "name": "Shiny Mythic Christmas Robot",
+      "value": 5000000,
+      "rarity": "legendary"
+    },
+    "b3_2": {
+      "name": "Dementor",
+      "value": 5000000,
+      "rarity": "epic"
+    },
+    "new189": {
+      "name": "Shiny Mythic Fire Basilisk",
+      "value": 5000000,
+      "rarity": "secret"
+    },
+    "new475": {
+      "name": "Shiny Shadow One",
+      "value": 11500000,
+      "rarity": "secret"
+    },
+    "b2_2": {
+      "name": "Mythic Godly Shamrock",
+      "value": 4000000,
+      "rarity": "epic"
+    },
+    "new200": {
+      "name": "Shiny Mythic 1B Trophy",
+      "value": 4000000,
+      "rarity": "secret"
+    },
+    "b1_4": {
+      "name": "Robot 2.0",
+      "value": 1000000,
+      "rarity": "rare"
+    },
+    "new10": {
+      "name": "Godly Gem",
+      "value": 3000000,
+      "rarity": "secret"
+    },
+    "new490": {
+      "name": "Shiny Dark Serpent",
+      "value": 6900000,
+      "rarity": "secret"
+    },
+    "b4_8": {
+      "name": "Mythic Fire Basilisk",
+      "value": 2500000,
+      "rarity": "legendary"
+    },
+    "new67": {
+      "name": "Shadow One",
+      "value": 5000000,
+      "rarity": "secret"
+    },
+    "new384": {
+      "name": "Shiny Shadow Luminance",
+      "value": 5750000,
+      "rarity": "secret"
+    },
+    "b0_5": {
+      "name": "Shiny Tophat (F)",
+      "value": 1200000,
+      "rarity": "legendary"
+    },
+    "b4_7": {
+      "name": "Mythic 1B Trophy",
+      "value": 2000000,
+      "rarity": "rare"
+    },
+    "new230": {
+      "name": "Shiny Developer Trophy",
+      "value": 4025000,
+      "rarity": "secret"
+    },
+    "new441": {
+      "name": "Shiny Tophat (C)",
+      "value": 1150000,
+      "rarity": "secret"
+    },
+    "new63": {
+      "name": "Shiny Immortal One",
+      "value": 805000,
+      "rarity": "secret"
+    },
+    "new443": {
+      "name": "Shiny Tophat (E)",
+      "value": 3910000,
+      "rarity": "secret"
+    },
+    "new491": {
+      "name": "Dark Serpent",
+      "value": 3000000,
+      "rarity": "secret"
+    },
+    "new399": {
+      "name": "Shiny Sinister Lord",
+      "value": 1725000,
+      "rarity": "secret"
+    },
+    "new468": {
+      "name": "Shiny Dowodle",
+      "value": 3450000,
+      "rarity": "secret"
+    },
+    "new439": {
+      "name": "Shiny Tophat (A)",
+      "value": 1035000,
+      "rarity": "secret"
+    },
+    "new447": {
+      "name": "Shiny Wolflord",
+      "value": 1035000,
+      "rarity": "secret"
+    },
+    "b2_3": {
+      "name": "Shiny Almighty Hexarium",
+      "value": 1300000,
+      "rarity": "rare"
+    },
+    "new68": {
+      "name": "Shadow Luminance",
+      "value": 2500000,
+      "rarity": "secret"
+    },
+    "new327": {
+      "name": "Shiny Patriotic Robot",
+      "value": 1380000,
+      "rarity": "secret"
+    },
+    "p18": {
+      "name": "Tophat (F)",
+      "value": 950000,
+      "rarity": "secret"
+    },
+    "new362": {
+      "name": "Shiny Mythic Pot O' Doggy",
+      "value": 1100000,
+      "rarity": "secret"
+    },
+    "new444": {
+      "name": "Shiny Trophy",
+      "value": 2530000,
+      "rarity": "secret"
+    },
+    "new298": {
+      "name": "Shiny King Kitty",
+      "value": 2300000,
+      "rarity": "secret"
+    },
+    "new367": {
+      "name": "Shiny Radiance",
+      "value": 2300000,
+      "rarity": "secret"
+    },
+    "new396": {
+      "name": "Shiny Shadow Wolflord",
+      "value": 2300000,
+      "rarity": "secret"
+    },
+    "new467": {
+      "name": "Shiny Beta TV",
+      "value": 2300000,
+      "rarity": "secret"
+    },
+    "new488": {
+      "name": "Shiny Infernus",
+      "value": 2300000,
+      "rarity": "secret"
+    },
+    "new271": {
+      "name": "Shiny Giant Choco Chicken",
+      "value": 632500,
+      "rarity": "secret"
+    },
+    "new154": {
+      "name": "Shiny Frost Sentinel",
+      "value": 862500,
+      "rarity": "secret"
+    },
+    "new127": {
+      "name": "Developer Trophy",
+      "value": 1750000,
+      "rarity": "secret"
+    },
+    "p16": {
+      "name": "Tophat (C)",
+      "value": 500000,
+      "rarity": "secret"
+    },
+    "new11": {
+      "name": "Immortal One",
+      "value": 350000,
+      "rarity": "secret"
+    },
+    "p36": {
+      "name": "Tophat (E)",
+      "value": 1700000,
+      "rarity": "secret"
+    },
+    "new301": {
+      "name": "Shiny Lord Shock",
+      "value": 949900,
+      "rarity": "secret"
+    },
+    "new283": {
+      "name": "Shiny Infinity Gem",
+      "value": 1840000,
+      "rarity": "secret"
+    },
+    "new442": {
+      "name": "Shiny Tophat (D)",
+      "value": 1840000,
+      "rarity": "secret"
+    },
+    "b4_9": {
+      "name": "Sinister Lord",
+      "value": 750000,
+      "rarity": "common"
+    },
+    "p34": {
+      "name": "Dowodle",
+      "value": 1500000,
+      "rarity": "secret"
+    },
+    "new117": {
+      "name": "Shiny Easter Basket",
+      "value": 862500,
+      "rarity": "secret"
+    },
+    "new146": {
+      "name": "Shiny Elite Challenger",
+      "value": 1610000,
+      "rarity": "secret"
+    },
+    "new242": {
+      "name": "Shiny Easter Robot",
+      "value": 1610000,
+      "rarity": "secret"
+    },
+    "new360": {
+      "name": "Shiny Pot O' Gold",
+      "value": 782000,
+      "rarity": "secret"
+    },
+    "new19": {
+      "name": "Wolflord",
+      "value": 450000,
+      "rarity": "secret"
+    },
+    "p35": {
+      "name": "Tophat (A)",
+      "value": 450000,
+      "rarity": "secret"
+    },
+    "p25": {
+      "name": "Almighty Hexarium",
+      "value": 1300000,
+      "rarity": "secret"
+    },
+    "p44": {
+      "name": "Shiny Kraken",
+      "value": 1495000,
+      "rarity": "secret"
+    },
+    "new237": {
+      "name": "Shiny Elite Wolflord",
+      "value": 1495000,
+      "rarity": "secret"
+    },
+    "b1_5": {
+      "name": "Patriotic Robot",
+      "value": 600000,
+      "rarity": "rare"
+    },
+    "new144": {
+      "name": "Shiny Elite Fallen Angel",
+      "value": 1380000,
+      "rarity": "secret"
+    },
+    "new414": {
+      "name": "Shiny Soul Heart",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "new435": {
+      "name": "Shiny Tophat G",
+      "value": 1380000,
+      "rarity": "secret"
+    },
+    "new482": {
+      "name": "Shiny Electra Hydra",
+      "value": 1380000,
+      "rarity": "secret"
+    },
+    "new113": {
+      "name": "Shiny Dark Guardian",
+      "value": 276000,
+      "rarity": "secret"
+    },
+    "b2_4": {
+      "name": "Mythic Pot O' Doggy",
+      "value": 550000,
+      "rarity": "common"
+    },
+    "new37": {
+      "name": "Trophy",
+      "value": 1100000,
+      "rarity": "secret"
+    },
+    "p47": {
+      "name": "Shiny Sinister Lord 2.0",
+      "value": 1207500,
+      "rarity": "secret"
+    },
+    "new16": {
+      "name": "Radiance",
+      "value": 1000000,
+      "rarity": "secret"
+    },
+    "new26": {
+      "name": "King Kitty",
+      "value": 1000000,
+      "rarity": "secret"
+    },
+    "p3": {
+      "name": "Beta TV",
+      "value": 1000000,
+      "rarity": "secret"
+    },
+    "new69": {
+      "name": "Shadow Wolflord",
+      "value": 1000000,
+      "rarity": "secret"
+    },
+    "new489": {
+      "name": "Infernus",
+      "value": 1000000,
+      "rarity": "secret"
+    },
+    "new413": {
+      "name": "Shiny Wolf Skull",
+      "value": 1150000,
+      "rarity": "secret"
+    },
+    "new440": {
+      "name": "Shiny Tophat (B)",
+      "value": 1150000,
+      "rarity": "secret"
+    },
+    "new486": {
+      "name": "Shiny Enraged Phoenix",
+      "value": 1150000,
+      "rarity": "secret"
+    },
+    "new24": {
+      "name": "Giant Choco Chicken",
+      "value": 275000,
+      "rarity": "secret"
+    },
+    "new8": {
+      "name": "Frost Sentinel",
+      "value": 375000,
+      "rarity": "secret"
+    },
+    "new180": {
+      "name": "Shiny Holy Bell",
+      "value": 1035000,
+      "rarity": "secret"
+    },
+    "new409": {
+      "name": "Shiny Sinister Skull",
+      "value": 1035000,
+      "rarity": "secret"
+    },
+    "new410": {
+      "name": "Shiny Angelic Skull",
+      "value": 1035000,
+      "rarity": "secret"
+    },
+    "b3_3": {
+      "name": "Lord Shock",
+      "value": 413000,
+      "rarity": "epic"
+    },
+    "p8": {
+      "name": "Infinity Gem",
+      "value": 800000,
+      "rarity": "secret"
+    },
+    "p17": {
+      "name": "Tophat (D)",
+      "value": 800000,
+      "rarity": "secret"
+    },
+    "new142": {
+      "name": "Shiny Elite Lord Shock",
+      "value": 920000,
+      "rarity": "secret"
+    },
+    "new331": {
+      "name": "Shiny New Year Champion",
+      "value": 920000,
+      "rarity": "secret"
+    },
+    "new484": {
+      "name": "Shiny Christmas Elemental",
+      "value": 920000,
+      "rarity": "secret"
+    },
+    "new411": {
+      "name": "Shiny King Skull",
+      "value": 897000,
+      "rarity": "secret"
+    },
+    "b3_4": {
+      "name": "Easter Basket",
+      "value": 375000,
+      "rarity": "rare"
+    },
+    "new412": {
+      "name": "Shiny Guardian Skull",
+      "value": 862500,
+      "rarity": "secret"
+    },
+    "p52": {
+      "name": "Easter Robot",
+      "value": 700000,
+      "rarity": "secret"
+    },
+    "new145": {
+      "name": "Elite Challenger",
+      "value": 700000,
+      "rarity": "secret"
+    },
+    "new388": {
+      "name": "Shiny Shadow Sundae Champion",
+      "value": 805000,
+      "rarity": "secret"
+    },
+    "b2_5": {
+      "name": "Pot O' Gold",
+      "value": 340000,
+      "rarity": "rare"
+    },
+    "new369": {
+      "name": "Shiny Radiant One",
+      "value": 759000,
+      "rarity": "secret"
+    },
+    "new29": {
+      "name": "Kraken",
+      "value": 650000,
+      "rarity": "secret"
+    },
+    "new139": {
+      "name": "Elite Wolflord",
+      "value": 650000,
+      "rarity": "secret"
+    },
+    "b3_5": {
+      "name": "Soul Heart",
+      "value": 300000,
+      "rarity": "common"
+    },
+    "p59": {
+      "name": "Elite Fallen Angel",
+      "value": 600000,
+      "rarity": "secret"
+    },
+    "new437": {
+      "name": "Tophat G",
+      "value": 600000,
+      "rarity": "secret"
+    },
+    "new483": {
+      "name": "Electra Hydra",
+      "value": 600000,
+      "rarity": "secret"
+    },
+    "new232": {
+      "name": "Shiny Fairy Koi",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "new238": {
+      "name": "Shiny Elite Sentinel",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "new239": {
+      "name": "Shiny Elite Pot O' Gold",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "new255": {
+      "name": "Shiny Galactic Paladin",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "new313": {
+      "name": "Shiny Lucky Pyramidium",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "new445": {
+      "name": "Shiny Ultimate Trophy",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "new44": {
+      "name": "Dark Guardian",
+      "value": 120000,
+      "rarity": "secret"
+    },
+    "new62": {
+      "name": "Shiny Eternal Heart",
+      "value": 184000,
+      "rarity": "secret"
+    },
+    "b0_4": {
+      "name": "Shiny Peppermint Leviathan",
+      "value": 275000,
+      "rarity": "legendary"
+    },
+    "new34": {
+      "name": "Sinister Lord 2.0",
+      "value": 525000,
+      "rarity": "secret"
+    },
+    "p15": {
+      "name": "Tophat (B)",
+      "value": 500000,
+      "rarity": "secret"
+    },
+    "p20": {
+      "name": "Wolf Skull",
+      "value": 500000,
+      "rarity": "secret"
+    },
+    "new487": {
+      "name": "Enraged Phoenix",
+      "value": 500000,
+      "rarity": "secret"
+    },
+    "new102": {
+      "name": "Shiny Christmas Robot",
+      "value": 575000,
+      "rarity": "secret"
+    },
+    "new151": {
+      "name": "Shiny Eternal Star",
+      "value": 575000,
+      "rarity": "secret"
+    },
+    "new178": {
+      "name": "Shiny Hellshard",
+      "value": 575000,
+      "rarity": "secret"
+    },
+    "new274": {
+      "name": "Shiny Immortal Trophy",
+      "value": 575000,
+      "rarity": "secret"
+    },
+    "new309": {
+      "name": "Shiny Luminance",
+      "value": 575000,
+      "rarity": "secret"
+    },
+    "new25": {
+      "name": "Holy Bell",
+      "value": 450000,
+      "rarity": "secret"
+    },
+    "p11": {
+      "name": "Sinister Skull",
+      "value": 450000,
+      "rarity": "secret"
+    },
+    "p32": {
+      "name": "Angelic Skull",
+      "value": 450000,
+      "rarity": "secret"
+    },
+    "new143": {
+      "name": "Elite Lord Shock",
+      "value": 400000,
+      "rarity": "secret"
+    },
+    "new333": {
+      "name": "New Year Champion",
+      "value": 400000,
+      "rarity": "secret"
+    },
+    "new485": {
+      "name": "Christmas Elemental",
+      "value": 400000,
+      "rarity": "secret"
+    },
+    "p45": {
+      "name": "Shiny King Doggy",
+      "value": 460000,
+      "rarity": "secret"
+    },
+    "new375": {
+      "name": "Shiny Radioactive Radiance",
+      "value": 460000,
+      "rarity": "secret"
+    },
+    "new427": {
+      "name": "Shiny Chocolate Sundae Champion",
+      "value": 460000,
+      "rarity": "secret"
+    },
+    "p9": {
+      "name": "King Skull",
+      "value": 390000,
+      "rarity": "secret"
+    },
+    "p28": {
+      "name": "Guardian Skull",
+      "value": 375000,
+      "rarity": "secret"
+    },
+    "new348": {
+      "name": "Shiny Plasma Wolflord",
+      "value": 414000,
+      "rarity": "secret"
+    },
+    "new390": {
+      "name": "Shadow Sundae Champion",
+      "value": 350000,
+      "rarity": "secret"
+    },
+    "new364": {
+      "name": "Shiny Pyramidium",
+      "value": 402500,
+      "rarity": "secret"
+    },
+    "new303": {
+      "name": "Shiny Koi",
+      "value": 391000,
+      "rarity": "secret"
+    },
+    "new417": {
+      "name": "Shiny Vanilla Sundae Champion",
+      "value": 391000,
+      "rarity": "secret"
+    },
+    "new32": {
+      "name": "Radiant One",
+      "value": 330000,
+      "rarity": "secret"
+    },
+    "new251": {
+      "name": "Shiny Ghosdeeri",
+      "value": 368000,
+      "rarity": "secret"
+    },
+    "new38": {
+      "name": "Ultimate Clover",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "new47": {
+      "name": "Galactic Paladin",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "p57": {
+      "name": "Lucky Pyramidium",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "new140": {
+      "name": "Elite Sentinel",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "new141": {
+      "name": "Elite Pot O' Gold",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "new150": {
+      "name": "Fairy Koi",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "new118": {
+      "name": "Shiny Duality",
+      "value": 345000,
+      "rarity": "secret"
+    },
+    "new121": {
+      "name": "Shiny Dragonfruit",
+      "value": 345000,
+      "rarity": "secret"
+    },
+    "new273": {
+      "name": "Shiny Inferno Gem",
+      "value": 345000,
+      "rarity": "secret"
+    },
+    "new428": {
+      "name": "Shiny Mint Sundae Champion",
+      "value": 345000,
+      "rarity": "secret"
+    },
+    "new469": {
+      "name": "Shiny Frosted Duality",
+      "value": 345000,
+      "rarity": "secret"
+    },
+    "new39": {
+      "name": "Ultimate Trophy",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "new446": {
+      "name": "Ultimate Trophy",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "new395": {
+      "name": "Shiny Shard",
+      "value": 322000,
+      "rarity": "secret"
+    },
+    "new7": {
+      "name": "Eternal Heart",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "b0_6": {
+      "name": "Peppermint Leviathan",
+      "value": 137500,
+      "rarity": "common"
+    },
+    "new426": {
+      "name": "Shiny Strawberry Sundae Champion",
+      "value": 310500,
+      "rarity": "secret"
+    },
+    "new23": {
+      "name": "Eternal Star",
+      "value": 250000,
+      "rarity": "secret"
+    },
+    "new52": {
+      "name": "Luminance",
+      "value": 250000,
+      "rarity": "secret"
+    },
+    "p5": {
+      "name": "Christmas Robot",
+      "value": 250000,
+      "rarity": "secret"
+    },
+    "new157": {
+      "name": "Hellshard",
+      "value": 250000,
+      "rarity": "secret"
+    },
+    "new275": {
+      "name": "Immortal Trophy",
+      "value": 250000,
+      "rarity": "secret"
+    },
+    "new335": {
+      "name": "Shiny Patronus",
+      "value": 276000,
+      "rarity": "secret"
+    },
+    "new322": {
+      "name": "Shiny Money Mouth",
+      "value": 264500,
+      "rarity": "secret"
+    },
+    "new13": {
+      "name": "King Doggy",
+      "value": 200000,
+      "rarity": "secret"
+    },
+    "p46": {
+      "name": "Chocolate Sundae Champion",
+      "value": 200000,
+      "rarity": "secret"
+    },
+    "new376": {
+      "name": "Radioactive Radiance",
+      "value": 200000,
+      "rarity": "secret"
+    },
+    "new88": {
+      "name": "Shiny 1B Trophy",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "new187": {
+      "name": "Shiny Electric Basilisk",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "new188": {
+      "name": "Shiny Ice Basilisk",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "new278": {
+      "name": "Shiny Godly Shamrock",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "new15": {
+      "name": "Plasma Wolflord",
+      "value": 180000,
+      "rarity": "secret"
+    },
+    "new204": {
+      "name": "Shiny Cardinal Bunny",
+      "value": 207000,
+      "rarity": "secret"
+    },
+    "new391": {
+      "name": "Shiny Shattered Soul",
+      "value": 207000,
+      "rarity": "secret"
+    },
+    "new31": {
+      "name": "Pyramidium",
+      "value": 175000,
+      "rarity": "secret"
+    },
+    "new349": {
+      "name": "Shiny Sylently Plushie",
+      "value": 201250,
+      "rarity": "secret"
+    },
+    "new28": {
+      "name": "Koi",
+      "value": 170000,
+      "rarity": "secret"
+    },
+    "p19": {
+      "name": "Vanilla Sundae Champion",
+      "value": 170000,
+      "rarity": "secret"
+    },
+    "p58": {
+      "name": "Shiny Overlord Plushie",
+      "value": 195500,
+      "rarity": "secret"
+    },
+    "new253": {
+      "name": "Ghosdeeri",
+      "value": 160000,
+      "rarity": "secret"
+    },
+    "new247": {
+      "name": "Shiny Frost Shard",
+      "value": 184000,
+      "rarity": "secret"
+    },
+    "new345": {
+      "name": "Shiny Sircfenner Plushie",
+      "value": 184000,
+      "rarity": "secret"
+    },
+    "new202": {
+      "name": "Shiny Candycorn Shard",
+      "value": 178250,
+      "rarity": "secret"
+    },
+    "new5": {
+      "name": "Duality",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "new22": {
+      "name": "Dragonfruit",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "p27": {
+      "name": "Frosted Duality",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "p54": {
+      "name": "Mint Sundae Champion",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "new90": {
+      "name": "Inferno Gem",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "new221": {
+      "name": "Shiny Earth Champion",
+      "value": 172500,
+      "rarity": "secret"
+    },
+    "new17": {
+      "name": "Shard",
+      "value": 140000,
+      "rarity": "secret"
+    },
+    "new198": {
+      "name": "Shiny All Seeing Eye",
+      "value": 161000,
+      "rarity": "secret"
+    },
+    "new212": {
+      "name": "Shiny Dark Basilisk",
+      "value": 161000,
+      "rarity": "secret"
+    },
+    "new319": {
+      "name": "Shiny Love Thief",
+      "value": 161000,
+      "rarity": "secret"
+    },
+    "new350": {
+      "name": "Shiny Obscure Entity Plushie",
+      "value": 161000,
+      "rarity": "secret"
+    },
+    "p13": {
+      "name": "Strawberry Sundae Champion",
+      "value": 135000,
+      "rarity": "secret"
+    },
+    "new361": {
+      "name": "Shiny Pot O' Doggy",
+      "value": 155250,
+      "rarity": "secret"
+    },
+    "new465": {
+      "name": "Shiny Soulflake",
+      "value": 155250,
+      "rarity": "secret"
+    },
+    "new111": {
+      "name": "Shiny Dark Champion",
+      "value": 149500,
+      "rarity": "secret"
+    },
+    "new163": {
+      "name": "Shiny Harmonic Harp",
+      "value": 143750,
+      "rarity": "secret"
+    },
+    "new337": {
+      "name": "Patronus",
+      "value": 120000,
+      "rarity": "secret"
+    },
+    "new159": {
+      "name": "Shiny Hellfire",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "new186": {
+      "name": "Shiny Fire Basilisk",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "new196": {
+      "name": "Shiny Almighty Pumpkin",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "new222": {
+      "name": "Shiny Fire Champion",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "new373": {
+      "name": "Shiny Rainbow Gryphon",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "new324": {
+      "name": "Money Mouth",
+      "value": 115000,
+      "rarity": "secret"
+    },
+    "new79": {
+      "name": "Shiny Angelic Spirit",
+      "value": 132250,
+      "rarity": "secret"
+    },
+    "new40": {
+      "name": "Air Basilisk",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "new49": {
+      "name": "Ice Basilisk",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "p1": {
+      "name": "1B Trophy",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "p39": {
+      "name": "Electric Basilisk",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "p55": {
+      "name": "Godly Shamrock",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "new214": {
+      "name": "Shiny Curse of Kings",
+      "value": 115000,
+      "rarity": "secret"
+    },
+    "new220": {
+      "name": "Shiny Sky Champion",
+      "value": 115000,
+      "rarity": "secret"
+    },
+    "p22": {
+      "name": "Shattered Soul",
+      "value": 90000,
+      "rarity": "secret"
+    },
+    "new110": {
+      "name": "Cardinal Bunny",
+      "value": 90000,
+      "rarity": "secret"
+    },
+    "new263": {
+      "name": "Shiny Demonic Ghost Spirit",
+      "value": 103500,
+      "rarity": "secret"
+    },
+    "new265": {
+      "name": "Shiny Angelic Ghost Spirit",
+      "value": 103500,
+      "rarity": "secret"
+    },
+    "p14": {
+      "name": "Sylently Plushie",
+      "value": 87500,
+      "rarity": "secret"
+    },
+    "new55": {
+      "name": "Overlord Plushie",
+      "value": 85000,
+      "rarity": "secret"
+    },
+    "p33": {
+      "name": "Sircfenner Plushie",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "new249": {
+      "name": "Frost Shard",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "p43": {
+      "name": "Shiny Gryphon",
+      "value": 92000,
+      "rarity": "secret"
+    },
+    "new119": {
+      "name": "Shiny Dogcat",
+      "value": 92000,
+      "rarity": "secret"
+    },
+    "new226": {
+      "name": "Shiny Dream Catcher",
+      "value": 92000,
+      "rarity": "secret"
+    },
+    "new401": {
+      "name": "Shiny Sinister Shard",
+      "value": 92000,
+      "rarity": "secret"
+    },
+    "new42": {
+      "name": "Candycorn Shard",
+      "value": 77500,
+      "rarity": "secret"
+    },
+    "p30": {
+      "name": "Earth Champion",
+      "value": 75000,
+      "rarity": "secret"
+    },
+    "new124": {
+      "name": "Shiny Diamond Ring",
+      "value": 86250,
+      "rarity": "secret"
+    },
+    "p10": {
+      "name": "Obscure Entity Plushie",
+      "value": 70000,
+      "rarity": "secret"
+    },
+    "p42": {
+      "name": "All Seeing Eye",
+      "value": 70000,
+      "rarity": "secret"
+    },
+    "p48": {
+      "name": "Love Thief",
+      "value": 70000,
+      "rarity": "secret"
+    },
+    "new116": {
+      "name": "Dark Basilisk",
+      "value": 70000,
+      "rarity": "secret"
+    },
+    "new155": {
+      "name": "Shiny Firecracker",
+      "value": 80500,
+      "rarity": "secret"
+    },
+    "new235": {
+      "name": "Shiny Eternal Carrot",
+      "value": 80500,
+      "rarity": "secret"
+    },
+    "p12": {
+      "name": "Soulflake",
+      "value": 67500,
+      "rarity": "secret"
+    },
+    "p23": {
+      "name": "Pot O' Doggy",
+      "value": 67500,
+      "rarity": "secret"
+    },
+    "p37": {
+      "name": "Dark Champion",
+      "value": 65000,
+      "rarity": "secret"
+    },
+    "new162": {
+      "name": "Harmonic Harp",
+      "value": 62500,
+      "rarity": "secret"
+    },
+    "new1": {
+      "name": "Almighty Pumpkin",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "new56": {
+      "name": "Rainbow Gryphon",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "p29": {
+      "name": "Fire Champion",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "p50": {
+      "name": "Fire Basilisk",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "new158": {
+      "name": "Hellfire",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "new60": {
+      "name": "Shiny Fallen Angel",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "new94": {
+      "name": "Shiny Archangel",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "new280": {
+      "name": "Shiny Giant Pearl",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "new372": {
+      "name": "Shiny Rainbow Dogcat",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "new381": {
+      "name": "Shiny Sea Star",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "new41": {
+      "name": "Angelic Spirit",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "new184": {
+      "name": "Shiny Holy Egg",
+      "value": 63250,
+      "rarity": "secret"
+    },
+    "p38": {
+      "name": "Sky Champion",
+      "value": 50000,
+      "rarity": "secret"
+    },
+    "new98": {
+      "name": "Curse of Kings",
+      "value": 50000,
+      "rarity": "secret"
+    },
+    "new152": {
+      "name": "Shiny Eternal Cucumber",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "new293": {
+      "name": "Shiny King Penguin",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "new433": {
+      "name": "Shiny OwOLord",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "new2": {
+      "name": "Angelic Ghost Spirit",
+      "value": 45000,
+      "rarity": "secret"
+    },
+    "new20": {
+      "name": "Demonic Ghost Spirit",
+      "value": 45000,
+      "rarity": "secret"
+    },
+    "new326": {
+      "name": "Shiny Morning Star",
+      "value": 51750,
+      "rarity": "secret"
+    },
+    "new21": {
+      "name": "Dogcat",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "new58": {
+      "name": "Sinister Shard",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "p24": {
+      "name": "Dream Catcher",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "new174": {
+      "name": "Gryphon",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "new100": {
+      "name": "Shiny Christmas Bell",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "new167": {
+      "name": "Shiny Angelic Golf Ball",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "new216": {
+      "name": "Shiny Crystal Teddy",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "new307": {
+      "name": "Shiny Magic Marshmallow",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "new454": {
+      "name": "Shiny UFO",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "new171": {
+      "name": "Shiny Demonic Golf Ball",
+      "value": 43700,
+      "rarity": "secret"
+    },
+    "p6": {
+      "name": "Diamond Ring",
+      "value": 37500,
+      "rarity": "secret"
+    },
+    "p7": {
+      "name": "Firecracker",
+      "value": 35000,
+      "rarity": "secret"
+    },
+    "p56": {
+      "name": "Eternal Carrot",
+      "value": 35000,
+      "rarity": "secret"
+    },
+    "new218": {
+      "name": "Shiny Corrupt Glitch",
+      "value": 40250,
+      "rarity": "secret"
+    },
+    "new317": {
+      "name": "Shiny Lovely Rose",
+      "value": 40250,
+      "rarity": "secret"
+    },
+    "new450": {
+      "name": "Shiny Wisplord",
+      "value": 40250,
+      "rarity": "secret"
+    },
+    "new472": {
+      "name": "Shiny Peppermint Heart",
+      "value": 40250,
+      "rarity": "secret"
+    },
+    "new33": {
+      "name": "Rainbow Dogcat",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "new46": {
+      "name": "Fallen Angel",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "new48": {
+      "name": "Giant Pearl",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "new57": {
+      "name": "Sea Star",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "new96": {
+      "name": "Archangel",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "new374": {
+      "name": "Rainbow Dogcat",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "new342": {
+      "name": "Shiny Pixie Queen",
+      "value": 34500,
+      "rarity": "secret"
+    },
+    "p51": {
+      "name": "Holy Egg",
+      "value": 27500,
+      "rarity": "secret"
+    },
+    "new6": {
+      "name": "Eternal Cucumber",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "new36": {
+      "name": "The OwOlord",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "new295": {
+      "name": "King Penguin",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "new54": {
+      "name": "Morning Star",
+      "value": 22500,
+      "rarity": "secret"
+    },
+    "new43": {
+      "name": "Crystal Teddy",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "new53": {
+      "name": "Magic Marshmallow",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "p4": {
+      "name": "Christmas Bell",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "new166": {
+      "name": "Angelic Golf Ball",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "new455": {
+      "name": "UFO",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "new123": {
+      "name": "Shiny Dice Split",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "new194": {
+      "name": "Shiny Angelic Shard",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "new240": {
+      "name": "Shiny Easter Spirit",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "new286": {
+      "name": "Shiny Slime King",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "new357": {
+      "name": "Shiny Prisma Cube",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "new415": {
+      "name": "Shiny Spring Spirit",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "new170": {
+      "name": "Demonic Golf Ball",
+      "value": 19000,
+      "rarity": "secret"
+    },
+    "new201": {
+      "name": "Shiny BGS Plaque",
+      "value": 20700,
+      "rarity": "secret"
+    },
+    "new257": {
+      "name": "Shiny Frosted Dreamer",
+      "value": 20700,
+      "rarity": "secret"
+    },
+    "new30": {
+      "name": "Lovely Rose",
+      "value": 17500,
+      "rarity": "secret"
+    },
+    "p26": {
+      "name": "Peppermint Heart",
+      "value": 17500,
+      "rarity": "secret"
+    },
+    "new105": {
+      "name": "Corrupt Glitch",
+      "value": 17500,
+      "rarity": "secret"
+    },
+    "new451": {
+      "name": "Wisplord",
+      "value": 17500,
+      "rarity": "secret"
+    },
+    "new344": {
+      "name": "Pixie Queen",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "new340": {
+      "name": "Shiny Phantom",
+      "value": 17250,
+      "rarity": "secret"
+    },
+    "new270": {
+      "name": "Shiny Gingerbread Shard",
+      "value": 16100,
+      "rarity": "secret"
+    },
+    "new296": {
+      "name": "Shiny King Mush",
+      "value": 16100,
+      "rarity": "secret"
+    },
+    "new4": {
+      "name": "Dice Split",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "new14": {
+      "name": "King Slime",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "new45": {
+      "name": "Easter Spirit",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "new359": {
+      "name": "Prisma Cube",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "new81": {
+      "name": "Angelic Shard",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "new416": {
+      "name": "Spring Spirit",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "new382": {
+      "name": "Shiny Shadow Challenger",
+      "value": 11500,
+      "rarity": "secret"
+    },
+    "new430": {
+      "name": "Shiny The Overlord",
+      "value": 11500,
+      "rarity": "secret"
+    },
+    "new3": {
+      "name": "BGS Plaque",
+      "value": 9000,
+      "rarity": "secret"
+    },
+    "new259": {
+      "name": "Frosted Dreamer",
+      "value": 9000,
+      "rarity": "secret"
+    },
+    "new87": {
+      "name": "Shiny ACE",
+      "value": 9200,
+      "rarity": "secret"
+    },
+    "new339": {
+      "name": "Phantom",
+      "value": 7500,
+      "rarity": "secret"
+    },
+    "new9": {
+      "name": "Gingerbread Shard",
+      "value": 7000,
+      "rarity": "secret"
+    },
+    "new27": {
+      "name": "King Mush",
+      "value": 7000,
+      "rarity": "secret"
+    },
+    "new35": {
+      "name": "The Overlord",
+      "value": 5000,
+      "rarity": "secret"
+    },
+    "new383": {
+      "name": "Shadow Challenger",
+      "value": 5000,
+      "rarity": "secret"
+    },
+    "p2": {
+      "name": "Ace",
+      "value": 4000,
+      "rarity": "secret"
+    },
+    "new72": {
+      "name": "Shiny King Leviathan",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "new206": {
+      "name": "Shiny Demonic One",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "new207": {
+      "name": "Shiny Demonic Dogcat",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "new133": {
+      "name": "Shiny Dark Radiance",
+      "value": 3450,
+      "rarity": "secret"
+    },
+    "new136": {
+      "name": "Shiny Dark Lord",
+      "value": 3450,
+      "rarity": "secret"
+    },
+    "new365": {
+      "name": "Shiny Radiant Challenger",
+      "value": 3450,
+      "rarity": "secret"
+    },
+    "new51": {
+      "name": "King Leviathan",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "new128": {
+      "name": "Demonic One",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "new129": {
+      "name": "Demonic Dogcat",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "new112": {
+      "name": "Dark Lord",
+      "value": 1500,
+      "rarity": "secret"
+    },
+    "new134": {
+      "name": "Dark Radiance",
+      "value": 1500,
+      "rarity": "secret"
+    },
+    "new366": {
+      "name": "Radiant Challenger",
+      "value": 1500,
+      "rarity": "secret"
+    },
+    "new12": {
+      "name": "King Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new18": {
+      "name": "Sylentlys pet",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new50": {
+      "name": "Isaac's Creation 2.0",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new59": {
+      "name": "Spring Dragon",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "p21": {
+      "name": "Mythic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "p31": {
+      "name": "Mythic Pyramidium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "p40": {
+      "name": "Mythic Radiant One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "p41": {
+      "name": "Mythic Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "p49": {
+      "name": "Shiny Ultimate Clover",
+      "value": 184000,
+      "rarity": "secret"
+    },
+    "p53": {
+      "name": "Mythic Galactic Paladin",
+      "value": 4000000,
+      "rarity": "secret"
+    },
+    "p60": {
+      "name": "Mythic Lucid Leaf",
+      "value": 2000000,
+      "rarity": "secret"
+    },
+    "new61": {
+      "name": "Shiny Sylently's Pet",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new64": {
+      "name": "Mythic Duality",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new65": {
+      "name": "Mythic Air Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new66": {
+      "name": "Mythic King Kitty",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new71": {
+      "name": "Mythic Crystal Teddy",
+      "value": 700000,
+      "rarity": "secret"
+    },
+    "new73": {
+      "name": "Shiny Lucid Leaf",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new74": {
+      "name": "Mythic Dice Split",
+      "value": 650000,
+      "rarity": "secret"
+    },
+    "new75": {
+      "name": "Mythic Sircfenner Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new76": {
+      "name": "Mythic Gingerbread Shard",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "new77": {
+      "name": "Shiny Mythic Angelic Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new78": {
+      "name": "Mythic Angelic Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new80": {
+      "name": "Mythic Angelic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new83": {
+      "name": "Mythic Almighty Hexarium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new84": {
+      "name": "Mythic All Seeing Eye",
+      "value": 2500000,
+      "rarity": "secret"
+    },
+    "new85": {
+      "name": "Shiny Mythic ACE",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new86": {
+      "name": "Mythic ACE",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "new89": {
+      "name": "Mythic Inferno Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new91": {
+      "name": "Mythic Ice Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new92": {
+      "name": "Mythic Electric Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new93": {
+      "name": "Mythic Air Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new95": {
+      "name": "Mythic Archangel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new97": {
+      "name": "Mythic Curse of Kings",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new99": {
+      "name": "Shiny Mythic Christmas Bell",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new101": {
+      "name": "Mythic Christmas Bell",
+      "value": 1000000,
+      "rarity": "secret"
+    },
+    "new103": {
+      "name": "Mythic Christmas Robot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new104": {
+      "name": "Mythic Corrupt Glitch",
+      "value": 550000,
+      "rarity": "secret"
+    },
+    "new106": {
+      "name": "Shiny Mythic BGS Plaque",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new107": {
+      "name": "Mythic BGS Plaque",
+      "value": 500000,
+      "rarity": "secret"
+    },
+    "new108": {
+      "name": "Mythic Candycorn Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new109": {
+      "name": "Mythic Cardinal Bunny",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new114": {
+      "name": "Dark Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new115": {
+      "name": "Mythic Dark Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new120": {
+      "name": "Mythic Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new122": {
+      "name": "Mythic Dragonfruit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new125": {
+      "name": "Mythic Diamond Ring",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new126": {
+      "name": "Mythic Developer Trophy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new130": {
+      "name": "Mythic Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new131": {
+      "name": "Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new135": {
+      "name": "Dark Lord Shock",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new137": {
+      "name": "Mythic Easter Robot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new138": {
+      "name": "Mythic Eternal Carrot",
+      "value": 850000,
+      "rarity": "secret"
+    },
+    "new147": {
+      "name": "Mythic Easter Spirit",
+      "value": 940000,
+      "rarity": "secret"
+    },
+    "new148": {
+      "name": "Mythic Fallen Angel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new149": {
+      "name": "Mythic Fairy Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new153": {
+      "name": "Mythic Eternal Cucumber",
+      "value": 2400000,
+      "rarity": "secret"
+    },
+    "new156": {
+      "name": "Mythic Firecracker",
+      "value": 1700000,
+      "rarity": "secret"
+    },
+    "new160": {
+      "name": "Mythic Hellfire",
+      "value": 2000000,
+      "rarity": "secret"
+    },
+    "new161": {
+      "name": "Shiny Mythic Hellfire",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new164": {
+      "name": "Mythic Harmonic Harp",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new165": {
+      "name": "Shiny Mythic Harmonic Harp",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new168": {
+      "name": "Mythic Angelic Golf Ball",
+      "value": 175000,
+      "rarity": "secret"
+    },
+    "new169": {
+      "name": "Shiny Mythic Angelic Golf Ball",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new172": {
+      "name": "Mythic Demonic Golf Ball",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "new173": {
+      "name": "Shiny Mythic Demonic Golf Ball",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new175": {
+      "name": "Mythic Gryphon",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new176": {
+      "name": "Shiny Mythic Gryphon",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new177": {
+      "name": "Mythic Hellshard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new179": {
+      "name": "Shiny Mythic Hellshard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new181": {
+      "name": "Holy Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new182": {
+      "name": "Shiny Holy Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new183": {
+      "name": "Mythic Holy Egg",
+      "value": 1600000,
+      "rarity": "secret"
+    },
+    "new185": {
+      "name": "Shiny Mythic Holy Egg",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new190": {
+      "name": "Shiny Mythic Air Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new191": {
+      "name": "Shiny Mythic Electric Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new192": {
+      "name": "Shiny Mythic Ice Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new193": {
+      "name": "Shiny Mythic Archangel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new195": {
+      "name": "Shiny Mythic Angelic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new197": {
+      "name": "Shiny Mythic Almighty Hexarium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new199": {
+      "name": "Shiny Mythic All Seeing Eye",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new203": {
+      "name": "Shiny Mythic Candycorn Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new205": {
+      "name": "Shiny Mythic Cardinal Bunny",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new208": {
+      "name": "Shiny Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new209": {
+      "name": "Shiny Mythic Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new210": {
+      "name": "Shiny Dark Lord Shock",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new211": {
+      "name": "Shiny Dark Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new213": {
+      "name": "Shiny Mythic Dark Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new215": {
+      "name": "Shiny Mythic Curse of Kings",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new217": {
+      "name": "Shiny Mythic Crystal Teddy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new219": {
+      "name": "Shiny Mythic Corrupt Glitch",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new223": {
+      "name": "Demonic Sentinel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new224": {
+      "name": "Shiny Demonic Sentinel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new225": {
+      "name": "Mythic Dream Catcher",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new227": {
+      "name": "Shiny Mythic Dragonfruit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new228": {
+      "name": "Shiny Mythic Dice Split",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new229": {
+      "name": "Shiny Mythic Diamond Ring",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new231": {
+      "name": "Shiny Mythic Developer Trophy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new233": {
+      "name": "Shiny Mythic Fairy Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new234": {
+      "name": "Shiny Mythic Eternal Cucumber",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new236": {
+      "name": "Shiny Mythic Eternal Carrot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new241": {
+      "name": "Shiny Mythic Easter Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new243": {
+      "name": "Shiny Mythic Easter Robot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new244": {
+      "name": "Shiny Mythic Fallen Angel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new245": {
+      "name": "Shiny Mythic Firecracker",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new246": {
+      "name": "Shiny Mythic Duality",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new248": {
+      "name": "Shiny Mythic Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new250": {
+      "name": "Shiny Mythic Ghosdeeri",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new252": {
+      "name": "Mythic Ghosdeeri",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new254": {
+      "name": "Shiny Mythic Galactic Paladin",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new256": {
+      "name": "Shiny Mythic Frosted Dreamer",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new258": {
+      "name": "Mythic Frosted Dreamer",
+      "value": 125000,
+      "rarity": "secret"
+    },
+    "new260": {
+      "name": "Shiny Mythic Frost Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new261": {
+      "name": "Mythic Frost Shard",
+      "value": 800000,
+      "rarity": "secret"
+    },
+    "new262": {
+      "name": "Mythic Angelic Ghost Spirit",
+      "value": 1500000,
+      "rarity": "secret"
+    },
+    "new264": {
+      "name": "Shiny Mythic Demonic Ghost Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new266": {
+      "name": "Shiny Mythic Angelic Ghost Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new267": {
+      "name": "Mythic Demonic Ghost Spirit",
+      "value": 2000000,
+      "rarity": "secret"
+    },
+    "new269": {
+      "name": "Shiny Mythic Gingerbread Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new272": {
+      "name": "Shiny Mythic Inferno Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new277": {
+      "name": "Mythic Godly Shamrock",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new279": {
+      "name": "Shiny Mythic Giant Pearl",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new281": {
+      "name": "Mythic Giant Pearl",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new282": {
+      "name": "Mythic Infinity Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new284": {
+      "name": "Shiny Mythic Infinity Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new285": {
+      "name": "Shiny King Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new287": {
+      "name": "Mythic King Slime",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new288": {
+      "name": "Shiny Mythic King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new289": {
+      "name": "Shiny King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new290": {
+      "name": "Mythic King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new291": {
+      "name": "King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new292": {
+      "name": "Shiny Mythic King Penguin",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new294": {
+      "name": "Mythic King Penguin",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new297": {
+      "name": "Shiny Mythic King Kitty",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new299": {
+      "name": "Shiny Mythic King Doggy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new300": {
+      "name": "Mythic King Doggy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new302": {
+      "name": "Shiny Mythic Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new304": {
+      "name": "Shiny Mythic King Slime",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new305": {
+      "name": "Mythic Love Thief",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new306": {
+      "name": "Shiny Mythic Love Thief",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new308": {
+      "name": "Shiny Mythic Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new310": {
+      "name": "Mythic Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new312": {
+      "name": "Mythic Lucky Pyramidium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new314": {
+      "name": "Shiny Mythic Lucid Leaf",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new315": {
+      "name": "Shiny Lucid Leaf",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new316": {
+      "name": "Shiny Mythic Lovely Rose",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new318": {
+      "name": "Mythic Lovely Rose",
+      "value": 330000,
+      "rarity": "secret"
+    },
+    "new320": {
+      "name": "Mythic Morning Star",
+      "value": 1000000,
+      "rarity": "secret"
+    },
+    "new321": {
+      "name": "Shiny Mythic Money Mouth",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new323": {
+      "name": "Mythic Money Mouth",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new325": {
+      "name": "Shiny Mythic Morning Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new328": {
+      "name": "Shiny Mythic Overlord Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new329": {
+      "name": "Mythic Overlord Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new330": {
+      "name": "Shiny Mythic New Year Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new332": {
+      "name": "Mythic New Year Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new334": {
+      "name": "Shiny Mythic Patronus",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new336": {
+      "name": "Mythic Patronus",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new341": {
+      "name": "Shiny Mythic Pixie Queen",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new343": {
+      "name": "Mythic Pixie Queen",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new347": {
+      "name": "Mythic Plasma Wolflord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new351": {
+      "name": "Shiny Mythic Sylently Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new352": {
+      "name": "Shiny Mythic Obscure Entity Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new353": {
+      "name": "Mythic Sylently Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new354": {
+      "name": "Mythic Obscure Entity Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new355": {
+      "name": "Shiny Mythic Sircfenner Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new356": {
+      "name": "Shiny Mythic Prisma Cube",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new358": {
+      "name": "Mythic Prisma Cube",
+      "value": 400000,
+      "rarity": "secret"
+    },
+    "new363": {
+      "name": "Shiny Mythic Pyramidium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new368": {
+      "name": "Shiny Mythic Radiant One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new370": {
+      "name": "Shiny Radiant Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new371": {
+      "name": "Radiant Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new377": {
+      "name": "Shiny Rainbow Leviathan",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new378": {
+      "name": "Rainbow Leviathan",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new379": {
+      "name": "Shiny Mythic Sea Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new380": {
+      "name": "Mythic Sea Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new385": {
+      "name": "Shiny Mythic Shadow Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new386": {
+      "name": "Mythic Shadow Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new387": {
+      "name": "Shiny Mythic Shadow Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new389": {
+      "name": "Mythic Shadow Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new392": {
+      "name": "Shiny Mythic Shattered Soul",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new393": {
+      "name": "Mythic Shattered Soul",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new394": {
+      "name": "Shiny Mythic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new397": {
+      "name": "Shiny Mythic Shadow Wolflord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new398": {
+      "name": "Mythic Shadow Wolflord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new402": {
+      "name": "Shiny Mythic Sinister Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new403": {
+      "name": "Mythic Sinister Shard",
+      "value": 3000000,
+      "rarity": "secret"
+    },
+    "new418": {
+      "name": "Mythic Vanilla Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new419": {
+      "name": "Shiny Mythic Strawberry Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new420": {
+      "name": "Mythic Strawberry Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new421": {
+      "name": "Shiny Mythic Chocolate Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new422": {
+      "name": "Mythic Chocolate Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new423": {
+      "name": "Shiny Mythic Mint Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new424": {
+      "name": "Mythic Mint Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new425": {
+      "name": "Shiny Mythic Vanilla Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new429": {
+      "name": "Shiny Mythic The Overlord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new431": {
+      "name": "Mythic The Overlord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new432": {
+      "name": "Shiny Mythic The OwOLord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new434": {
+      "name": "Mythic The OwOLord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new436": {
+      "name": "Mythic Tophat G",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new438": {
+      "name": "Shiny Mythic Tophat G",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new448": {
+      "name": "Shiny Mythic Wisplord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new449": {
+      "name": "Mythic Wisplord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new452": {
+      "name": "Shiny Mythic UFO",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new453": {
+      "name": "Mythic UFO",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new456": {
+      "name": "Shiny Mythic Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new457": {
+      "name": "Mythic Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new458": {
+      "name": "Shiny Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new459": {
+      "name": "Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new460": {
+      "name": "Shiny Mythic Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new461": {
+      "name": "Mythic Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new462": {
+      "name": "Shiny Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new463": {
+      "name": "Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new464": {
+      "name": "Shiny Mythic Soulflake",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new466": {
+      "name": "Mythic Soulflake",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new470": {
+      "name": "Shiny Mythic Frosted Duality",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new471": {
+      "name": "Mythic Frosted Duality",
+      "value": 2300000,
+      "rarity": "secret"
+    },
+    "new473": {
+      "name": "Shiny Mythic Peppermint Heart",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new474": {
+      "name": "Mythic Peppermint Heart",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new476": {
+      "name": "Shiny Mythic Shadow One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new477": {
+      "name": "Mythic Shadow One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new478": {
+      "name": "Shiny Mythic Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new479": {
+      "name": "Shiny Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new480": {
+      "name": "Mythic Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new481": {
+      "name": "Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "new492": {
+      "name": "Leprechaun Doggy",
+      "value": 1,
+      "rarity": "common"
+    },
+    "new493": {
+      "name": "Alien Overlord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new400": {
+      "name": "Duped Shiny Mythic Sinister Lord 2.0",
+      "value": 16000000,
+      "rarity": "secret"
+    },
+    "dup_b4_0": {
+      "name": "Duped Mythic Sinister Lord 2.0",
+      "value": 8000000,
+      "rarity": "secret"
+    },
+    "dup_b0_0": {
+      "name": "Duped Shiny Levithan",
+      "value": 4600000,
+      "rarity": "secret"
+    },
+    "dup_new82": {
+      "name": "Duped Shiny Mythic Almighty Pumpkin",
+      "value": 4000000,
+      "rarity": "secret"
+    },
+    "dup_b1_0": {
+      "name": "Duped Shiny Giant Robot",
+      "value": 3450000,
+      "rarity": "secret"
+    },
+    "dup_new407": {
+      "name": "Duped Shiny Mythic King Skull",
+      "value": 3000000,
+      "rarity": "secret"
+    },
+    "dup_b0_2": {
+      "name": "Duped Levithan",
+      "value": 2000000,
+      "rarity": "mythic"
+    },
+    "dup_b3_0": {
+      "name": "Duped Levithan",
+      "value": 2000000,
+      "rarity": "mythic"
+    },
+    "dup_b4_1": {
+      "name": "Duped Mythic Almighty Pumpkin",
+      "value": 2000000,
+      "rarity": "mythic"
+    },
+    "dup_new408": {
+      "name": "Duped Shiny Mythic Sinister Skull",
+      "value": 2000000,
+      "rarity": "secret"
+    },
+    "dup_new338": {
+      "name": "Duped Shiny Mythic Peppermint Leviathan",
+      "value": 1800000,
+      "rarity": "secret"
+    },
+    "dup_new405": {
+      "name": "Duped Shiny Mythic Wolf Skull",
+      "value": 1700000,
+      "rarity": "secret"
+    },
+    "dup_new311": {
+      "name": "Duped Shiny Mythic Lucky Pyramidium",
+      "value": 1600000,
+      "rarity": "secret"
+    },
+    "dup_new404": {
+      "name": "Duped Shiny Mythic Angelic Skull",
+      "value": 1600000,
+      "rarity": "secret"
+    },
+    "dup_new406": {
+      "name": "Duped Shiny Mythic Guardian Skull",
+      "value": 1600000,
+      "rarity": "secret"
+    },
+    "dup_b1_1": {
+      "name": "Duped Giant Robot",
+      "value": 1500000,
+      "rarity": "mythic"
+    },
+    "dup_b2_1": {
+      "name": "Duped Shiny Mythic Dream Catcher",
+      "value": 1500000,
+      "rarity": "epic"
+    },
+    "dup_b3_1": {
+      "name": "Duped Giant Robot",
+      "value": 1500000,
+      "rarity": "legendary"
+    },
+    "dup_b4_3": {
+      "name": "Duped Mythic King Skull",
+      "value": 1500000,
+      "rarity": "mythic"
+    },
+    "dup_new346": {
+      "name": "Duped Shiny Mythic Plasma Wolflord",
+      "value": 1400000,
+      "rarity": "secret"
+    },
+    "dup_b4_2": {
+      "name": "Duped Mythic Sinister Skull",
+      "value": 1000000,
+      "rarity": "legendary"
+    },
+    "dup_new132": {
+      "name": "Duped Shiny Dementor",
+      "value": 1150000,
+      "rarity": "secret"
+    },
+    "dup_b0_1": {
+      "name": "Duped Mythic Peppermint Leviathan",
+      "value": 900000,
+      "rarity": "legendary"
+    },
+    "dup_b4_4": {
+      "name": "Duped Mythic Wolf Skull",
+      "value": 850000,
+      "rarity": "mythic"
+    },
+    "dup_b2_0": {
+      "name": "Duped Mythic Lucky Pyramidium",
+      "value": 800000,
+      "rarity": "mythic"
+    },
+    "dup_b4_5": {
+      "name": "Duped Mythic Angelic Skull",
+      "value": 800000,
+      "rarity": "epic"
+    },
+    "dup_b4_6": {
+      "name": "Duped Mythic Guardian Skull",
+      "value": 800000,
+      "rarity": "epic"
+    },
+    "dup_new276": {
+      "name": "Duped Shiny Mythic Godly Shamrock",
+      "value": 800000,
+      "rarity": "secret"
+    },
+    "dup_b0_3": {
+      "name": "Duped Mythic Plasma Wolflord",
+      "value": 700000,
+      "rarity": "legendary"
+    },
+    "dup_b1_3": {
+      "name": "Duped Shiny Robot 2.0",
+      "value": 350000,
+      "rarity": "rare"
+    },
+    "dup_new268": {
+      "name": "Duped Shiny Godly Gem",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "dup_b1_2": {
+      "name": "Duped Shiny Mythic Christmas Robot",
+      "value": 500000,
+      "rarity": "legendary"
+    },
+    "dup_b3_2": {
+      "name": "Duped Dementor",
+      "value": 500000,
+      "rarity": "epic"
+    },
+    "dup_new189": {
+      "name": "Duped Shiny Mythic Fire Basilisk",
+      "value": 500000,
+      "rarity": "secret"
+    },
+    "dup_new475": {
+      "name": "Duped Shiny Shadow One",
+      "value": 1150000,
+      "rarity": "secret"
+    },
+    "dup_b2_2": {
+      "name": "Duped Mythic Godly Shamrock",
+      "value": 400000,
+      "rarity": "epic"
+    },
+    "dup_new200": {
+      "name": "Duped Shiny Mythic 1B Trophy",
+      "value": 400000,
+      "rarity": "secret"
+    },
+    "dup_b1_4": {
+      "name": "Duped Robot 2.0",
+      "value": 100000,
+      "rarity": "rare"
+    },
+    "dup_new10": {
+      "name": "Duped Godly Gem",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "dup_new490": {
+      "name": "Duped Shiny Dark Serpent",
+      "value": 690000,
+      "rarity": "secret"
+    },
+    "dup_b4_8": {
+      "name": "Duped Mythic Fire Basilisk",
+      "value": 250000,
+      "rarity": "legendary"
+    },
+    "dup_new67": {
+      "name": "Duped Shadow One",
+      "value": 500000,
+      "rarity": "secret"
+    },
+    "dup_new384": {
+      "name": "Duped Shiny Shadow Luminance",
+      "value": 575000,
+      "rarity": "secret"
+    },
+    "dup_b0_5": {
+      "name": "Duped Shiny Tophat (F)",
+      "value": 120000,
+      "rarity": "legendary"
+    },
+    "dup_b4_7": {
+      "name": "Duped Mythic 1B Trophy",
+      "value": 200000,
+      "rarity": "rare"
+    },
+    "dup_new230": {
+      "name": "Duped Shiny Developer Trophy",
+      "value": 402500,
+      "rarity": "secret"
+    },
+    "dup_new441": {
+      "name": "Duped Shiny Tophat (C)",
+      "value": 115000,
+      "rarity": "secret"
+    },
+    "dup_new63": {
+      "name": "Duped Shiny Immortal One",
+      "value": 80500,
+      "rarity": "secret"
+    },
+    "dup_new443": {
+      "name": "Duped Shiny Tophat (E)",
+      "value": 391000,
+      "rarity": "secret"
+    },
+    "dup_new491": {
+      "name": "Duped Dark Serpent",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "dup_new399": {
+      "name": "Duped Shiny Sinister Lord",
+      "value": 172500,
+      "rarity": "secret"
+    },
+    "dup_new468": {
+      "name": "Duped Shiny Dowodle",
+      "value": 345000,
+      "rarity": "secret"
+    },
+    "dup_new439": {
+      "name": "Duped Shiny Tophat (A)",
+      "value": 103500,
+      "rarity": "secret"
+    },
+    "dup_new447": {
+      "name": "Duped Shiny Wolflord",
+      "value": 103500,
+      "rarity": "secret"
+    },
+    "dup_b2_3": {
+      "name": "Duped Shiny Almighty Hexarium",
+      "value": 130000,
+      "rarity": "rare"
+    },
+    "dup_new68": {
+      "name": "Duped Shadow Luminance",
+      "value": 250000,
+      "rarity": "secret"
+    },
+    "dup_new327": {
+      "name": "Duped Shiny Patriotic Robot",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "dup_p18": {
+      "name": "Duped Tophat (F)",
+      "value": 95000,
+      "rarity": "secret"
+    },
+    "dup_new362": {
+      "name": "Duped Shiny Mythic Pot O' Doggy",
+      "value": 110000,
+      "rarity": "secret"
+    },
+    "dup_new444": {
+      "name": "Duped Shiny Trophy",
+      "value": 253000,
+      "rarity": "secret"
+    },
+    "dup_new298": {
+      "name": "Duped Shiny King Kitty",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "dup_new367": {
+      "name": "Duped Shiny Radiance",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "dup_new396": {
+      "name": "Duped Shiny Shadow Wolflord",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "dup_new467": {
+      "name": "Duped Shiny Beta TV",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "dup_new488": {
+      "name": "Duped Shiny Infernus",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "dup_new271": {
+      "name": "Duped Shiny Giant Choco Chicken",
+      "value": 63250,
+      "rarity": "secret"
+    },
+    "dup_new154": {
+      "name": "Duped Shiny Frost Sentinel",
+      "value": 86250,
+      "rarity": "secret"
+    },
+    "dup_new127": {
+      "name": "Duped Developer Trophy",
+      "value": 175000,
+      "rarity": "secret"
+    },
+    "dup_p16": {
+      "name": "Duped Tophat (C)",
+      "value": 50000,
+      "rarity": "secret"
+    },
+    "dup_new11": {
+      "name": "Duped Immortal One",
+      "value": 35000,
+      "rarity": "secret"
+    },
+    "dup_p36": {
+      "name": "Duped Tophat (E)",
+      "value": 170000,
+      "rarity": "secret"
+    },
+    "dup_new301": {
+      "name": "Duped Shiny Lord Shock",
+      "value": 94990,
+      "rarity": "secret"
+    },
+    "dup_new283": {
+      "name": "Duped Shiny Infinity Gem",
+      "value": 184000,
+      "rarity": "secret"
+    },
+    "dup_new442": {
+      "name": "Duped Shiny Tophat (D)",
+      "value": 184000,
+      "rarity": "secret"
+    },
+    "dup_b4_9": {
+      "name": "Duped Sinister Lord",
+      "value": 75000,
+      "rarity": "common"
+    },
+    "dup_p34": {
+      "name": "Duped Dowodle",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "dup_new117": {
+      "name": "Duped Shiny Easter Basket",
+      "value": 86250,
+      "rarity": "secret"
+    },
+    "dup_new146": {
+      "name": "Duped Shiny Elite Challenger",
+      "value": 161000,
+      "rarity": "secret"
+    },
+    "dup_new242": {
+      "name": "Duped Shiny Easter Robot",
+      "value": 161000,
+      "rarity": "secret"
+    },
+    "dup_new360": {
+      "name": "Duped Shiny Pot O' Gold",
+      "value": 78200,
+      "rarity": "secret"
+    },
+    "dup_new19": {
+      "name": "Duped Wolflord",
+      "value": 45000,
+      "rarity": "secret"
+    },
+    "dup_p35": {
+      "name": "Duped Tophat (A)",
+      "value": 45000,
+      "rarity": "secret"
+    },
+    "dup_p25": {
+      "name": "Duped Almighty Hexarium",
+      "value": 130000,
+      "rarity": "secret"
+    },
+    "dup_p44": {
+      "name": "Duped Shiny Kraken",
+      "value": 149500,
+      "rarity": "secret"
+    },
+    "dup_new237": {
+      "name": "Duped Shiny Elite Wolflord",
+      "value": 149500,
+      "rarity": "secret"
+    },
+    "dup_b1_5": {
+      "name": "Duped Patriotic Robot",
+      "value": 60000,
+      "rarity": "rare"
+    },
+    "dup_new144": {
+      "name": "Duped Shiny Elite Fallen Angel",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "dup_new414": {
+      "name": "Duped Shiny Soul Heart",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "dup_new435": {
+      "name": "Duped Shiny Tophat G",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "dup_new482": {
+      "name": "Duped Shiny Electra Hydra",
+      "value": 138000,
+      "rarity": "secret"
+    },
+    "dup_new113": {
+      "name": "Duped Shiny Dark Guardian",
+      "value": 27600,
+      "rarity": "secret"
+    },
+    "dup_b2_4": {
+      "name": "Duped Mythic Pot O' Doggy",
+      "value": 55000,
+      "rarity": "common"
+    },
+    "dup_new37": {
+      "name": "Duped Trophy",
+      "value": 110000,
+      "rarity": "secret"
+    },
+    "dup_p47": {
+      "name": "Duped Shiny Sinister Lord 2.0",
+      "value": 120750,
+      "rarity": "secret"
+    },
+    "dup_new16": {
+      "name": "Duped Radiance",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "dup_new26": {
+      "name": "Duped King Kitty",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "dup_p3": {
+      "name": "Duped Beta TV",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "dup_new69": {
+      "name": "Duped Shadow Wolflord",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "dup_new489": {
+      "name": "Duped Infernus",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "dup_new413": {
+      "name": "Duped Shiny Wolf Skull",
+      "value": 115000,
+      "rarity": "secret"
+    },
+    "dup_new440": {
+      "name": "Duped Shiny Tophat (B)",
+      "value": 115000,
+      "rarity": "secret"
+    },
+    "dup_new486": {
+      "name": "Duped Shiny Enraged Phoenix",
+      "value": 115000,
+      "rarity": "secret"
+    },
+    "dup_new24": {
+      "name": "Duped Giant Choco Chicken",
+      "value": 27500,
+      "rarity": "secret"
+    },
+    "dup_new8": {
+      "name": "Duped Frost Sentinel",
+      "value": 37500,
+      "rarity": "secret"
+    },
+    "dup_new180": {
+      "name": "Duped Shiny Holy Bell",
+      "value": 103500,
+      "rarity": "secret"
+    },
+    "dup_new409": {
+      "name": "Duped Shiny Sinister Skull",
+      "value": 103500,
+      "rarity": "secret"
+    },
+    "dup_new410": {
+      "name": "Duped Shiny Angelic Skull",
+      "value": 103500,
+      "rarity": "secret"
+    },
+    "dup_b3_3": {
+      "name": "Duped Lord Shock",
+      "value": 41300,
+      "rarity": "epic"
+    },
+    "dup_p8": {
+      "name": "Duped Infinity Gem",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "dup_p17": {
+      "name": "Duped Tophat (D)",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "dup_new142": {
+      "name": "Duped Shiny Elite Lord Shock",
+      "value": 92000,
+      "rarity": "secret"
+    },
+    "dup_new331": {
+      "name": "Duped Shiny New Year Champion",
+      "value": 92000,
+      "rarity": "secret"
+    },
+    "dup_new484": {
+      "name": "Duped Shiny Christmas Elemental",
+      "value": 92000,
+      "rarity": "secret"
+    },
+    "dup_new411": {
+      "name": "Duped Shiny King Skull",
+      "value": 89700,
+      "rarity": "secret"
+    },
+    "dup_b3_4": {
+      "name": "Duped Easter Basket",
+      "value": 37500,
+      "rarity": "rare"
+    },
+    "dup_new412": {
+      "name": "Duped Shiny Guardian Skull",
+      "value": 86250,
+      "rarity": "secret"
+    },
+    "dup_p52": {
+      "name": "Duped Easter Robot",
+      "value": 70000,
+      "rarity": "secret"
+    },
+    "dup_new145": {
+      "name": "Duped Elite Challenger",
+      "value": 70000,
+      "rarity": "secret"
+    },
+    "dup_new388": {
+      "name": "Duped Shiny Shadow Sundae Champion",
+      "value": 80500,
+      "rarity": "secret"
+    },
+    "dup_b2_5": {
+      "name": "Duped Pot O' Gold",
+      "value": 34000,
+      "rarity": "rare"
+    },
+    "dup_new369": {
+      "name": "Duped Shiny Radiant One",
+      "value": 75900,
+      "rarity": "secret"
+    },
+    "dup_new29": {
+      "name": "Duped Kraken",
+      "value": 65000,
+      "rarity": "secret"
+    },
+    "dup_new139": {
+      "name": "Duped Elite Wolflord",
+      "value": 65000,
+      "rarity": "secret"
+    },
+    "dup_b3_5": {
+      "name": "Duped Soul Heart",
+      "value": 30000,
+      "rarity": "common"
+    },
+    "dup_p59": {
+      "name": "Duped Elite Fallen Angel",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "dup_new437": {
+      "name": "Duped Tophat G",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "dup_new483": {
+      "name": "Duped Electra Hydra",
+      "value": 60000,
+      "rarity": "secret"
+    },
+    "dup_new232": {
+      "name": "Duped Shiny Fairy Koi",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "dup_new238": {
+      "name": "Duped Shiny Elite Sentinel",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "dup_new239": {
+      "name": "Duped Shiny Elite Pot O' Gold",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "dup_new255": {
+      "name": "Duped Shiny Galactic Paladin",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "dup_new313": {
+      "name": "Duped Shiny Lucky Pyramidium",
+      "value": 69000,
+      "rarity": "secret"
+    },
+    "dup_new445": {
+      "name": "Duped Shiny Ultimate Trophy",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "dup_new44": {
+      "name": "Duped Dark Guardian",
+      "value": 12000,
+      "rarity": "secret"
+    },
+    "dup_new62": {
+      "name": "Duped Shiny Eternal Heart",
+      "value": 18400,
+      "rarity": "secret"
+    },
+    "dup_b0_4": {
+      "name": "Duped Shiny Peppermint Leviathan",
+      "value": 27500,
+      "rarity": "legendary"
+    },
+    "dup_new34": {
+      "name": "Duped Sinister Lord 2.0",
+      "value": 52500,
+      "rarity": "secret"
+    },
+    "dup_p15": {
+      "name": "Duped Tophat (B)",
+      "value": 50000,
+      "rarity": "secret"
+    },
+    "dup_p20": {
+      "name": "Duped Wolf Skull",
+      "value": 50000,
+      "rarity": "secret"
+    },
+    "dup_new487": {
+      "name": "Duped Enraged Phoenix",
+      "value": 50000,
+      "rarity": "secret"
+    },
+    "dup_new102": {
+      "name": "Duped Shiny Christmas Robot",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "dup_new151": {
+      "name": "Duped Shiny Eternal Star",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "dup_new178": {
+      "name": "Duped Shiny Hellshard",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "dup_new274": {
+      "name": "Duped Shiny Immortal Trophy",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "dup_new309": {
+      "name": "Duped Shiny Luminance",
+      "value": 57500,
+      "rarity": "secret"
+    },
+    "dup_new25": {
+      "name": "Duped Holy Bell",
+      "value": 45000,
+      "rarity": "secret"
+    },
+    "dup_p11": {
+      "name": "Duped Sinister Skull",
+      "value": 45000,
+      "rarity": "secret"
+    },
+    "dup_p32": {
+      "name": "Duped Angelic Skull",
+      "value": 45000,
+      "rarity": "secret"
+    },
+    "dup_new143": {
+      "name": "Duped Elite Lord Shock",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "dup_new333": {
+      "name": "Duped New Year Champion",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "dup_new485": {
+      "name": "Duped Christmas Elemental",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "dup_p45": {
+      "name": "Duped Shiny King Doggy",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "dup_new375": {
+      "name": "Duped Shiny Radioactive Radiance",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "dup_new427": {
+      "name": "Duped Shiny Chocolate Sundae Champion",
+      "value": 46000,
+      "rarity": "secret"
+    },
+    "dup_p9": {
+      "name": "Duped King Skull",
+      "value": 39000,
+      "rarity": "secret"
+    },
+    "dup_p28": {
+      "name": "Duped Guardian Skull",
+      "value": 37500,
+      "rarity": "secret"
+    },
+    "dup_new348": {
+      "name": "Duped Shiny Plasma Wolflord",
+      "value": 41400,
+      "rarity": "secret"
+    },
+    "dup_new390": {
+      "name": "Duped Shadow Sundae Champion",
+      "value": 35000,
+      "rarity": "secret"
+    },
+    "dup_new364": {
+      "name": "Duped Shiny Pyramidium",
+      "value": 40250,
+      "rarity": "secret"
+    },
+    "dup_new303": {
+      "name": "Duped Shiny Koi",
+      "value": 39100,
+      "rarity": "secret"
+    },
+    "dup_new417": {
+      "name": "Duped Shiny Vanilla Sundae Champion",
+      "value": 39100,
+      "rarity": "secret"
+    },
+    "dup_new32": {
+      "name": "Duped Radiant One",
+      "value": 33000,
+      "rarity": "secret"
+    },
+    "dup_new251": {
+      "name": "Duped Shiny Ghosdeeri",
+      "value": 36800,
+      "rarity": "secret"
+    },
+    "dup_new38": {
+      "name": "Duped Ultimate Clover",
+      "value": 8000,
+      "rarity": "secret"
+    },
+    "dup_new47": {
+      "name": "Duped Galactic Paladin",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "dup_p57": {
+      "name": "Duped Lucky Pyramidium",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "dup_new140": {
+      "name": "Duped Elite Sentinel",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "dup_new141": {
+      "name": "Duped Elite Pot O' Gold",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "dup_new150": {
+      "name": "Duped Fairy Koi",
+      "value": 30000,
+      "rarity": "secret"
+    },
+    "dup_new118": {
+      "name": "Duped Shiny Duality",
+      "value": 34500,
+      "rarity": "secret"
+    },
+    "dup_new121": {
+      "name": "Duped Shiny Dragonfruit",
+      "value": 34500,
+      "rarity": "secret"
+    },
+    "dup_new273": {
+      "name": "Duped Shiny Inferno Gem",
+      "value": 34500,
+      "rarity": "secret"
+    },
+    "dup_new428": {
+      "name": "Duped Shiny Mint Sundae Champion",
+      "value": 34500,
+      "rarity": "secret"
+    },
+    "dup_new469": {
+      "name": "Duped Shiny Frosted Duality",
+      "value": 34500,
+      "rarity": "secret"
+    },
+    "dup_new39": {
+      "name": "Duped Ultimate Trophy",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "dup_new446": {
+      "name": "Duped Ultimate Trophy",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "dup_new395": {
+      "name": "Duped Shiny Shard",
+      "value": 32200,
+      "rarity": "secret"
+    },
+    "dup_new7": {
+      "name": "Duped Eternal Heart",
+      "value": 8000,
+      "rarity": "secret"
+    },
+    "dup_b0_6": {
+      "name": "Duped Peppermint Leviathan",
+      "value": 13750,
+      "rarity": "common"
+    },
+    "dup_new426": {
+      "name": "Duped Shiny Strawberry Sundae Champion",
+      "value": 31050,
+      "rarity": "secret"
+    },
+    "dup_new23": {
+      "name": "Duped Eternal Star",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "dup_new52": {
+      "name": "Duped Luminance",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "dup_p5": {
+      "name": "Duped Christmas Robot",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "dup_new157": {
+      "name": "Duped Hellshard",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "dup_new275": {
+      "name": "Duped Immortal Trophy",
+      "value": 25000,
+      "rarity": "secret"
+    },
+    "dup_new335": {
+      "name": "Duped Shiny Patronus",
+      "value": 27600,
+      "rarity": "secret"
+    },
+    "dup_new322": {
+      "name": "Duped Shiny Money Mouth",
+      "value": 26450,
+      "rarity": "secret"
+    },
+    "dup_new13": {
+      "name": "Duped King Doggy",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "dup_p46": {
+      "name": "Duped Chocolate Sundae Champion",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "dup_new376": {
+      "name": "Duped Radioactive Radiance",
+      "value": 20000,
+      "rarity": "secret"
+    },
+    "dup_new88": {
+      "name": "Duped Shiny 1B Trophy",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "dup_new187": {
+      "name": "Duped Shiny Electric Basilisk",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "dup_new188": {
+      "name": "Duped Shiny Ice Basilisk",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "dup_new278": {
+      "name": "Duped Shiny Godly Shamrock",
+      "value": 23000,
+      "rarity": "secret"
+    },
+    "dup_new15": {
+      "name": "Duped Plasma Wolflord",
+      "value": 18000,
+      "rarity": "secret"
+    },
+    "dup_new204": {
+      "name": "Duped Shiny Cardinal Bunny",
+      "value": 20700,
+      "rarity": "secret"
+    },
+    "dup_new391": {
+      "name": "Duped Shiny Shattered Soul",
+      "value": 20700,
+      "rarity": "secret"
+    },
+    "dup_new31": {
+      "name": "Duped Pyramidium",
+      "value": 17500,
+      "rarity": "secret"
+    },
+    "dup_new349": {
+      "name": "Duped Shiny Sylently Plushie",
+      "value": 20125,
+      "rarity": "secret"
+    },
+    "dup_new28": {
+      "name": "Duped Koi",
+      "value": 17000,
+      "rarity": "secret"
+    },
+    "dup_p19": {
+      "name": "Duped Vanilla Sundae Champion",
+      "value": 17000,
+      "rarity": "secret"
+    },
+    "dup_p58": {
+      "name": "Duped Shiny Overlord Plushie",
+      "value": 19550,
+      "rarity": "secret"
+    },
+    "dup_new253": {
+      "name": "Duped Ghosdeeri",
+      "value": 16000,
+      "rarity": "secret"
+    },
+    "dup_new247": {
+      "name": "Duped Shiny Frost Shard",
+      "value": 18400,
+      "rarity": "secret"
+    },
+    "dup_new345": {
+      "name": "Duped Shiny Sircfenner Plushie",
+      "value": 18400,
+      "rarity": "secret"
+    },
+    "dup_new202": {
+      "name": "Duped Shiny Candycorn Shard",
+      "value": 17825,
+      "rarity": "secret"
+    },
+    "dup_new5": {
+      "name": "Duped Duality",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "dup_new22": {
+      "name": "Duped Dragonfruit",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "dup_p27": {
+      "name": "Duped Frosted Duality",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "dup_p54": {
+      "name": "Duped Mint Sundae Champion",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "dup_new90": {
+      "name": "Duped Inferno Gem",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "dup_new221": {
+      "name": "Duped Shiny Earth Champion",
+      "value": 17250,
+      "rarity": "secret"
+    },
+    "dup_new17": {
+      "name": "Duped Shard",
+      "value": 14000,
+      "rarity": "secret"
+    },
+    "dup_new198": {
+      "name": "Duped Shiny All Seeing Eye",
+      "value": 16100,
+      "rarity": "secret"
+    },
+    "dup_new212": {
+      "name": "Duped Shiny Dark Basilisk",
+      "value": 16100,
+      "rarity": "secret"
+    },
+    "dup_new319": {
+      "name": "Duped Shiny Love Thief",
+      "value": 16100,
+      "rarity": "secret"
+    },
+    "dup_new350": {
+      "name": "Duped Shiny Obscure Entity Plushie",
+      "value": 16100,
+      "rarity": "secret"
+    },
+    "dup_p13": {
+      "name": "Duped Strawberry Sundae Champion",
+      "value": 13500,
+      "rarity": "secret"
+    },
+    "dup_new361": {
+      "name": "Duped Shiny Pot O' Doggy",
+      "value": 15525,
+      "rarity": "secret"
+    },
+    "dup_new465": {
+      "name": "Duped Shiny Soulflake",
+      "value": 15525,
+      "rarity": "secret"
+    },
+    "dup_new111": {
+      "name": "Duped Shiny Dark Champion",
+      "value": 14950,
+      "rarity": "secret"
+    },
+    "dup_new163": {
+      "name": "Duped Shiny Harmonic Harp",
+      "value": 14375,
+      "rarity": "secret"
+    },
+    "dup_new337": {
+      "name": "Duped Patronus",
+      "value": 12000,
+      "rarity": "secret"
+    },
+    "dup_new159": {
+      "name": "Duped Shiny Hellfire",
+      "value": 13800,
+      "rarity": "secret"
+    },
+    "dup_new186": {
+      "name": "Duped Shiny Fire Basilisk",
+      "value": 13800,
+      "rarity": "secret"
+    },
+    "dup_new196": {
+      "name": "Duped Shiny Almighty Pumpkin",
+      "value": 13800,
+      "rarity": "secret"
+    },
+    "dup_new222": {
+      "name": "Duped Shiny Fire Champion",
+      "value": 13800,
+      "rarity": "secret"
+    },
+    "dup_new373": {
+      "name": "Duped Shiny Rainbow Gryphon",
+      "value": 13800,
+      "rarity": "secret"
+    },
+    "dup_new324": {
+      "name": "Duped Money Mouth",
+      "value": 11500,
+      "rarity": "secret"
+    },
+    "dup_new79": {
+      "name": "Duped Shiny Angelic Spirit",
+      "value": 13225,
+      "rarity": "secret"
+    },
+    "dup_new40": {
+      "name": "Duped Air Basilisk",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "dup_new49": {
+      "name": "Duped Ice Basilisk",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "dup_p1": {
+      "name": "Duped 1B Trophy",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "dup_p39": {
+      "name": "Duped Electric Basilisk",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "dup_p55": {
+      "name": "Duped Godly Shamrock",
+      "value": 10000,
+      "rarity": "secret"
+    },
+    "dup_new214": {
+      "name": "Duped Shiny Curse of Kings",
+      "value": 11500,
+      "rarity": "secret"
+    },
+    "dup_new220": {
+      "name": "Duped Shiny Sky Champion",
+      "value": 11500,
+      "rarity": "secret"
+    },
+    "dup_p22": {
+      "name": "Duped Shattered Soul",
+      "value": 9000,
+      "rarity": "secret"
+    },
+    "dup_new110": {
+      "name": "Duped Cardinal Bunny",
+      "value": 9000,
+      "rarity": "secret"
+    },
+    "dup_new263": {
+      "name": "Duped Shiny Demonic Ghost Spirit",
+      "value": 10350,
+      "rarity": "secret"
+    },
+    "dup_new265": {
+      "name": "Duped Shiny Angelic Ghost Spirit",
+      "value": 10350,
+      "rarity": "secret"
+    },
+    "dup_p14": {
+      "name": "Duped Sylently Plushie",
+      "value": 8750,
+      "rarity": "secret"
+    },
+    "dup_new55": {
+      "name": "Duped Overlord Plushie",
+      "value": 8500,
+      "rarity": "secret"
+    },
+    "dup_p33": {
+      "name": "Duped Sircfenner Plushie",
+      "value": 8000,
+      "rarity": "secret"
+    },
+    "dup_new249": {
+      "name": "Duped Frost Shard",
+      "value": 8000,
+      "rarity": "secret"
+    },
+    "dup_p43": {
+      "name": "Duped Shiny Gryphon",
+      "value": 9200,
+      "rarity": "secret"
+    },
+    "dup_new119": {
+      "name": "Duped Shiny Dogcat",
+      "value": 9200,
+      "rarity": "secret"
+    },
+    "dup_new226": {
+      "name": "Duped Shiny Dream Catcher",
+      "value": 9200,
+      "rarity": "secret"
+    },
+    "dup_new401": {
+      "name": "Duped Shiny Sinister Shard",
+      "value": 9200,
+      "rarity": "secret"
+    },
+    "dup_new42": {
+      "name": "Duped Candycorn Shard",
+      "value": 7750,
+      "rarity": "secret"
+    },
+    "dup_p30": {
+      "name": "Duped Earth Champion",
+      "value": 7500,
+      "rarity": "secret"
+    },
+    "dup_new124": {
+      "name": "Duped Shiny Diamond Ring",
+      "value": 8625,
+      "rarity": "secret"
+    },
+    "dup_p10": {
+      "name": "Duped Obscure Entity Plushie",
+      "value": 7000,
+      "rarity": "secret"
+    },
+    "dup_p42": {
+      "name": "Duped All Seeing Eye",
+      "value": 7000,
+      "rarity": "secret"
+    },
+    "dup_p48": {
+      "name": "Duped Love Thief",
+      "value": 7000,
+      "rarity": "secret"
+    },
+    "dup_new116": {
+      "name": "Duped Dark Basilisk",
+      "value": 7000,
+      "rarity": "secret"
+    },
+    "dup_new155": {
+      "name": "Duped Shiny Firecracker",
+      "value": 8050,
+      "rarity": "secret"
+    },
+    "dup_new235": {
+      "name": "Duped Shiny Eternal Carrot",
+      "value": 8050,
+      "rarity": "secret"
+    },
+    "dup_p12": {
+      "name": "Duped Soulflake",
+      "value": 6750,
+      "rarity": "secret"
+    },
+    "dup_p23": {
+      "name": "Duped Pot O' Doggy",
+      "value": 6750,
+      "rarity": "secret"
+    },
+    "dup_p37": {
+      "name": "Duped Dark Champion",
+      "value": 6500,
+      "rarity": "secret"
+    },
+    "dup_new162": {
+      "name": "Duped Harmonic Harp",
+      "value": 6250,
+      "rarity": "secret"
+    },
+    "dup_new1": {
+      "name": "Duped Almighty Pumpkin",
+      "value": 6000,
+      "rarity": "secret"
+    },
+    "dup_new56": {
+      "name": "Duped Rainbow Gryphon",
+      "value": 6000,
+      "rarity": "secret"
+    },
+    "dup_p29": {
+      "name": "Duped Fire Champion",
+      "value": 6000,
+      "rarity": "secret"
+    },
+    "dup_p50": {
+      "name": "Duped Fire Basilisk",
+      "value": 6000,
+      "rarity": "secret"
+    },
+    "dup_new158": {
+      "name": "Duped Hellfire",
+      "value": 6000,
+      "rarity": "secret"
+    },
+    "dup_new60": {
+      "name": "Duped Shiny Fallen Angel",
+      "value": 6900,
+      "rarity": "secret"
+    },
+    "dup_new94": {
+      "name": "Duped Shiny Archangel",
+      "value": 6900,
+      "rarity": "secret"
+    },
+    "dup_new280": {
+      "name": "Duped Shiny Giant Pearl",
+      "value": 6900,
+      "rarity": "secret"
+    },
+    "dup_new372": {
+      "name": "Duped Shiny Rainbow Dogcat",
+      "value": 6900,
+      "rarity": "secret"
+    },
+    "dup_new381": {
+      "name": "Duped Shiny Sea Star",
+      "value": 6900,
+      "rarity": "secret"
+    },
+    "dup_new41": {
+      "name": "Duped Angelic Spirit",
+      "value": 5750,
+      "rarity": "secret"
+    },
+    "dup_new184": {
+      "name": "Duped Shiny Holy Egg",
+      "value": 6325,
+      "rarity": "secret"
+    },
+    "dup_p38": {
+      "name": "Duped Sky Champion",
+      "value": 5000,
+      "rarity": "secret"
+    },
+    "dup_new98": {
+      "name": "Duped Curse of Kings",
+      "value": 5000,
+      "rarity": "secret"
+    },
+    "dup_new152": {
+      "name": "Duped Shiny Eternal Cucumber",
+      "value": 5750,
+      "rarity": "secret"
+    },
+    "dup_new293": {
+      "name": "Duped Shiny King Penguin",
+      "value": 5750,
+      "rarity": "secret"
+    },
+    "dup_new433": {
+      "name": "Duped Shiny OwOLord",
+      "value": 5750,
+      "rarity": "secret"
+    },
+    "dup_new2": {
+      "name": "Duped Angelic Ghost Spirit",
+      "value": 4500,
+      "rarity": "secret"
+    },
+    "dup_new20": {
+      "name": "Duped Demonic Ghost Spirit",
+      "value": 4500,
+      "rarity": "secret"
+    },
+    "dup_new326": {
+      "name": "Duped Shiny Morning Star",
+      "value": 5175,
+      "rarity": "secret"
+    },
+    "dup_new21": {
+      "name": "Duped Dogcat",
+      "value": 4000,
+      "rarity": "secret"
+    },
+    "dup_new58": {
+      "name": "Duped Sinister Shard",
+      "value": 4000,
+      "rarity": "secret"
+    },
+    "dup_p24": {
+      "name": "Duped Dream Catcher",
+      "value": 4000,
+      "rarity": "secret"
+    },
+    "dup_new174": {
+      "name": "Duped Gryphon",
+      "value": 4000,
+      "rarity": "secret"
+    },
+    "dup_new100": {
+      "name": "Duped Shiny Christmas Bell",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "dup_new167": {
+      "name": "Duped Shiny Angelic Golf Ball",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "dup_new216": {
+      "name": "Duped Shiny Crystal Teddy",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "dup_new307": {
+      "name": "Duped Shiny Magic Marshmallow",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "dup_new454": {
+      "name": "Duped Shiny UFO",
+      "value": 4600,
+      "rarity": "secret"
+    },
+    "dup_new171": {
+      "name": "Duped Shiny Demonic Golf Ball",
+      "value": 4370,
+      "rarity": "secret"
+    },
+    "dup_p6": {
+      "name": "Duped Diamond Ring",
+      "value": 3750,
+      "rarity": "secret"
+    },
+    "dup_p7": {
+      "name": "Duped Firecracker",
+      "value": 3500,
+      "rarity": "secret"
+    },
+    "dup_p56": {
+      "name": "Duped Eternal Carrot",
+      "value": 3500,
+      "rarity": "secret"
+    },
+    "dup_new218": {
+      "name": "Duped Shiny Corrupt Glitch",
+      "value": 4025,
+      "rarity": "secret"
+    },
+    "dup_new317": {
+      "name": "Duped Shiny Lovely Rose",
+      "value": 4025,
+      "rarity": "secret"
+    },
+    "dup_new450": {
+      "name": "Duped Shiny Wisplord",
+      "value": 4025,
+      "rarity": "secret"
+    },
+    "dup_new472": {
+      "name": "Duped Shiny Peppermint Heart",
+      "value": 4025,
+      "rarity": "secret"
+    },
+    "dup_new33": {
+      "name": "Duped Rainbow Dogcat",
+      "value": 3000,
+      "rarity": "secret"
+    },
+    "dup_new46": {
+      "name": "Duped Fallen Angel",
+      "value": 3000,
+      "rarity": "secret"
+    },
+    "dup_new48": {
+      "name": "Duped Giant Pearl",
+      "value": 3000,
+      "rarity": "secret"
+    },
+    "dup_new57": {
+      "name": "Duped Sea Star",
+      "value": 3000,
+      "rarity": "secret"
+    },
+    "dup_new96": {
+      "name": "Duped Archangel",
+      "value": 3000,
+      "rarity": "secret"
+    },
+    "dup_new374": {
+      "name": "Duped Rainbow Dogcat",
+      "value": 3000,
+      "rarity": "secret"
+    },
+    "dup_new342": {
+      "name": "Duped Shiny Pixie Queen",
+      "value": 3450,
+      "rarity": "secret"
+    },
+    "dup_p51": {
+      "name": "Duped Holy Egg",
+      "value": 2750,
+      "rarity": "secret"
+    },
+    "dup_new6": {
+      "name": "Duped Eternal Cucumber",
+      "value": 2500,
+      "rarity": "secret"
+    },
+    "dup_new36": {
+      "name": "Duped The OwOlord",
+      "value": 2500,
+      "rarity": "secret"
+    },
+    "dup_new295": {
+      "name": "Duped King Penguin",
+      "value": 2500,
+      "rarity": "secret"
+    },
+    "dup_new54": {
+      "name": "Duped Morning Star",
+      "value": 2250,
+      "rarity": "secret"
+    },
+    "dup_new43": {
+      "name": "Duped Crystal Teddy",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "dup_new53": {
+      "name": "Duped Magic Marshmallow",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "dup_p4": {
+      "name": "Duped Christmas Bell",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "dup_new166": {
+      "name": "Duped Angelic Golf Ball",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "dup_new455": {
+      "name": "Duped UFO",
+      "value": 2000,
+      "rarity": "secret"
+    },
+    "dup_new123": {
+      "name": "Duped Shiny Dice Split",
+      "value": 2300,
+      "rarity": "secret"
+    },
+    "dup_new194": {
+      "name": "Duped Shiny Angelic Shard",
+      "value": 2300,
+      "rarity": "secret"
+    },
+    "dup_new240": {
+      "name": "Duped Shiny Easter Spirit",
+      "value": 2300,
+      "rarity": "secret"
+    },
+    "dup_new286": {
+      "name": "Duped Shiny Slime King",
+      "value": 2300,
+      "rarity": "secret"
+    },
+    "dup_new357": {
+      "name": "Duped Shiny Prisma Cube",
+      "value": 2300,
+      "rarity": "secret"
+    },
+    "dup_new415": {
+      "name": "Duped Shiny Spring Spirit",
+      "value": 2300,
+      "rarity": "secret"
+    },
+    "dup_new170": {
+      "name": "Duped Demonic Golf Ball",
+      "value": 1900,
+      "rarity": "secret"
+    },
+    "dup_new201": {
+      "name": "Duped Shiny BGS Plaque",
+      "value": 2070,
+      "rarity": "secret"
+    },
+    "dup_new257": {
+      "name": "Duped Shiny Frosted Dreamer",
+      "value": 2070,
+      "rarity": "secret"
+    },
+    "dup_new30": {
+      "name": "Duped Lovely Rose",
+      "value": 1750,
+      "rarity": "secret"
+    },
+    "dup_p26": {
+      "name": "Duped Peppermint Heart",
+      "value": 1750,
+      "rarity": "secret"
+    },
+    "dup_new105": {
+      "name": "Duped Corrupt Glitch",
+      "value": 1750,
+      "rarity": "secret"
+    },
+    "dup_new451": {
+      "name": "Duped Wisplord",
+      "value": 1750,
+      "rarity": "secret"
+    },
+    "dup_new344": {
+      "name": "Duped Pixie Queen",
+      "value": 1500,
+      "rarity": "secret"
+    },
+    "dup_new340": {
+      "name": "Duped Shiny Phantom",
+      "value": 1725,
+      "rarity": "secret"
+    },
+    "dup_new270": {
+      "name": "Duped Shiny Gingerbread Shard",
+      "value": 1610,
+      "rarity": "secret"
+    },
+    "dup_new296": {
+      "name": "Duped Shiny King Mush",
+      "value": 1610,
+      "rarity": "secret"
+    },
+    "dup_new4": {
+      "name": "Duped Dice Split",
+      "value": 1000,
+      "rarity": "secret"
+    },
+    "dup_new14": {
+      "name": "Duped King Slime",
+      "value": 1000,
+      "rarity": "secret"
+    },
+    "dup_new45": {
+      "name": "Duped Easter Spirit",
+      "value": 1000,
+      "rarity": "secret"
+    },
+    "dup_new359": {
+      "name": "Duped Prisma Cube",
+      "value": 1000,
+      "rarity": "secret"
+    },
+    "dup_new81": {
+      "name": "Duped Angelic Shard",
+      "value": 1000,
+      "rarity": "secret"
+    },
+    "dup_new416": {
+      "name": "Duped Spring Spirit",
+      "value": 1000,
+      "rarity": "secret"
+    },
+    "dup_new382": {
+      "name": "Duped Shiny Shadow Challenger",
+      "value": 1150,
+      "rarity": "secret"
+    },
+    "dup_new430": {
+      "name": "Duped Shiny The Overlord",
+      "value": 1150,
+      "rarity": "secret"
+    },
+    "dup_new3": {
+      "name": "Duped BGS Plaque",
+      "value": 900,
+      "rarity": "secret"
+    },
+    "dup_new259": {
+      "name": "Duped Frosted Dreamer",
+      "value": 900,
+      "rarity": "secret"
+    },
+    "dup_new87": {
+      "name": "Duped Shiny ACE",
+      "value": 920,
+      "rarity": "secret"
+    },
+    "dup_new339": {
+      "name": "Duped Phantom",
+      "value": 750,
+      "rarity": "secret"
+    },
+    "dup_new9": {
+      "name": "Duped Gingerbread Shard",
+      "value": 700,
+      "rarity": "secret"
+    },
+    "dup_new27": {
+      "name": "Duped King Mush",
+      "value": 700,
+      "rarity": "secret"
+    },
+    "dup_new35": {
+      "name": "Duped The Overlord",
+      "value": 500,
+      "rarity": "secret"
+    },
+    "dup_new383": {
+      "name": "Duped Shadow Challenger",
+      "value": 500,
+      "rarity": "secret"
+    },
+    "dup_p2": {
+      "name": "Duped Ace",
+      "value": 400,
+      "rarity": "secret"
+    },
+    "dup_new72": {
+      "name": "Duped Shiny King Leviathan",
+      "value": 460,
+      "rarity": "secret"
+    },
+    "dup_new206": {
+      "name": "Duped Shiny Demonic One",
+      "value": 460,
+      "rarity": "secret"
+    },
+    "dup_new207": {
+      "name": "Duped Shiny Demonic Dogcat",
+      "value": 460,
+      "rarity": "secret"
+    },
+    "dup_new133": {
+      "name": "Duped Shiny Dark Radiance",
+      "value": 345,
+      "rarity": "secret"
+    },
+    "dup_new136": {
+      "name": "Duped Shiny Dark Lord",
+      "value": 345,
+      "rarity": "secret"
+    },
+    "dup_new365": {
+      "name": "Duped Shiny Radiant Challenger",
+      "value": 345,
+      "rarity": "secret"
+    },
+    "dup_new51": {
+      "name": "Duped King Leviathan",
+      "value": 200,
+      "rarity": "secret"
+    },
+    "dup_new128": {
+      "name": "Duped Demonic One",
+      "value": 200,
+      "rarity": "secret"
+    },
+    "dup_new129": {
+      "name": "Duped Demonic Dogcat",
+      "value": 200,
+      "rarity": "secret"
+    },
+    "dup_new112": {
+      "name": "Duped Dark Lord",
+      "value": 150,
+      "rarity": "secret"
+    },
+    "dup_new134": {
+      "name": "Duped Dark Radiance",
+      "value": 150,
+      "rarity": "secret"
+    },
+    "dup_new366": {
+      "name": "Duped Radiant Challenger",
+      "value": 150,
+      "rarity": "secret"
+    },
+    "dup_new12": {
+      "name": "Duped King Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new18": {
+      "name": "Duped Sylentlys pet",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new50": {
+      "name": "Duped Isaac's Creation 2.0",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new59": {
+      "name": "Duped Spring Dragon",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_p21": {
+      "name": "Duped Mythic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_p31": {
+      "name": "Duped Mythic Pyramidium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_p40": {
+      "name": "Duped Mythic Radiant One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_p41": {
+      "name": "Duped Mythic Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_p49": {
+      "name": "Duped Shiny Ultimate Clover",
+      "value": 18400,
+      "rarity": "secret"
+    },
+    "dup_p53": {
+      "name": "Duped Mythic Galactic Paladin",
+      "value": 400000,
+      "rarity": "secret"
+    },
+    "dup_p60": {
+      "name": "Duped Mythic Lucid Leaf",
+      "value": 200000,
+      "rarity": "secret"
+    },
+    "dup_new61": {
+      "name": "Duped Shiny Sylently's Pet",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new64": {
+      "name": "Duped Mythic Duality",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new65": {
+      "name": "Duped Mythic Air Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new66": {
+      "name": "Duped Mythic King Kitty",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new71": {
+      "name": "Duped Mythic Crystal Teddy",
+      "value": 70000,
+      "rarity": "secret"
+    },
+    "dup_new73": {
+      "name": "Duped Shiny Lucid Leaf",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new74": {
+      "name": "Duped Mythic Dice Split",
+      "value": 65000,
+      "rarity": "secret"
+    },
+    "dup_new75": {
+      "name": "Duped Mythic Sircfenner Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new76": {
+      "name": "Duped Mythic Gingerbread Shard",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "dup_new77": {
+      "name": "Duped Shiny Mythic Angelic Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new78": {
+      "name": "Duped Mythic Angelic Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new80": {
+      "name": "Duped Mythic Angelic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new83": {
+      "name": "Duped Mythic Almighty Hexarium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new84": {
+      "name": "Duped Mythic All Seeing Eye",
+      "value": 250000,
+      "rarity": "secret"
+    },
+    "dup_new85": {
+      "name": "Duped Shiny Mythic ACE",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new86": {
+      "name": "Duped Mythic ACE",
+      "value": 8000,
+      "rarity": "secret"
+    },
+    "dup_new89": {
+      "name": "Duped Mythic Inferno Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new91": {
+      "name": "Duped Mythic Ice Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new92": {
+      "name": "Duped Mythic Electric Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new93": {
+      "name": "Duped Mythic Air Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new95": {
+      "name": "Duped Mythic Archangel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new97": {
+      "name": "Duped Mythic Curse of Kings",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new99": {
+      "name": "Duped Shiny Mythic Christmas Bell",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new101": {
+      "name": "Duped Mythic Christmas Bell",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "dup_new103": {
+      "name": "Duped Mythic Christmas Robot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new104": {
+      "name": "Duped Mythic Corrupt Glitch",
+      "value": 55000,
+      "rarity": "secret"
+    },
+    "dup_new106": {
+      "name": "Duped Shiny Mythic BGS Plaque",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new107": {
+      "name": "Duped Mythic BGS Plaque",
+      "value": 50000,
+      "rarity": "secret"
+    },
+    "dup_new108": {
+      "name": "Duped Mythic Candycorn Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new109": {
+      "name": "Duped Mythic Cardinal Bunny",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new114": {
+      "name": "Duped Dark Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new115": {
+      "name": "Duped Mythic Dark Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new120": {
+      "name": "Duped Mythic Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new122": {
+      "name": "Duped Mythic Dragonfruit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new125": {
+      "name": "Duped Mythic Diamond Ring",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new126": {
+      "name": "Duped Mythic Developer Trophy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new130": {
+      "name": "Duped Mythic Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new131": {
+      "name": "Duped Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new135": {
+      "name": "Duped Dark Lord Shock",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new137": {
+      "name": "Duped Mythic Easter Robot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new138": {
+      "name": "Duped Mythic Eternal Carrot",
+      "value": 85000,
+      "rarity": "secret"
+    },
+    "dup_new147": {
+      "name": "Duped Mythic Easter Spirit",
+      "value": 94000,
+      "rarity": "secret"
+    },
+    "dup_new148": {
+      "name": "Duped Mythic Fallen Angel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new149": {
+      "name": "Duped Mythic Fairy Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new153": {
+      "name": "Duped Mythic Eternal Cucumber",
+      "value": 240000,
+      "rarity": "secret"
+    },
+    "dup_new156": {
+      "name": "Duped Mythic Firecracker",
+      "value": 170000,
+      "rarity": "secret"
+    },
+    "dup_new160": {
+      "name": "Duped Mythic Hellfire",
+      "value": 200000,
+      "rarity": "secret"
+    },
+    "dup_new161": {
+      "name": "Duped Shiny Mythic Hellfire",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new164": {
+      "name": "Duped Mythic Harmonic Harp",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new165": {
+      "name": "Duped Shiny Mythic Harmonic Harp",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new168": {
+      "name": "Duped Mythic Angelic Golf Ball",
+      "value": 17500,
+      "rarity": "secret"
+    },
+    "dup_new169": {
+      "name": "Duped Shiny Mythic Angelic Golf Ball",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new172": {
+      "name": "Duped Mythic Demonic Golf Ball",
+      "value": 15000,
+      "rarity": "secret"
+    },
+    "dup_new173": {
+      "name": "Duped Shiny Mythic Demonic Golf Ball",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new175": {
+      "name": "Duped Mythic Gryphon",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new176": {
+      "name": "Duped Shiny Mythic Gryphon",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new177": {
+      "name": "Duped Mythic Hellshard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new179": {
+      "name": "Duped Shiny Mythic Hellshard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new181": {
+      "name": "Duped Holy Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new182": {
+      "name": "Duped Shiny Holy Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new183": {
+      "name": "Duped Mythic Holy Egg",
+      "value": 160000,
+      "rarity": "secret"
+    },
+    "dup_new185": {
+      "name": "Duped Shiny Mythic Holy Egg",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new190": {
+      "name": "Duped Shiny Mythic Air Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new191": {
+      "name": "Duped Shiny Mythic Electric Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new192": {
+      "name": "Duped Shiny Mythic Ice Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new193": {
+      "name": "Duped Shiny Mythic Archangel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new195": {
+      "name": "Duped Shiny Mythic Angelic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new197": {
+      "name": "Duped Shiny Mythic Almighty Hexarium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new199": {
+      "name": "Duped Shiny Mythic All Seeing Eye",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new203": {
+      "name": "Duped Shiny Mythic Candycorn Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new205": {
+      "name": "Duped Shiny Mythic Cardinal Bunny",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new208": {
+      "name": "Duped Shiny Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new209": {
+      "name": "Duped Shiny Mythic Demon Reaper",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new210": {
+      "name": "Duped Shiny Dark Lord Shock",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new211": {
+      "name": "Duped Shiny Dark Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new213": {
+      "name": "Duped Shiny Mythic Dark Basilisk",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new215": {
+      "name": "Duped Shiny Mythic Curse of Kings",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new217": {
+      "name": "Duped Shiny Mythic Crystal Teddy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new219": {
+      "name": "Duped Shiny Mythic Corrupt Glitch",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new223": {
+      "name": "Duped Demonic Sentinel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new224": {
+      "name": "Duped Shiny Demonic Sentinel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new225": {
+      "name": "Duped Mythic Dream Catcher",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new227": {
+      "name": "Duped Shiny Mythic Dragonfruit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new228": {
+      "name": "Duped Shiny Mythic Dice Split",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new229": {
+      "name": "Duped Shiny Mythic Diamond Ring",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new231": {
+      "name": "Duped Shiny Mythic Developer Trophy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new233": {
+      "name": "Duped Shiny Mythic Fairy Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new234": {
+      "name": "Duped Shiny Mythic Eternal Cucumber",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new236": {
+      "name": "Duped Shiny Mythic Eternal Carrot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new241": {
+      "name": "Duped Shiny Mythic Easter Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new243": {
+      "name": "Duped Shiny Mythic Easter Robot",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new244": {
+      "name": "Duped Shiny Mythic Fallen Angel",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new245": {
+      "name": "Duped Shiny Mythic Firecracker",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new246": {
+      "name": "Duped Shiny Mythic Duality",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new248": {
+      "name": "Duped Shiny Mythic Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new250": {
+      "name": "Duped Shiny Mythic Ghosdeeri",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new252": {
+      "name": "Duped Mythic Ghosdeeri",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new254": {
+      "name": "Duped Shiny Mythic Galactic Paladin",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new256": {
+      "name": "Duped Shiny Mythic Frosted Dreamer",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new258": {
+      "name": "Duped Mythic Frosted Dreamer",
+      "value": 12500,
+      "rarity": "secret"
+    },
+    "dup_new260": {
+      "name": "Duped Shiny Mythic Frost Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new261": {
+      "name": "Duped Mythic Frost Shard",
+      "value": 80000,
+      "rarity": "secret"
+    },
+    "dup_new262": {
+      "name": "Duped Mythic Angelic Ghost Spirit",
+      "value": 150000,
+      "rarity": "secret"
+    },
+    "dup_new264": {
+      "name": "Duped Shiny Mythic Demonic Ghost Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new266": {
+      "name": "Duped Shiny Mythic Angelic Ghost Spirit",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new267": {
+      "name": "Duped Mythic Demonic Ghost Spirit",
+      "value": 200000,
+      "rarity": "secret"
+    },
+    "dup_new269": {
+      "name": "Duped Shiny Mythic Gingerbread Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new272": {
+      "name": "Duped Shiny Mythic Inferno Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new277": {
+      "name": "Duped Mythic Godly Shamrock",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new279": {
+      "name": "Duped Shiny Mythic Giant Pearl",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new281": {
+      "name": "Duped Mythic Giant Pearl",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new282": {
+      "name": "Duped Mythic Infinity Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new284": {
+      "name": "Duped Shiny Mythic Infinity Gem",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new285": {
+      "name": "Duped Shiny King Dogcat",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new287": {
+      "name": "Duped Mythic King Slime",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new288": {
+      "name": "Duped Shiny Mythic King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new289": {
+      "name": "Duped Shiny King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new290": {
+      "name": "Duped Mythic King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new291": {
+      "name": "Duped King Seal",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new292": {
+      "name": "Duped Shiny Mythic King Penguin",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new294": {
+      "name": "Duped Mythic King Penguin",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new297": {
+      "name": "Duped Shiny Mythic King Kitty",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new299": {
+      "name": "Duped Shiny Mythic King Doggy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new300": {
+      "name": "Duped Mythic King Doggy",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new302": {
+      "name": "Duped Shiny Mythic Koi",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new304": {
+      "name": "Duped Shiny Mythic King Slime",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new305": {
+      "name": "Duped Mythic Love Thief",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new306": {
+      "name": "Duped Shiny Mythic Love Thief",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new308": {
+      "name": "Duped Shiny Mythic Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new310": {
+      "name": "Duped Mythic Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new312": {
+      "name": "Duped Mythic Lucky Pyramidium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new314": {
+      "name": "Duped Shiny Mythic Lucid Leaf",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new315": {
+      "name": "Duped Shiny Lucid Leaf",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new316": {
+      "name": "Duped Shiny Mythic Lovely Rose",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new318": {
+      "name": "Duped Mythic Lovely Rose",
+      "value": 33000,
+      "rarity": "secret"
+    },
+    "dup_new320": {
+      "name": "Duped Mythic Morning Star",
+      "value": 100000,
+      "rarity": "secret"
+    },
+    "dup_new321": {
+      "name": "Duped Shiny Mythic Money Mouth",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new323": {
+      "name": "Duped Mythic Money Mouth",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new325": {
+      "name": "Duped Shiny Mythic Morning Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new328": {
+      "name": "Duped Shiny Mythic Overlord Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new329": {
+      "name": "Duped Mythic Overlord Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new330": {
+      "name": "Duped Shiny Mythic New Year Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new332": {
+      "name": "Duped Mythic New Year Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new334": {
+      "name": "Duped Shiny Mythic Patronus",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new336": {
+      "name": "Duped Mythic Patronus",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new341": {
+      "name": "Duped Shiny Mythic Pixie Queen",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new343": {
+      "name": "Duped Mythic Pixie Queen",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new347": {
+      "name": "Duped Mythic Plasma Wolflord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new351": {
+      "name": "Duped Shiny Mythic Sylently Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new352": {
+      "name": "Duped Shiny Mythic Obscure Entity Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new353": {
+      "name": "Duped Mythic Sylently Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new354": {
+      "name": "Duped Mythic Obscure Entity Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new355": {
+      "name": "Duped Shiny Mythic Sircfenner Plushie",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new356": {
+      "name": "Duped Shiny Mythic Prisma Cube",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new358": {
+      "name": "Duped Mythic Prisma Cube",
+      "value": 40000,
+      "rarity": "secret"
+    },
+    "dup_new363": {
+      "name": "Duped Shiny Mythic Pyramidium",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new368": {
+      "name": "Duped Shiny Mythic Radiant One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new370": {
+      "name": "Duped Shiny Radiant Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new371": {
+      "name": "Duped Radiant Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new377": {
+      "name": "Duped Shiny Rainbow Leviathan",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new378": {
+      "name": "Duped Rainbow Leviathan",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new379": {
+      "name": "Duped Shiny Mythic Sea Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new380": {
+      "name": "Duped Mythic Sea Star",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new385": {
+      "name": "Duped Shiny Mythic Shadow Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new386": {
+      "name": "Duped Mythic Shadow Luminance",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new387": {
+      "name": "Duped Shiny Mythic Shadow Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new389": {
+      "name": "Duped Mythic Shadow Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new392": {
+      "name": "Duped Shiny Mythic Shattered Soul",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new393": {
+      "name": "Duped Mythic Shattered Soul",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new394": {
+      "name": "Duped Shiny Mythic Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new397": {
+      "name": "Duped Shiny Mythic Shadow Wolflord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new398": {
+      "name": "Duped Mythic Shadow Wolflord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new402": {
+      "name": "Duped Shiny Mythic Sinister Shard",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new403": {
+      "name": "Duped Mythic Sinister Shard",
+      "value": 300000,
+      "rarity": "secret"
+    },
+    "dup_new418": {
+      "name": "Duped Mythic Vanilla Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new419": {
+      "name": "Duped Shiny Mythic Strawberry Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new420": {
+      "name": "Duped Mythic Strawberry Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new421": {
+      "name": "Duped Shiny Mythic Chocolate Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new422": {
+      "name": "Duped Mythic Chocolate Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new423": {
+      "name": "Duped Shiny Mythic Mint Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new424": {
+      "name": "Duped Mythic Mint Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new425": {
+      "name": "Duped Shiny Mythic Vanilla Sundae Champion",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new429": {
+      "name": "Duped Shiny Mythic The Overlord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new431": {
+      "name": "Duped Mythic The Overlord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new432": {
+      "name": "Duped Shiny Mythic The OwOLord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new434": {
+      "name": "Duped Mythic The OwOLord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new436": {
+      "name": "Duped Mythic Tophat G",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new438": {
+      "name": "Duped Shiny Mythic Tophat G",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new448": {
+      "name": "Duped Shiny Mythic Wisplord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new449": {
+      "name": "Duped Mythic Wisplord",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new452": {
+      "name": "Duped Shiny Mythic UFO",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new453": {
+      "name": "Duped Mythic UFO",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new456": {
+      "name": "Duped Shiny Mythic Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new457": {
+      "name": "Duped Mythic Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new458": {
+      "name": "Duped Shiny Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new459": {
+      "name": "Duped Galactic Dementor",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new460": {
+      "name": "Duped Shiny Mythic Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new461": {
+      "name": "Duped Mythic Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new462": {
+      "name": "Duped Shiny Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new463": {
+      "name": "Duped Space Entity",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new464": {
+      "name": "Duped Shiny Mythic Soulflake",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new466": {
+      "name": "Duped Mythic Soulflake",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new470": {
+      "name": "Duped Shiny Mythic Frosted Duality",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new471": {
+      "name": "Duped Mythic Frosted Duality",
+      "value": 230000,
+      "rarity": "secret"
+    },
+    "dup_new473": {
+      "name": "Duped Shiny Mythic Peppermint Heart",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new474": {
+      "name": "Duped Mythic Peppermint Heart",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new476": {
+      "name": "Duped Shiny Mythic Shadow One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new477": {
+      "name": "Duped Mythic Shadow One",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new478": {
+      "name": "Duped Shiny Mythic Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new479": {
+      "name": "Duped Shiny Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new480": {
+      "name": "Duped Mythic Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new481": {
+      "name": "Duped Alien Kraken",
+      "value": 0,
+      "rarity": "secret"
+    },
+    "dup_new492": {
+      "name": "Duped Leprechaun Doggy",
+      "value": 0,
+      "rarity": "common"
+    },
+    "dup_new493": {
+      "name": "Duped Alien Overlord",
+      "value": 0,
+      "rarity": "secret"
+    }
+  },
+  "caseData": [
+    {
+      "name": "Levithian Seas",
+      "price": 517696
+    },
+    {
+      "name": "Factory",
+      "price": 583620
+    },
+    {
+      "name": "Leprachauns Stash",
+      "price": 792118
+    },
+    {
+      "name": "ThrowBack",
+      "price": 377226
+    },
+    {
+      "name": "Sinister Strike",
+      "price": 854516
+    },
+    {
+      "name": "Extraterrestrial",
+      "price": 111111
+    },
+    {
+      "name": "Autumn Blooms",
+      "price": 256615
+    },
+    {
+      "name": "Valentina",
+      "price": 319300
+    },
+    {
+      "name": "Tale of Kings",
+      "price": 574370
+    },
+    {
+      "name": "30% Lord Shock",
+      "price": 137777
+    }
+  ],
+  "caseItems": {
+    "0": [
+      {
+        "name": "Shiny Levithan",
+        "value": 10000000,
+        "chance": 0.3
+      },
+      {
+        "name": "Mythic Peppermint Leviathan",
+        "value": 4200000,
+        "chance": 2
+      },
+      {
+        "name": "Levithan",
+        "value": 1500000,
+        "chance": 5
+      },
+      {
+        "name": "Mythic Plasma Wolflord",
+        "value": 1200000,
+        "chance": 5
+      },
+      {
+        "name": "Shiny Peppermint Leviathan",
+        "value": 650000,
+        "chance": 10
+      },
+      {
+        "name": "Shiny Tophat (F)",
+        "value": 250000,
+        "chance": 12
+      },
+      {
+        "name": "Peppermint Leviathan",
+        "value": 137500,
+        "chance": 65.7
+      }
+    ],
+    "1": [
+      {
+        "name": "Shiny Giant Robot",
+        "value": 30000000,
+        "chance": 0.2
+      },
+      {
+        "name": "Giant Robot",
+        "value": 13500000,
+        "chance": 0.5
+      },
+      {
+        "name": "Shiny Mythic Christmas Robot",
+        "value": 2750000,
+        "chance": 2.3
+      },
+      {
+        "name": "Shiny Robot 2.0",
+        "value": 1900000,
+        "chance": 5
+      },
+      {
+        "name": "Robot 2.0",
+        "value": 1000000,
+        "chance": 7
+      },
+      {
+        "name": "Patriotic Robot",
+        "value": 105000,
+        "chance": 85
+      }
+    ],
+    "2": [
+      {
+        "name": "Mythic Lucky Pyramidium",
+        "value": 10000000,
+        "chance": 1
+      },
+      {
+        "name": "Shiny Mythic Dream Catcher",
+        "value": 8000000,
+        "chance": 2
+      },
+      {
+        "name": "Mythic Godly Shamrock",
+        "value": 4000000,
+        "chance": 2
+      },
+      {
+        "name": "Shiny Almighty Hexarium",
+        "value": 1300000,
+        "chance": 5
+      },
+      {
+        "name": "Mythic Pot O' Doggy",
+        "value": 550000,
+        "chance": 30
+      },
+      {
+        "name": "Pot O' Gold",
+        "value": 72500,
+        "chance": 60
+      }
+    ],
+    "3": [
+      {
+        "name": "Levithan",
+        "value": 5000000,
+        "chance": 1
+      },
+      {
+        "name": "Giant Robot",
+        "value": 3500000,
+        "chance": 1
+      },
+      {
+        "name": "Dementor",
+        "value": 2000000,
+        "chance": 3
+      },
+      {
+        "name": "Lord Shock",
+        "value": 413000,
+        "chance": 15
+      },
+      {
+        "name": "Easter Basket",
+        "value": 300000,
+        "chance": 20
+      },
+      {
+        "name": "Soul Heart",
+        "value": 64000,
+        "chance": 60
+      }
+    ],
+    "4": [
+      {
+        "name": "Mythic Sinister Lord 2.0",
+        "value": 35000000,
+        "chance": 0.3
+      },
+      {
+        "name": "Mythic Almighty Pumpkin",
+        "value": 13750000,
+        "chance": 0.5
+      },
+      {
+        "name": "Mythic Sinister Skull",
+        "value": 7000000,
+        "chance": 0.6
+      },
+      {
+        "name": "Mythic King Skull",
+        "value": 5500000,
+        "chance": 1
+      },
+      {
+        "name": "Mythic Wolf Skull",
+        "value": 3900000,
+        "chance": 2.5
+      },
+      {
+        "name": "Mythic Angelic Skull",
+        "value": 1900000,
+        "chance": 2.5
+      },
+      {
+        "name": "Mythic Guardian Skull",
+        "value": 1700000,
+        "chance": 2.5
+      },
+      {
+        "name": "Mythic 1B Trophy",
+        "value": 900000,
+        "chance": 10
+      },
+      {
+        "name": "Mythic Fire Basilisk",
+        "value": 450000,
+        "chance": 20
+      },
+      {
+        "name": "Sinister Lord",
+        "value": 35000,
+        "chance": 60.1
+      }
+    ],
+    "5": [
+      {
+        "name": "Mythic Galactic Dementor",
+        "value": 1200000,
+        "chance": 2,
+        "goldSpin": true
+      },
+      {
+        "name": "Mythic UFO",
+        "value": 700000,
+        "chance": 4,
+        "goldSpin": true
+      },
+      {
+        "name": "Galactic Dementor",
+        "value": 400000,
+        "chance": 5
+      },
+      {
+        "name": "UFO",
+        "value": 225000,
+        "chance": 5
+      },
+      {
+        "name": "Alien Kraken",
+        "value": 60000,
+        "chance": 17
+      },
+      {
+        "name": "Alien Overlord",
+        "value": 5000,
+        "chance": 67
+      }
+    ],
+    "6": [
+      {
+        "name": "Shiny Mythic FireCracker",
+        "value": 3250000,
+        "chance": 0.5,
+        "goldSpin": true
+      },
+      {
+        "name": "Shiny Mythic Eternal Cucumber",
+        "value": 2000000,
+        "chance": 0.5,
+        "goldSpin": true
+      },
+      {
+        "name": "Shiny Mythic Eternal Carrot",
+        "value": 1400000,
+        "chance": 2
+      },
+      {
+        "name": "Mythic Plasma Wolflord",
+        "value": 725000,
+        "chance": 4
+      },
+      {
+        "name": "Mythic Chocolate Sundae Champion",
+        "value": 400000,
+        "chance": 8
+      },
+      {
+        "name": "Mythic Pot O' Doggy",
+        "value": 175000,
+        "chance": 30
+      },
+      {
+        "name": "Mythic Frosted Dreamer",
+        "value": 25000,
+        "chance": 55
+      }
+    ],
+    "7": [
+      {
+        "name": "Mythic Love Thief",
+        "value": 1500000,
+        "chance": 5,
+        "goldSpin": true
+      },
+      {
+        "name": "Mythic Harmonic Harp",
+        "value": 850000,
+        "chance": 5,
+        "goldSpin": true
+      },
+      {
+        "name": "Mythic Lovely Rose",
+        "value": 500000,
+        "chance": 10
+      },
+      {
+        "name": "Soul Heart",
+        "value": 300000,
+        "chance": 15
+      },
+      {
+        "name": "Shattered Soul",
+        "value": 20000,
+        "chance": 65
+      }
+    ],
+    "8": [
+      {
+        "name": "Mythic King Kitty",
+        "value": 3000000,
+        "chance": 1.3,
+        "goldSpin": true
+      },
+      {
+        "name": "Mythic King Doggy",
+        "value": 2000000,
+        "chance": 2,
+        "goldSpin": true
+      },
+      {
+        "name": "Mythic King Penguin",
+        "value": 850000,
+        "chance": 10.7
+      },
+      {
+        "name": "Mythic King Seal",
+        "value": 500000,
+        "chance": 15
+      },
+      {
+        "name": "Mythic King Slime",
+        "value": 300000,
+        "chance": 20
+      },
+      {
+        "name": "King Slime",
+        "value": 40000,
+        "chance": 51
+      }
+    ],
+    "9": [
+      {
+        "name": "Lord Shock",
+        "value": 412000,
+        "chance": 30
+      },
+      {
+        "name": "Leprechaun Doggy",
+        "value": 1,
+        "chance": 70
+      }
+    ]
+  },
+  "modeConfigs": {
+    "ffa-2": {
+      "count": 2,
+      "isTeam": false
+    },
+    "ffa-3": {
+      "count": 3,
+      "isTeam": false
+    },
+    "ffa-4": {
+      "count": 4,
+      "isTeam": false
+    },
+    "team-2v2": {
+      "count": 4,
+      "isTeam": true,
+      "teamSize": 2
+    }
+  },
+  "botNamesBattles": [
+    "Gu-Hin",
+    "Mr. East",
+    "Kayne",
+    "Nova",
+    "Shadow99",
+    "Pixel",
+    "Rook",
+    "Bibiblessme19"
+  ],
+  "casePools": {
+    "b0": [
+      {
+        "id": "b0_0",
+        "chance": 0.3,
+        "value": 10000000
+      },
+      {
+        "id": "b0_1",
+        "chance": 2,
+        "value": 4200000
+      },
+      {
+        "id": "b0_2",
+        "chance": 5,
+        "value": 1500000
+      },
+      {
+        "id": "b0_3",
+        "chance": 5,
+        "value": 1200000
+      },
+      {
+        "id": "b0_4",
+        "chance": 10,
+        "value": 650000
+      },
+      {
+        "id": "b0_5",
+        "chance": 12,
+        "value": 250000
+      },
+      {
+        "id": "b0_6",
+        "chance": 65.7,
+        "value": 137500
+      }
+    ],
+    "b1": [
+      {
+        "id": "b1_0",
+        "chance": 0.2,
+        "value": 30000000
+      },
+      {
+        "id": "b1_1",
+        "chance": 0.5,
+        "value": 13500000
+      },
+      {
+        "id": "b1_2",
+        "chance": 2.3,
+        "value": 2750000
+      },
+      {
+        "id": "b1_3",
+        "chance": 5,
+        "value": 1900000
+      },
+      {
+        "id": "b1_4",
+        "chance": 7,
+        "value": 1000000
+      },
+      {
+        "id": "b1_5",
+        "chance": 85,
+        "value": 105000
+      }
+    ],
+    "b2": [
+      {
+        "id": "b2_0",
+        "chance": 1,
+        "value": 10000000
+      },
+      {
+        "id": "b2_1",
+        "chance": 2,
+        "value": 8000000
+      },
+      {
+        "id": "b2_2",
+        "chance": 2,
+        "value": 4000000
+      },
+      {
+        "id": "b2_3",
+        "chance": 5,
+        "value": 1300000
+      },
+      {
+        "id": "b2_4",
+        "chance": 30,
+        "value": 550000
+      },
+      {
+        "id": "b2_5",
+        "chance": 60,
+        "value": 72500
+      }
+    ],
+    "b3": [
+      {
+        "id": "b3_0",
+        "chance": 1,
+        "value": 5000000
+      },
+      {
+        "id": "b3_1",
+        "chance": 1,
+        "value": 3500000
+      },
+      {
+        "id": "b3_2",
+        "chance": 3,
+        "value": 2000000
+      },
+      {
+        "id": "b3_3",
+        "chance": 15,
+        "value": 413000
+      },
+      {
+        "id": "b3_4",
+        "chance": 20,
+        "value": 300000
+      },
+      {
+        "id": "b3_5",
+        "chance": 60,
+        "value": 64000
+      }
+    ],
+    "b4": [
+      {
+        "id": "b4_0",
+        "chance": 0.3,
+        "value": 35000000
+      },
+      {
+        "id": "b4_1",
+        "chance": 0.5,
+        "value": 13750000
+      },
+      {
+        "id": "b4_2",
+        "chance": 0.6,
+        "value": 7000000
+      },
+      {
+        "id": "b4_3",
+        "chance": 1,
+        "value": 5500000
+      },
+      {
+        "id": "b4_4",
+        "chance": 2.5,
+        "value": 3900000
+      },
+      {
+        "id": "b4_5",
+        "chance": 2.5,
+        "value": 1900000
+      },
+      {
+        "id": "b4_6",
+        "chance": 2.5,
+        "value": 1700000
+      },
+      {
+        "id": "b4_7",
+        "chance": 10,
+        "value": 900000
+      },
+      {
+        "id": "b4_8",
+        "chance": 20,
+        "value": 450000
+      },
+      {
+        "id": "b4_9",
+        "chance": 60.1,
+        "value": 35000
+      }
+    ],
+    "b5": [
+      {
+        "id": "new457",
+        "chance": 2,
+        "value": 1200000
+      },
+      {
+        "id": "new453",
+        "chance": 4,
+        "value": 700000
+      },
+      {
+        "id": "new459",
+        "chance": 5,
+        "value": 400000
+      },
+      {
+        "id": "new455",
+        "chance": 5,
+        "value": 225000
+      },
+      {
+        "id": "new481",
+        "chance": 17,
+        "value": 60000
+      },
+      {
+        "id": "new493",
+        "chance": 67,
+        "value": 5000
+      }
+    ],
+    "b6": [
+      {
+        "id": "new245",
+        "chance": 0.5,
+        "value": 3250000
+      },
+      {
+        "id": "new234",
+        "chance": 0.5,
+        "value": 2000000
+      },
+      {
+        "id": "new236",
+        "chance": 2,
+        "value": 1400000
+      },
+      {
+        "id": "new347",
+        "chance": 4,
+        "value": 725000
+      },
+      {
+        "id": "new422",
+        "chance": 8,
+        "value": 400000
+      },
+      {
+        "id": "b2_4",
+        "chance": 30,
+        "value": 175000
+      },
+      {
+        "id": "new258",
+        "chance": 55,
+        "value": 25000
+      }
+    ],
+    "b7": [
+      {
+        "id": "new305",
+        "chance": 5,
+        "value": 1500000
+      },
+      {
+        "id": "new164",
+        "chance": 5,
+        "value": 850000
+      },
+      {
+        "id": "new318",
+        "chance": 10,
+        "value": 500000
+      },
+      {
+        "id": "b3_5",
+        "chance": 15,
+        "value": 300000
+      },
+      {
+        "id": "p22",
+        "chance": 65,
+        "value": 20000
+      }
+    ],
+    "b8": [
+      {
+        "id": "new66",
+        "chance": 1.3,
+        "value": 3000000
+      },
+      {
+        "id": "new300",
+        "chance": 2,
+        "value": 2000000
+      },
+      {
+        "id": "new294",
+        "chance": 10.7,
+        "value": 850000
+      },
+      {
+        "id": "new290",
+        "chance": 15,
+        "value": 500000
+      },
+      {
+        "id": "new287",
+        "chance": 20,
+        "value": 300000
+      },
+      {
+        "id": "new14",
+        "chance": 51,
+        "value": 40000
+      }
+    ],
+    "b9": [
+      {
+        "id": "b3_3",
+        "chance": 30,
+        "value": 412000
+      },
+      {
+        "id": "new492",
+        "chance": 70,
+        "value": 1
+      }
+    ]
+  }
+}
