@@ -59,6 +59,24 @@ if (ENABLE_DEV_BYPASS) {
   console.warn('[security] ENABLE_DEV_BYPASS is ON - /dev/skip-login and account:reset are reachable. Do not leave this on in production.');
 }
 
+// Roblox OAuth 2.0 ("Sign in with Roblox") - see the /roblox/oauth/login
+// and /roblox/oauth/callback routes below for the actual flow. All three
+// of these must be set in Railway's Variables tab for it to work; if any
+// are missing, those two routes fail cleanly instead of crashing.
+const ROBLOX_OAUTH_CLIENT_ID = process.env.ROBLOX_OAUTH_CLIENT_ID || '';
+const ROBLOX_OAUTH_CLIENT_SECRET = process.env.ROBLOX_OAUTH_CLIENT_SECRET || '';
+// This server's own real public URL, no trailing slash (e.g.
+// https://your-app.up.railway.app) - must exactly match (plus
+// '/roblox/oauth/callback') whatever Redirect URL is registered in
+// Roblox's OAuth app settings.
+const PUBLIC_BASE_URL = (process.env.PUBLIC_BASE_URL || '').replace(/\/$/, '');
+if (!ROBLOX_OAUTH_CLIENT_ID || !ROBLOX_OAUTH_CLIENT_SECRET || !PUBLIC_BASE_URL) {
+  console.warn('[roblox-oauth] Not fully configured (need ROBLOX_OAUTH_CLIENT_ID, ROBLOX_OAUTH_CLIENT_SECRET, PUBLIC_BASE_URL) - "Log in with Roblox" will not work until all three are set.');
+}
+// state -> expiry timestamp. One-time-use CSRF nonces for the OAuth
+// redirect flow - see /roblox/oauth/login and /roblox/oauth/callback.
+const pendingOAuthStates = new Map();
+
 // ---------------------------------------------------------------------------
 // Connection + account state
 // ---------------------------------------------------------------------------
@@ -2293,7 +2311,7 @@ function handleTipSend(username, msg) {
 // failed call here is a genuine transient network blip, not a
 // browser-security limitation, and the right fix is just to retry a couple
 // of times before giving up, not to hand verification off to the client.
-async function fetchWithRetry(url, attempts = 3) {
+async function fetchWithRetry(url, attempts = 3, options = {}) {
   let lastErr;
   for (let i = 0; i < attempts; i++) {
     // Without a hard timeout here, a slow/unresponsive Roblox API can hang
@@ -2306,7 +2324,7 @@ async function fetchWithRetry(url, attempts = 3) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 8000);
     try {
-      const r = await fetch(url, { signal: controller.signal });
+      const r = await fetch(url, { ...options, signal: controller.signal });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r;
     } catch (err) {
@@ -2396,6 +2414,103 @@ const server = http.createServer(async (req, res) => {
   // ENABLE_DEV_BYPASS (off by default) rather than reachable in production -
   // see the flag's definition near the top of this file. Still fully
   // removable later (Phase 3) once you're confident nothing depends on it.
+  // ---------------------------------------------------------------------
+  // Roblox OAuth 2.0 ("Sign in with Roblox") - an addition alongside the
+  // existing bio-verification flow above, not a replacement for it. Uses
+  // the standard authorization code flow WITHOUT PKCE, which Roblox's own
+  // official sample app does too - PKCE is only required for "public"
+  // clients that can't hold a secret safely (e.g. a mobile app or SPA);
+  // this server holds ROBLOX_OAUTH_CLIENT_SECRET itself and never exposes
+  // it to the browser, making it a "confidential" client, same as Roblox's
+  // own reference implementation.
+  //
+  // Requires three environment variables to actually work:
+  //   ROBLOX_OAUTH_CLIENT_ID, ROBLOX_OAUTH_CLIENT_SECRET - from Roblox's
+  //     Creator Dashboard -> OAuth 2.0 Apps (create an app, add the
+  //     'openid' and 'profile' scopes).
+  //   PUBLIC_BASE_URL - this server's own real public URL (e.g.
+  //     https://your-app.up.railway.app, no trailing slash) - used to
+  //     build the redirect_uri consistently. Register
+  //     PUBLIC_BASE_URL + '/roblox/oauth/callback' as the app's exact
+  //     Redirect URL in Roblox's dashboard. Keeping this in an env var
+  //     instead of hardcoded in the client means a Railway domain change
+  //     only ever needs this one variable updated, not a code change.
+  // If any of these aren't set, the routes below fail cleanly with a
+  // clear error redirect instead of crashing.
+  // ---------------------------------------------------------------------
+  if(url.pathname === '/roblox/oauth/login'){
+    if (!ROBLOX_OAUTH_CLIENT_ID || !PUBLIC_BASE_URL) {
+      res.writeHead(500, { 'Content-Type': 'text/plain' });
+      res.end('Roblox OAuth is not configured on this server yet (missing ROBLOX_OAUTH_CLIENT_ID / PUBLIC_BASE_URL).');
+      return;
+    }
+    // A one-time, short-lived nonce, checked again on callback - standard
+    // CSRF protection for the redirect-based OAuth flow, without needing
+    // any session/cookie system (this app doesn't have one).
+    const state = crypto.randomBytes(16).toString('hex');
+    pendingOAuthStates.set(state, Date.now() + 10 * 60 * 1000);
+    const redirectUri = `${PUBLIC_BASE_URL}/roblox/oauth/callback`;
+    const authorizeUrl = new URL('https://apis.roblox.com/oauth/v1/authorize');
+    authorizeUrl.searchParams.set('client_id', ROBLOX_OAUTH_CLIENT_ID);
+    authorizeUrl.searchParams.set('redirect_uri', redirectUri);
+    authorizeUrl.searchParams.set('scope', 'openid profile');
+    authorizeUrl.searchParams.set('response_type', 'code');
+    authorizeUrl.searchParams.set('state', state);
+    res.writeHead(302, { Location: authorizeUrl.toString() });
+    res.end();
+    return;
+  }
+
+  if(url.pathname === '/roblox/oauth/callback'){
+    const redirectHome = (params) => {
+      const dest = new URL(PUBLIC_BASE_URL || '/');
+      for (const [k, v] of Object.entries(params)) dest.searchParams.set(k, v);
+      res.writeHead(302, { Location: dest.toString() });
+      res.end();
+    };
+    const code = url.searchParams.get('code');
+    const state = url.searchParams.get('state');
+    const stateExpiry = state && pendingOAuthStates.get(state);
+    if (state) pendingOAuthStates.delete(state); // one-time use either way
+    if (!code || !stateExpiry || stateExpiry < Date.now()) {
+      return redirectHome({ oauth_error: 'state' });
+    }
+    if (!ROBLOX_OAUTH_CLIENT_ID || !ROBLOX_OAUTH_CLIENT_SECRET || !PUBLIC_BASE_URL) {
+      return redirectHome({ oauth_error: 'config' });
+    }
+    try {
+      const redirectUri = `${PUBLIC_BASE_URL}/roblox/oauth/callback`;
+      const tokenRes = await fetchWithRetry('https://apis.roblox.com/oauth/v1/token', 2, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          client_id: ROBLOX_OAUTH_CLIENT_ID,
+          client_secret: ROBLOX_OAUTH_CLIENT_SECRET,
+          grant_type: 'authorization_code',
+          code,
+          redirect_uri: redirectUri,
+        }).toString(),
+      });
+      const tokenData = await tokenRes.json();
+      if (!tokenData.access_token) return redirectHome({ oauth_error: 'token' });
+
+      const userRes = await fetchWithRetry('https://apis.roblox.com/oauth/v1/userinfo', 2, {
+        headers: { Authorization: `Bearer ${tokenData.access_token}` },
+      });
+      const userInfo = await userRes.json();
+      // Prefer the standard OIDC username claim, with reasonable fallbacks
+      // in case the exact claim name differs from what's documented.
+      const canonicalUsername = userInfo.preferred_username || userInfo.nickname || userInfo.name;
+      if (!canonicalUsername) return redirectHome({ oauth_error: 'userinfo' });
+
+      const token = issueSessionToken(canonicalUsername);
+      redirectHome({ oauth_token: token, oauth_username: canonicalUsername });
+    } catch (e) {
+      redirectHome({ oauth_error: 'network' });
+    }
+    return;
+  }
+
   if(url.pathname === '/dev/skip-login'){
     if (!ENABLE_DEV_BYPASS) {
       res.writeHead(404, { 'Content-Type': 'application/json' });

@@ -3335,12 +3335,19 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
     <div class="auth-sub">Play real value</div>
 
     <div id="authStep1">
+      <a class="auth-submit" id="robloxOAuthBtn" href="#" style="display:flex; align-items:center; justify-content:center; text-decoration:none; margin-bottom:14px;">Log in with Roblox</a>
+      <div style="display:flex; align-items:center; gap:10px; margin:14px 0; color:var(--text-faint); font-size:12px;">
+        <div style="flex:1; height:1px; background:var(--border-soft);"></div>
+        <span>or verify manually</span>
+        <div style="flex:1; height:1px; background:var(--border-soft);"></div>
+      </div>
       <div class="field-label">Roblox Username</div>
       <input class="auth-input" id="robloxUsername" type="text" placeholder="e.g. tim_tim1345" autocomplete="off">
       <div class="auth-error" id="authErrorStep1"></div>
       <button class="auth-submit" id="genCodeBtn">Generate Verification Code</button>
       <div class="auth-note">We'll generate a one-time code. You'll paste it into your Roblox<br>profile's About section to prove the account is yours.</div>
     </div>
+    <div class="auth-error" id="oauthErrorNote" style="margin-top:10px;"></div>
 
     <div id="authStep2" style="display:none;">
       <div class="verify-box">
@@ -4574,6 +4581,7 @@ const MP_SERVER_URL = window.BLOXYVAULT_SERVER_URL
 // Plain https(s) base for the same server, used for Roblox lookups below -
 // those are simple GET requests, no need for the WebSocket to even be open.
 const MP_HTTP_BASE = MP_SERVER_URL.replace(/^wss:\/\//, 'https://').replace(/^ws:\/\//, 'http://').replace(/\/ws$/, '');
+document.getElementById('robloxOAuthBtn').href = `${MP_HTTP_BASE}/roblox/oauth/login`;
 let mpSocket = null;
 let mpConnGen = 0; // bumped on every mpConnect() call - see mpConnect's comment for why this exists
 let mpConnected = false;
@@ -4940,6 +4948,35 @@ const GIVEAWAY_USERNAME = 'DTN_BGSI'; // hand-out/giveaway account - must match 
 const STOCK_USERNAME = 'BloxyVault_Stock'; // plain ledger account, dark blue chat role - must match the server's STOCK_USERNAME
 let sessionStartTime = null;
 let cachedPublicIp = null; // fetched once per page load, best-effort
+
+// Picks up after /roblox/oauth/callback redirects back here with either
+// ?oauth_token=...&oauth_username=... (success) or ?oauth_error=... - see
+// server.js for where these actually come from. Either way, these params
+// get stripped from the visible URL/history right after being read, since
+// a session token has no business sitting in a bookmarkable/shareable link.
+(function handleRobloxOAuthRedirect(){
+  const params = new URLSearchParams(location.search);
+  const oauthToken = params.get('oauth_token');
+  const oauthUsername = params.get('oauth_username');
+  const oauthError = params.get('oauth_error');
+  if (!oauthToken && !oauthUsername && !oauthError) return;
+
+  history.replaceState(null, '', location.pathname);
+
+  if (oauthToken && oauthUsername) {
+    logIn(oauthUsername, oauthToken);
+    return;
+  }
+  const messages = {
+    state: "That login link expired or was already used - try 'Log in with Roblox' again.",
+    config: 'Roblox login is not fully set up on this server yet.',
+    token: "Roblox didn't accept that login attempt - please try again.",
+    userinfo: "Couldn't read your Roblox profile - please try again.",
+    network: "Couldn't reach Roblox right now - please try again in a few seconds.",
+  };
+  const note = document.getElementById('oauthErrorNote');
+  if (note) note.textContent = messages[oauthError] || 'Something went wrong logging in with Roblox - please try again.';
+})();
 
 // ---- Roblox pfp ----
 // Browsers can't call Roblox's APIs directly (no CORS headers on their end — see the
