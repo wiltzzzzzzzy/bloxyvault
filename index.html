@@ -1421,13 +1421,13 @@
   .jackpot-result.win{ color:var(--green); background:rgba(52,211,153,0.1); border-color:rgba(52,211,153,0.3); }
   .jackpot-result.lose{ color:var(--red); background:rgba(239,74,95,0.1); border-color:rgba(239,74,95,0.3); }
 
-  /* SINK - simple/functional first pass. The ship's vertical position and
-     the waterline height are both driven by a 0-1 "sink progress" value
-     computed from the current multiplier client-side (see sinkProgressFor
-     in the JS) - not from anything server-sent, since the server never
-     sends a live per-tick multiplier at all (see sinkMultiplierAt in
-     server.js). Cinematic polish (actual iceberg, particles, camera
-     movement) is intentionally left for a follow-up pass. */
+  /* SINK. Ship position/waterline height are driven by a 0-1 "sink
+     progress" value computed client-side from the current multiplier (see
+     sinkProgressFor in the JS) - not from anything server-sent, since the
+     server never sends a live per-tick multiplier at all (see
+     sinkMultiplierAt in server.js). The approach/impact sequence below is
+     purely a client-side visual cue timed off the joining countdown
+     (joinEndsAt), which every client already renders locally too. */
   .jp-enter-btn.sink-cashout-btn{ background:linear-gradient(90deg, var(--green), #0e9f6e); }
   .sink-status-note{ font-size:11.5px; color:var(--text-faint); text-align:center; margin-top:8px; min-height:14px; }
   .sink-stage-wrap{ display:flex; flex-direction:column; align-items:center; gap:10px; width:100%; max-width:420px; }
@@ -1441,10 +1441,52 @@
     border:1px solid var(--border-soft);
   }
   .sink-waterline{
-    position:absolute; left:0; right:0; bottom:0; height:32%;
+    position:absolute; left:0; right:0; bottom:0; height:30%;
     background:linear-gradient(180deg, rgba(30,130,180,0.55), rgba(6,40,70,0.92));
-    transition:height 1s linear;
+    transition:height 0.8s linear;
   }
+  /* Final 5s of joining: the ship drifts toward the iceberg's side and
+     picks up a little bob/roll, instead of just sitting dead still the
+     whole 30s - this is the "ship starts moving" cue from the original
+     design doc. */
+  @keyframes sinkApproachDrift{
+    0%   { transform:translate(-50%, 0) rotate(0deg); }
+    50%  { transform:translate(-38%, -3px) rotate(-2deg); }
+    100% { transform:translate(-28%, 0) rotate(1deg); }
+  }
+  .sink-ship-scene.approaching .sink-ship{
+    animation:sinkApproachDrift 5s ease-in-out forwards;
+  }
+  .sink-ship-scene.approaching .sink-waterline{
+    background:linear-gradient(180deg, rgba(40,150,200,0.6), rgba(8,50,85,0.94));
+  }
+  .sink-iceberg{
+    position:absolute; right:8%; bottom:28%; width:70px; opacity:0;
+    transform:translateX(24px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,0.35));
+  }
+  .sink-iceberg svg{ width:100%; height:auto; display:block; }
+  .sink-ship-scene.iceberg-visible .sink-iceberg{ opacity:1; transform:translateX(0); }
+  /* The 💥 moment - fires once, right as the joining countdown hits 0 and
+     the round flips into the active (sailing/sinking) phase. */
+  @keyframes sinkImpactShake{
+    0%, 100% { transform:translateX(0); }
+    15% { transform:translateX(-6px) rotate(-0.5deg); }
+    30% { transform:translateX(5px) rotate(0.5deg); }
+    45% { transform:translateX(-4px); }
+    60% { transform:translateX(3px); }
+    75% { transform:translateX(-2px); }
+  }
+  .sink-ship-scene.impact{ animation:sinkImpactShake 0.6s ease-in-out; }
+  .sink-impact-flash{
+    position:absolute; inset:0; background:radial-gradient(circle at 78% 65%, rgba(255,255,255,0.85), rgba(255,255,255,0) 55%);
+    opacity:0; pointer-events:none;
+  }
+  .sink-ship-scene.impact .sink-impact-flash{
+    opacity:1; animation:sinkFlashFade 0.6s ease-out forwards;
+  }
+  @keyframes sinkFlashFade{ from{ opacity:1; } to{ opacity:0; } }
   .sink-ship{
     position:absolute; left:50%; bottom:30%; transform:translate(-50%, 0) rotate(0deg);
     width:150px; transition:bottom 1s linear, transform 1s linear, opacity 1s ease;
@@ -1452,7 +1494,7 @@
   }
   .sink-ship svg{ width:100%; height:auto; display:block; }
   .sink-ship.sunk{
-    opacity:0; bottom:2%; transform:translate(-50%, 10px) rotate(35deg);
+    opacity:0; bottom:-15%; transform:translate(-50%, 10px) rotate(40deg);
     transition:bottom 2.2s ease-in, transform 2.2s ease-in, opacity 1.6s ease-in 0.9s;
   }
   .sink-payout{ font-family:var(--font-display); font-weight:700; font-size:13.5px; color:var(--gold); min-height:17px; }
@@ -3793,6 +3835,14 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
               <div class="sink-multiplier" id="sinkMultiplierDisplay">1.00x</div>
               <div class="sink-ship-scene" id="sinkShipScene">
                 <div class="sink-waterline" id="sinkWaterline"></div>
+                <div class="sink-iceberg" id="sinkIceberg">
+                  <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 6 L78 40 L92 58 L80 82 L26 82 L8 55 L22 34 Z" fill="#dff3f8"/>
+                    <path d="M50 6 L78 40 L64 46 L44 24 Z" fill="#ffffff"/>
+                    <path d="M8 55 L22 34 L36 50 L20 68 Z" fill="#b9dfe8"/>
+                    <path d="M80 82 L92 58 L78 68 L70 82 Z" fill="#a9d3dd"/>
+                  </svg>
+                </div>
                 <div class="sink-ship" id="sinkShip">
                   <svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
                     <line x1="88" y1="26" x2="88" y2="8" stroke="#262626" stroke-width="2" stroke-linecap="round"/>
@@ -3810,6 +3860,7 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
                     <path d="M15 80 L206 80 L189 92 Q184 98 170 98 L28 98 Q15 98 15 88 Z" fill="#5c1414"/>
                   </svg>
                 </div>
+                <div class="sink-impact-flash"></div>
               </div>
               <div class="sink-payout" id="sinkPayoutDisplay"></div>
             </div>
@@ -8034,17 +8085,20 @@ function sinkMultiplierAt(elapsedSeconds, growthRate){
 
 // A 0-1 "how far under" value driven purely by the current multiplier, used
 // only to position the ship/waterline - purely cosmetic, never sent
-// anywhere. log-based so it climbs quickly at first and eases off, reaching
-// ~1 (fully submerged) somewhere around a 12-15x multiplier.
+// anywhere. Calibrated against the actual sink-point distribution
+// (generateSinkPoint in server.js) rather than an arbitrary big number -
+// most rounds resolve well under 4x, so the ship needs to visibly react
+// well before then, not just in the rare high-multiplier rounds.
 function sinkProgressFor(multiplier){
-  return Math.max(0, Math.min(1, Math.log(multiplier) / Math.log(14)));
+  return Math.max(0, Math.min(1, Math.log(multiplier) / Math.log(6.5)));
 }
 
 function sinkApplyShipProgress(progress){
-  document.getElementById('sinkWaterline').style.height = (28 + progress * 62) + '%';
+  document.getElementById('sinkWaterline').style.height = (26 + progress * 70) + '%';
   const ship = document.getElementById('sinkShip');
-  ship.style.bottom = (30 - progress * 22) + '%';
-  ship.style.transform = `translate(-50%, 0) rotate(${progress * 14}deg)`;
+  ship.style.bottom = (32 - progress * 30) + '%';
+  ship.style.transform = `translate(-50%, 0) rotate(${progress * 18}deg)`;
+  ship.style.opacity = 1 - progress * 0.6;
 }
 
 function sinkMyEntry(){
@@ -8129,6 +8183,7 @@ function sinkTick(){
     payoutEl.textContent = '';
     ship.classList.remove('sunk');
     shipScene.classList.toggle('approaching', remaining <= 5000);
+    shipScene.classList.toggle('iceberg-visible', remaining <= 1200);
     sinkApplyShipProgress(0);
   } else if(sinkState.phase === 'active'){
     const elapsed = (Date.now() - sinkState.activeStartAt) / 1000;
@@ -8144,7 +8199,7 @@ function sinkTick(){
       payoutEl.textContent = '';
     }
     ship.classList.remove('sunk');
-    shipScene.classList.remove('approaching');
+    shipScene.classList.remove('approaching', 'iceberg-visible');
     sinkApplyShipProgress(sinkProgressFor(multiplier));
   } else {
     // sunk
@@ -8153,7 +8208,7 @@ function sinkTick(){
     multEl.className = 'sink-multiplier sunk';
     multEl.textContent = (sinkState.sunkMultiplier || 1).toFixed(2) + 'x';
     payoutEl.textContent = '';
-    shipScene.classList.remove('approaching');
+    shipScene.classList.remove('approaching', 'iceberg-visible');
     ship.classList.add('sunk');
   }
 }
@@ -8184,6 +8239,17 @@ mpOn('sink:state', (msg) => {
   if(isFreshRound){
     document.getElementById('sinkResult').className = 'jackpot-result';
     document.getElementById('sinkResult').textContent = '';
+  }
+
+  // The impact moment: joining just ended and the round went active. Plays
+  // once (the class is removed right after its 0.6s animation finishes so
+  // it can replay cleanly next round) rather than reacting to every
+  // subsequent 'active' state message that arrives during the round.
+  if(sinkPrevPhase === 'joining' && msg.phase === 'active'){
+    const scene = document.getElementById('sinkShipScene');
+    scene.classList.remove('iceberg-visible', 'approaching');
+    scene.classList.add('impact');
+    setTimeout(() => scene.classList.remove('impact'), 650);
   }
 
   sinkPrevPhase = msg.phase;
