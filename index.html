@@ -1450,16 +1450,20 @@
      ship draws in front of it, correct since the ship is closer to the
      camera until the moment of impact). Both use `left` + a transform that
      always includes translate(-50%,0) for horizontal centering on that
-     point, with rotation appended for tilt/wobble - see the JS. */
+     point, with rotation appended for tilt/wobble - see the JS.
+     Resting `bottom` is deliberately LESS than the waterline's resting
+     `height` (26% vs 30%) so the bottom edge of each actually sits behind/
+     under the water layer at rest - this is what makes them look like
+     they're sitting IN the water instead of hovering just above a line. */
   .sink-iceberg{
-    position:absolute; bottom:34%; left:96%; width:60px; z-index:1;
+    position:absolute; bottom:26%; left:96%; width:92px; z-index:1;
     transform:translate(-50%, 0) scale(0.35); opacity:0.25;
     transition:left 0.3s linear, transform 0.3s linear, opacity 0.3s linear;
     filter:drop-shadow(0 4px 8px rgba(0,0,0,0.35));
   }
-  .sink-iceberg svg{ width:100%; height:auto; display:block; }
+  .sink-iceberg img{ width:100%; height:auto; display:block; user-select:none; -webkit-user-drag:none; }
   .sink-ship{
-    position:absolute; left:50%; bottom:34%; width:150px; z-index:1;
+    position:absolute; left:50%; bottom:26%; width:150px; z-index:1;
     transform:translate(-50%, 0) rotate(0deg);
     transition:left 0.4s linear, bottom 0.6s linear, transform 0.6s linear, opacity 1s ease;
     filter:drop-shadow(0 6px 10px rgba(0,0,0,0.4));
@@ -1522,6 +1526,23 @@
     opacity:1; animation:sinkFlashFade 0.6s ease-out forwards;
   }
   @keyframes sinkFlashFade{ from{ opacity:1; } to{ opacity:0; } }
+  /* The final explosion - reuses the impact shake at a bigger amplitude,
+     plus the same flash element with a warmer/bigger burst so it reads as
+     distinct from the earlier iceberg-impact flash. */
+  @keyframes sinkExplosionShake{
+    0%, 100% { transform:translateX(0) translateY(0); }
+    10% { transform:translateX(-9px) translateY(-3px) rotate(-0.8deg); }
+    25% { transform:translateX(8px) translateY(2px) rotate(0.8deg); }
+    40% { transform:translateX(-7px) translateY(-2px); }
+    55% { transform:translateX(6px); }
+    70% { transform:translateX(-4px); }
+    85% { transform:translateX(2px); }
+  }
+  .sink-ship-scene.explosion{ animation:sinkExplosionShake 0.75s ease-in-out; }
+  .sink-ship-scene.explosion .sink-impact-flash{
+    background:radial-gradient(circle at 55% 60%, rgba(255,230,180,0.95), rgba(255,140,60,0.5) 35%, rgba(255,140,60,0) 60%);
+    opacity:1; animation:sinkFlashFade 0.9s ease-out forwards;
+  }
   .sink-payout{ font-family:var(--font-display); font-weight:700; font-size:13.5px; color:var(--gold); min-height:17px; }
 
   @media (max-width: 760px){
@@ -3860,12 +3881,7 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
               <div class="sink-multiplier" id="sinkMultiplierDisplay">1.00x</div>
               <div class="sink-ship-scene" id="sinkShipScene">
                 <div class="sink-iceberg" id="sinkIceberg">
-                  <svg viewBox="0 0 100 84" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 6 L78 40 L92 58 L80 82 L26 82 L8 55 L22 34 Z" fill="#dff3f8"/>
-                    <path d="M50 6 L78 40 L64 46 L44 24 Z" fill="#ffffff"/>
-                    <path d="M8 55 L22 34 L36 50 L20 68 Z" fill="#b9dfe8"/>
-                    <path d="M80 82 L92 58 L78 68 L70 82 Z" fill="#a9d3dd"/>
-                  </svg>
+                  <img src="/assets/img/c5d7259ffe0dd15a37aa.png" alt="Iceberg" draggable="false">
                 </div>
                 <div class="sink-ship" id="sinkShip">
                   <svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg">
@@ -8135,7 +8151,7 @@ function sinkApplyDepth(progress){
   document.getElementById('sinkBubbles').style.opacity = Math.min(1, progress * 1.6);
   document.getElementById('sinkDepthDisplay').textContent = `DEPTH: ${Math.round(progress * SINK_MAX_DEPTH_FT)} FT`;
   const ship = document.getElementById('sinkShip');
-  ship.style.bottom = (34 - progress * 36) + '%';
+  ship.style.bottom = (26 - progress * 28) + '%';
   ship.style.transform = `translate(-50%, 0) rotate(${progress * 22}deg)`;
   ship.style.opacity = 1 - progress * 0.55;
 }
@@ -8260,16 +8276,17 @@ function sinkTick(){
     // tint, bubbles) keeps changing from here.
     sinkApplyDepth(sinkProgressFor(multiplier));
   } else {
-    // sunk - freeze at max depth, then let the .sunk class's opacity
-    // transition do the final disappearance from wherever the ship
-    // already visually was, instead of snapping to a separate end state.
+    // sunk - deliberately does NOT touch depth/ship position here. The
+    // ship stays exactly wherever the last real active-phase tick left it
+    // (the true depth for the actual multiplier it sank at) - forcing it
+    // to max depth on every tick here was the "teleports to 300ft" bug.
+    // The explosion + final full-submersion sequence is handled once, as
+    // a delayed one-time effect, from the phase-transition handler below.
     phaseLabel.textContent = 'SUNK';
     timerEl.textContent = '';
     multEl.className = 'sink-multiplier sunk';
     multEl.textContent = (sinkState.sunkMultiplier || 1).toFixed(2) + 'x';
     payoutEl.textContent = '';
-    sinkApplyDepth(1);
-    ship.classList.add('sunk');
   }
 }
 
@@ -8309,6 +8326,25 @@ mpOn('sink:state', (msg) => {
     const scene = document.getElementById('sinkShipScene');
     scene.classList.add('impact');
     setTimeout(() => scene.classList.remove('impact'), 650);
+  }
+
+  // The final explosion: fires once, a beat after the round actually ends
+  // - not instantly - so players get to see the ship genuinely sitting at
+  // whatever depth it really sank at (see sinkTick's 'sunk' branch, which
+  // deliberately leaves it there rather than snapping to max depth). Only
+  // *after* that pause does it explode and go to full submersion - this
+  // is what replaces the old "teleports straight to 300ft" behavior with
+  // an honest final beat.
+  if(sinkPrevPhase === 'active' && msg.phase === 'sunk'){
+    const scene = document.getElementById('sinkShipScene');
+    const shipEl = document.getElementById('sinkShip');
+    setTimeout(() => {
+      if(!sinkState || sinkState.phase !== 'sunk') return; // a new round could theoretically have already started
+      scene.classList.add('explosion');
+      sinkApplyDepth(1); // final full submersion, continuing on from wherever it actually was
+      shipEl.classList.add('sunk');
+      setTimeout(() => scene.classList.remove('explosion'), 750);
+    }, 700);
   }
 
   sinkPrevPhase = msg.phase;
