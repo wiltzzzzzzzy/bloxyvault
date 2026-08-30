@@ -3384,7 +3384,7 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
         <div style="flex:1; height:1px; background:var(--border-soft);"></div>
       </div>
       <div class="field-label">Roblox Username</div>
-      <input class="auth-input" id="robloxUsername" type="text" placeholder="e.g. tim_tim1345" autocomplete="off">
+      <input class="auth-input" id="robloxUsername" type="text" placeholder="e.g. builderman" autocomplete="off">
       <div class="auth-error" id="authErrorStep1"></div>
       <button class="auth-submit" id="genCodeBtn">Generate Verification Code</button>
       <div class="auth-note">We'll generate a one-time code. You'll paste it into your Roblox<br>profile's About section to prove the account is yours.</div>
@@ -8182,9 +8182,14 @@ function sinkTick(){
     multEl.textContent = '1.00x';
     payoutEl.textContent = '';
     ship.classList.remove('sunk');
-    shipScene.classList.toggle('approaching', remaining <= 5000);
+    const isApproaching = remaining <= 5000;
+    shipScene.classList.toggle('approaching', isApproaching);
     shipScene.classList.toggle('iceberg-visible', remaining <= 1200);
-    sinkApplyShipProgress(0);
+    // Only while NOT approaching - once the cinematic sequence needs to
+    // take over (ship drift keyframes, iceberg fade-in), this stops
+    // touching the ship's inline style at all, so those CSS-driven effects
+    // have uncontested control instead of getting overwritten every 100ms.
+    if(!isApproaching) sinkApplyShipProgress(0);
   } else if(sinkState.phase === 'active'){
     const elapsed = (Date.now() - sinkState.activeStartAt) / 1000;
     const multiplier = sinkMultiplierAt(elapsed, sinkState.growthRate);
