@@ -2296,13 +2296,24 @@ function handleTipSend(username, msg) {
 async function fetchWithRetry(url, attempts = 3) {
   let lastErr;
   for (let i = 0; i < attempts; i++) {
+    // Without a hard timeout here, a slow/unresponsive Roblox API can hang
+    // this call indefinitely - and with no response ever written, Railway's
+    // own edge eventually gives up waiting and substitutes its own generic
+    // error page (an empty 404 with no trace of anything this file ever
+    // wrote), which looks nothing like the actual 502 this function's own
+    // caller would otherwise send. Bounding each attempt means we always
+    // get the chance to respond with a real, informative error ourselves.
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
     try {
-      const r = await fetch(url);
+      const r = await fetch(url, { signal: controller.signal });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r;
     } catch (err) {
       lastErr = err;
       if (i < attempts - 1) await new Promise((resolve) => setTimeout(resolve, 500 * (i + 1)));
+    } finally {
+      clearTimeout(timeoutId);
     }
   }
   throw lastErr;
@@ -2342,7 +2353,7 @@ const server = http.createServer(async (req, res) => {
     try{
       const match = await robloxResolveUsername(username);
       if(!match){ res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ imageUrl: null })); return; }
-      const thumbR = await fetch(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${match.id}&size=150x150&format=Png&isCircular=false`);
+      const thumbR = await fetchWithRetry(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${match.id}&size=150x150&format=Png&isCircular=false`);
       const thumbData = await thumbR.json();
       const entry = (thumbData.data || [])[0];
       res.writeHead(200, { 'Content-Type': 'application/json' });
