@@ -88,9 +88,14 @@ async function initSchema() {
       creator       TEXT NOT NULL REFERENCES users(username),
       side          TEXT NOT NULL,
       items         JSONB NOT NULL,
+      locked        BOOLEAN,
       created_at    TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `);
+  // Migration for any database that already had this table from before the
+  // normal/duped pet-lock feature existed - CREATE TABLE IF NOT EXISTS
+  // alone won't add a missing column to an already-existing table.
+  await pool.query(`ALTER TABLE coinflip_lobbies ADD COLUMN IF NOT EXISTS locked BOOLEAN;`);
 
   await pool.query(`
     CREATE TABLE IF NOT EXISTS transactions (
@@ -185,13 +190,18 @@ async function loadPendingWithdrawRequests() {
 // created but never joined/cancelled, so its items are still escrowed.
 async function loadPendingCoinflipLobbies() {
   const res = await pool.query(
-    `SELECT id, creator, side, items FROM coinflip_lobbies ORDER BY created_at ASC`
+    `SELECT id, creator, side, items, locked FROM coinflip_lobbies ORDER BY created_at ASC`
   );
   return res.rows.map((r) => ({
     id: r.id,
     creator: r.creator,
     side: r.side,
     items: r.items,
+    // null (a lobby persisted from before this feature existed) is
+    // deliberately left as undefined here, not coerced to false - see
+    // joinItemsMatchLockedLobby in server.js, which treats undefined as
+    // "legacy lobby, no pet-identity restriction" rather than "unlocked".
+    locked: r.locked == null ? undefined : r.locked,
   }));
 }
 
@@ -296,8 +306,8 @@ async function insertWithdrawRequest(req) {
 
 async function insertCoinflipLobby(lobby) {
   await pool.query(
-    `INSERT INTO coinflip_lobbies (id, creator, side, items) VALUES ($1,$2,$3,$4)`,
-    [lobby.id, lobby.creator, lobby.side, JSON.stringify(lobby.items)]
+    `INSERT INTO coinflip_lobbies (id, creator, side, items, locked) VALUES ($1,$2,$3,$4,$5)`,
+    [lobby.id, lobby.creator, lobby.side, JSON.stringify(lobby.items), !!lobby.locked]
   );
 }
 

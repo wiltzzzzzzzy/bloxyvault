@@ -313,6 +313,34 @@ function itemValue(id) {
   const p = petCatalog[id];
   return p ? p.value : 0;
 }
+// Every duped pet's catalog id is exactly "dup_" + the original pet's id
+// (confirmed by inspecting gameData.json - 587 duped entries, every single
+// one has a real corresponding non-duped entry). This makes identifying
+// normal vs duped, and finding a pet's counterpart, a pure string check -
+// no name-matching or extra catalog lookups needed, and no way for a
+// client to lie about it since it's just the id itself.
+function isDupedItemId(id) { return typeof id === 'string' && id.startsWith('dup_'); }
+function normalizeItemId(id) { return isDupedItemId(id) ? id.slice(4) : id; }
+
+// Used by handleCoinflipJoin for a locked/unlocked lobby (see
+// handleCoinflipCreate) - every item the joiner stakes must be the SAME
+// underlying pet as something the creator staked (creator's items are
+// already guaranteed all-normal at creation time), and if the lobby is
+// locked, must additionally be the exact normal item, not the duped
+// variant. A lobby with `locked === undefined` was persisted from before
+// this feature existed - deliberately exempt from this check entirely,
+// so an in-flight lobby from before a deploy doesn't suddenly become
+// unjoinable under a restriction it was never created with.
+function joinItemsMatchLockedLobby(lobby, joinItems) {
+  if (lobby.locked === undefined) return true;
+  const creatorIds = new Set(lobby.items);
+  for (const id of joinItems) {
+    if (lobby.locked && isDupedItemId(id)) return false;
+    if (!creatorIds.has(normalizeItemId(id))) return false;
+  }
+  return true;
+}
+
 function stakeValue(items) {
   return items.reduce((sum, id) => sum + itemValue(id), 0);
 }
@@ -484,7 +512,7 @@ function pickBotNames(n, pool) {
 let cfLobbies = []; // { id, creator, side, items }
 
 function broadcastCfLobbies() {
-  broadcast({ type: 'coinflip:lobbies', lobbies: cfLobbies.map((l) => ({ id: l.id, creator: l.creator, side: l.side, items: l.items })) });
+  broadcast({ type: 'coinflip:lobbies', lobbies: cfLobbies.map((l) => ({ id: l.id, creator: l.creator, side: l.side, items: l.items, locked: l.locked })) });
 }
 
 
@@ -570,11 +598,19 @@ function handleCoinflipCreate(username, msg) {
   if (!items.length || !ownsAll(username, items)) {
     return send(usernameToSocket.get(username), { type: 'error', message: "You don't own those items." });
   }
+  // A Coinflip lobby can only ever be CREATED with normal (non-duped)
+  // pets - this applies regardless of whether Locked or Unlocked is
+  // chosen. Duped pets can still be used to JOIN an existing Unlocked
+  // lobby (see handleCoinflipJoin), just never to start one.
+  if (items.some(isDupedItemId)) {
+    return send(usernameToSocket.get(username), { type: 'error', message: 'Duped pets cannot be used to create a Coinflip lobby - only normal pets.' });
+  }
   removeItems(username, items); // escrow
   trackWager(username, stakeValue(items));
   persistUser(username, { type: 'coinflip_create_escrow', amount: 0, itemsTouched: [...new Set(items)] });
   const id = 'cf_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
-  const lobby = { id, creator: username, side: msg.side, items };
+  const locked = !!msg.locked;
+  const lobby = { id, creator: username, side: msg.side, items, locked };
   cfLobbies.push(lobby);
   // Persisted so a server restart while this lobby is still waiting for an
   // opponent doesn't lose track of it - the items were already escrowed out
@@ -603,6 +639,12 @@ function handleCoinflipJoin(username, msg) {
   const lo = lobbyValue * (1 - CF_MATCH_TOLERANCE), hi = lobbyValue * (1 + CF_MATCH_TOLERANCE);
   if (joinValue < lo || joinValue > hi) {
     return send(usernameToSocket.get(username), { type: 'error', message: 'Your stake is outside the allowed ±10% range.' });
+  }
+  if (!joinItemsMatchLockedLobby(lobby, items)) {
+    const reason = lobby.locked
+      ? 'This lobby is locked - you must join with the matching normal pet.'
+      : 'You must join with the matching normal or duped pet.';
+    return send(usernameToSocket.get(username), { type: 'error', message: reason });
   }
   removeItems(username, items); // escrow
   trackWager(username, joinValue);

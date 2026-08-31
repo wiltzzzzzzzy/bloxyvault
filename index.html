@@ -617,6 +617,25 @@
   }
   .side-opt.selected.heads{ border-color:var(--gold); color:var(--gold); background:rgba(244,196,48,0.08); }
   .side-opt.selected.tails{ border-color:var(--teal); color:var(--teal); background:rgba(52,211,201,0.08); }
+  /* Normal/duped pet lock toggle - sits right next to the side picker in
+     the create modal (see #cfLockPick), matching its exact visual style.
+     Locked = only the exact matching normal pet can join. Unlocked = the
+     matching normal OR duped pet can join. The server is always the one
+     that actually enforces this (see joinItemsMatchLockedLobby in
+     server.js) - this UI is just for choosing/displaying it. */
+  .lock-pick{ display:flex; gap:10px; margin-top:14px; }
+  .lock-opt{
+    flex:1; background:var(--bg-deep); border:2px solid var(--border); border-radius:10px; padding:14px 0;
+    text-align:center; font-weight:800; font-size:13px; color:var(--text-dim); cursor:pointer;
+  }
+  .lock-opt.selected.locked{ border-color:var(--purple); color:var(--purple-bright); background:rgba(108,92,231,0.1); }
+  .lock-opt.selected.unlocked{ border-color:var(--text-dim); color:var(--text); background:rgba(255,255,255,0.05); }
+  .cf-lock-badge{
+    display:inline-flex; align-items:center; gap:4px; font-size:10.5px; font-weight:700;
+    padding:2px 7px; border-radius:999px; background:var(--bg-panel-3); color:var(--text-faint);
+    border:1px solid var(--border-soft);
+  }
+  .cf-lock-badge.locked{ color:var(--purple-bright); border-color:rgba(108,92,231,0.4); }
 
   /* ============ CASE BATTLE TEAM CHOICE MODAL ============ */
   .team-choice-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 20px 20px; }
@@ -4311,6 +4330,14 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
         <div class="side-opt selected heads" data-side="H" id="cfModalHeadsOpt">HEADS</div>
         <div class="side-opt tails" data-side="T" id="cfModalTailsOpt">TAILS</div>
       </div>
+      <div id="cfLockPickWrap" style="margin-bottom:16px;">
+        <div class="field-label" style="margin-top:0;">Join Type</div>
+        <div class="lock-pick" style="max-width:280px;">
+          <div class="lock-opt unlocked selected" id="cfLockUnlockedOpt" title="Normal or duped pet may join">🔓 UNLOCKED</div>
+          <div class="lock-opt locked" id="cfLockLockedOpt" title="Only the matching normal pet may join">🔒 LOCKED</div>
+        </div>
+      </div>
+      <div class="cf-lock-badge" id="cfJoinLockNote" style="display:none; margin-bottom:16px;"></div>
       <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
         <div class="field-label" style="margin-top:0;">Select pets to stake</div>
         <div id="cfAutoTargetWrap" style="display:flex; gap:6px; align-items:center;">
@@ -6955,6 +6982,7 @@ function initials(name){
 let cfLobbies = [];
 let cfModalMode = 'create'; // 'create' | 'join'
 let cfModalSide = 'H';
+let cfModalLocked = false; // create-mode only - which pet-lock mode the new lobby will use
 let cfModalSelected = new Map();
 let cfJoinTargetId = null;
 let cfJoinTargetValue = 0;
@@ -7402,19 +7430,21 @@ function renderCfLobbies(){
         actionHtml = `<div class=\"cf-waiting-tag\">Flipping...</div><button class=\"ghost-btn\" data-view=\"${lob.id}\" style=\"padding:8px 16px; font-size:11px;\">View</button>`;
       }
     } else if(lob.isYou){
+      const lockBadge = lob.locked ? `<span class="cf-lock-badge locked">🔒 NORMAL ONLY</span>` : `<span class="cf-lock-badge">🔓 NORMAL/DUPED</span>`;
       avatarHtml = `<div class="cf-vs">
         <div class="cf-avatar" style="background:${lob.avatarColor}">${avatarCircleInner(currentUser, renderCfLobbies)}<span class="cf-lobby-side-pick ${lob.side}"></span></div>
         <span class="cf-vs-text">VS</span>
         <div class="cf-avatar-placeholder">${icon('user', 24)}</div>
       </div>`;
-      actionHtml = `<div class="cf-waiting-tag">Waiting for opponent...</div><button class="cf-join-btn cancel" data-cancel="${lob.id}">Cancel</button><button class="ghost-btn" data-view="${lob.id}" style="padding:8px 16px; font-size:11px;">View</button>`;
+      actionHtml = `<div class="cf-waiting-tag">Waiting for opponent...</div>${lockBadge}<button class="cf-join-btn cancel" data-cancel="${lob.id}">Cancel</button><button class="ghost-btn" data-view="${lob.id}" style="padding:8px 16px; font-size:11px;">View</button>`;
     } else {
+      const lockBadge = lob.locked ? `<span class="cf-lock-badge locked">🔒 NORMAL ONLY</span>` : `<span class="cf-lock-badge">🔓 NORMAL/DUPED</span>`;
       avatarHtml = `<div class="cf-vs">
         <div class="cf-avatar" style="background:${lob.avatarColor}">${avatarCircleInner(lob.ownerName, renderCfLobbies)}<span class="cf-lobby-side-pick ${lob.side}"></span></div>
         <span class="cf-vs-text">VS</span>
         <div class="cf-avatar-placeholder">${icon('user', 24)}</div>
       </div>`;
-      actionHtml = `<button class="cf-join-btn" data-join="${lob.id}">Join</button><button class="ghost-btn" data-view="${lob.id}" style="padding:8px 16px; font-size:11px;">View</button>`;
+      actionHtml = `${lockBadge}<button class="cf-join-btn" data-join="${lob.id}">Join</button><button class="ghost-btn" data-view="${lob.id}" style="padding:8px 16px; font-size:11px;">View</button>`;
     }
 
     row.innerHTML = `
@@ -7777,19 +7807,38 @@ function openCfModal(mode, targetId){
   cfJoinTargetId = targetId || null;
   cfModalSelected.clear();
   cfModalSide = 'H';
+  cfModalLocked = false;
 
   document.getElementById('cfModalTitle').textContent = mode === 'create' ? 'Create Lobby' : 'Join Lobby';
   document.getElementById('cfModalConfirmBtn').textContent = mode === 'create' ? 'Create Lobby' : 'Join & Flip';
 
+  let joinTargetLocked = false;
   if(mode === 'join'){
     const target = cfLobbies.find(l=>l.id===targetId);
     cfModalSide = (target && target.side === 'H') ? 'T' : 'H'; // you get the opposite side automatically
     cfJoinTargetValue = target ? cfStakeValue(target.items) : 0;
+    joinTargetLocked = !!(target && target.locked);
   } else {
     cfJoinTargetValue = 0;
   }
   document.getElementById('cfModalHeadsOpt').classList.toggle('selected', cfModalSide==='H');
   document.getElementById('cfModalTailsOpt').classList.toggle('selected', cfModalSide==='T');
+
+  // Create mode: show the editable Locked/Unlocked toggle. Join mode: hide
+  // it and show a read-only badge for whatever the lobby you're joining
+  // actually is - the server (not this UI) is what actually enforces it.
+  document.getElementById('cfLockPickWrap').style.display = mode === 'create' ? 'block' : 'none';
+  document.getElementById('cfLockUnlockedOpt').classList.toggle('selected', !cfModalLocked);
+  document.getElementById('cfLockLockedOpt').classList.toggle('selected', cfModalLocked);
+  const joinNote = document.getElementById('cfJoinLockNote');
+  if(mode === 'join'){
+    joinNote.style.display = 'inline-flex';
+    joinNote.className = 'cf-lock-badge' + (joinTargetLocked ? ' locked' : '');
+    joinNote.textContent = joinTargetLocked ? '🔒 NORMAL PET ONLY' : '🔓 NORMAL / DUPED';
+  } else {
+    joinNote.style.display = 'none';
+  }
+
   // Always show the wrapper now — Auto Select works in both create and join
   // mode (join mode already has an implicit target from the lobby you're
   // joining). Only the typed target-value input is create-only, since a
@@ -7811,6 +7860,14 @@ function setCfModalSide(side){
   cfModalSide = side;
   document.getElementById('cfModalHeadsOpt').classList.toggle('selected', side==='H');
   document.getElementById('cfModalTailsOpt').classList.toggle('selected', side==='T');
+}
+document.getElementById('cfLockLockedOpt').addEventListener('click', () => setCfModalLocked(true));
+document.getElementById('cfLockUnlockedOpt').addEventListener('click', () => setCfModalLocked(false));
+function setCfModalLocked(locked){
+  if(cfModalMode === 'join') return; // read-only in join mode - the lobby's own setting is what applies
+  cfModalLocked = locked;
+  document.getElementById('cfLockLockedOpt').classList.toggle('selected', locked);
+  document.getElementById('cfLockUnlockedOpt').classList.toggle('selected', !locked);
 }
 
 // ===========================================================
@@ -7950,7 +8007,7 @@ document.getElementById('cfModalConfirmBtn').addEventListener('click', () => {
   document.getElementById('cfLobbyModalOverlay').classList.remove('open');
 
   if(cfModalMode === 'create'){
-    mpSend({ type: 'coinflip:create', side: cfModalSide, items: myItems });
+    mpSend({ type: 'coinflip:create', side: cfModalSide, items: myItems, locked: cfModalLocked });
     showToast('Lobby created — waiting for an opponent...');
   } else {
     mpSend({ type: 'coinflip:join', lobbyId: cfJoinTargetId, items: myItems });
@@ -8127,33 +8184,46 @@ function sinkMultiplierAt(elapsedSeconds, growthRate){
   return Math.exp(growthRate * elapsedSeconds);
 }
 
-// A 0-1 "how far under" value driven purely by the current multiplier, used
-// only to position the ship/waterline - purely cosmetic, never sent
-// anywhere. Calibrated against the actual sink-point distribution
-// (generateSinkPoint in server.js) rather than an arbitrary big number -
-// most rounds resolve well under 4x, so the ship needs to visibly react
-// well before then, not just in the rare high-multiplier rounds.
+// A "how far under" value driven purely by the current multiplier, used
+// only to position the ship/waterline/depth readout - purely cosmetic,
+// never sent anywhere. Calibrated against the actual sink-point
+// distribution (generateSinkPoint in server.js) so most (lower-multiplier)
+// rounds still react well before an extreme value. Deliberately NOT capped
+// at 1 - a long/high-multiplier round should keep sinking deeper and keep
+// showing a bigger depth number, not freeze at a hardcoded ceiling.
 function sinkProgressFor(multiplier){
-  return Math.max(0, Math.min(1, Math.log(multiplier) / Math.log(6.5)));
+  return Math.max(0, Math.log(multiplier) / Math.log(6.5));
 }
 
-const SINK_MAX_DEPTH_FT = 300; // purely a display number - never affects the multiplier or server result
+const SINK_MAX_DEPTH_FT = 300; // depth = progress * this - purely a display number, never affects the multiplier or server result, and has no upper cap itself (progress isn't capped, so neither is depth)
 
 // Drives the ship's descent, the waterline, the underwater tint/bubbles,
-// and the depth readout - all from the SAME 0-1 progress value, so the
-// depth number can never say something the visual doesn't also show.
-// Only ever called during the active/sinking phase (and once with 0 while
-// idle) - never fights with sinkApplyApproach below since the two never
-// run in the same phase.
+// and the depth readout - all from the SAME progress value, so the depth
+// number can never say something the visual doesn't also show. Only ever
+// called during the active/sinking phase (and once with 0 while idle) -
+// never fights with sinkApplyApproach below since the two never run in
+// the same phase.
 function sinkApplyDepth(progress){
-  document.getElementById('sinkWaterline').style.height = (30 + progress * 66) + '%';
-  document.getElementById('sinkUnderwaterTint').style.opacity = progress * 0.75;
-  document.getElementById('sinkBubbles').style.opacity = Math.min(1, progress * 1.6);
+  // The depth number itself is genuinely uncapped - this is the fix for
+  // "shouldn't stop at 300ft".
   document.getElementById('sinkDepthDisplay').textContent = `DEPTH: ${Math.round(progress * SINK_MAX_DEPTH_FT)} FT`;
+
+  // CSS properties below DO have real physical limits (can't render past
+  // 100% of the container, opacity can't go negative), so they use a
+  // separate value derived from the SAME progress, capped a bit further
+  // out than before (1.4 instead of 1.0) so the ship keeps visibly
+  // sinking further for deeper rounds instead of freezing dead at the old
+  // position - it only stops moving once it's already fully out of frame,
+  // which is a reasonable physical result of it being deep enough to be
+  // gone from view, not an arbitrary independent animation.
+  const visual = Math.min(progress, 1.4);
+  document.getElementById('sinkWaterline').style.height = Math.min(30 + visual * 66, 100) + '%';
+  document.getElementById('sinkUnderwaterTint').style.opacity = Math.min(visual * 0.75, 0.9);
+  document.getElementById('sinkBubbles').style.opacity = Math.min(1, visual * 1.6);
   const ship = document.getElementById('sinkShip');
-  ship.style.bottom = (26 - progress * 28) + '%';
-  ship.style.transform = `translate(-50%, 0) rotate(${progress * 22}deg)`;
-  ship.style.opacity = 1 - progress * 0.55;
+  ship.style.bottom = (26 - visual * 28) + '%';
+  ship.style.transform = `translate(-50%, 0) rotate(${Math.min(visual * 22, 30)}deg)`;
+  ship.style.opacity = Math.max(0, 1 - visual * 0.55);
 }
 
 // Drives the final-5-seconds approach: the ship drifts sideways toward the
@@ -8259,22 +8329,35 @@ function sinkTick(){
     sinkApplyApproach(approachT); // continuous the whole 5s, not a class-toggle fade-in
   } else if(sinkState.phase === 'active'){
     const elapsed = (Date.now() - sinkState.activeStartAt) / 1000;
-    const multiplier = sinkMultiplierAt(elapsed, sinkState.growthRate);
+    const liveMultiplier = sinkMultiplierAt(elapsed, sinkState.growthRate);
     phaseLabel.textContent = 'SAILING';
     timerEl.textContent = '';
-    multEl.textContent = multiplier.toFixed(2) + 'x';
     const mine = sinkMyEntry();
-    multEl.className = 'sink-multiplier' + (mine && mine.cashedOutAt != null ? ' cashed' : '');
+    const iCashedOut = !!(mine && mine.cashedOutAt != null);
+    // Once I've personally cashed out, MY display freezes at MY OWN locked
+    // multiplier (server-authoritative, from handleSinkCashout) instead of
+    // continuing to track the still-climbing live round multiplier - this
+    // was the actual cause of "cashed out at 1.07x but the screen shows
+    // 1.37x". The payout itself was always computed correctly; only the
+    // number shown back to the player kept changing after the fact.
+    // Spectators and players still in the round correctly keep seeing the
+    // live number, same as before - this only affects your own view once
+    // your own cashout has actually locked in.
+    multEl.textContent = (iCashedOut ? mine.cashedOutAt : liveMultiplier).toFixed(2) + 'x';
+    multEl.className = 'sink-multiplier' + (iCashedOut ? ' cashed' : '');
     if(mine && mine.cashedOutAt == null){
-      payoutEl.innerHTML = 'Current payout: ' + coinIcon() + ' ' + fmt(Math.floor(mine.wager * multiplier));
+      payoutEl.innerHTML = 'Current payout: ' + coinIcon() + ' ' + fmt(Math.floor(mine.wager * liveMultiplier));
     } else {
       payoutEl.textContent = '';
     }
     ship.classList.remove('sunk');
     // Ship/iceberg horizontal position stays exactly where the approach
     // left them (impact position) - only depth (vertical position, water,
-    // tint, bubbles) keeps changing from here.
-    sinkApplyDepth(sinkProgressFor(multiplier));
+    // tint, bubbles) keeps changing from here. This still reflects the
+    // real, shared round state for everyone (including a player who's
+    // already cashed out) - only the big multiplier NUMBER freezes for
+    // them, not the ship's own animation.
+    sinkApplyDepth(sinkProgressFor(liveMultiplier));
   } else {
     // sunk - deliberately does NOT touch depth/ship position here. The
     // ship stays exactly wherever the last real active-phase tick left it
@@ -8328,23 +8411,22 @@ mpOn('sink:state', (msg) => {
     setTimeout(() => scene.classList.remove('impact'), 650);
   }
 
-  // The final explosion: fires once, a beat after the round actually ends
-  // - not instantly - so players get to see the ship genuinely sitting at
-  // whatever depth it really sank at (see sinkTick's 'sunk' branch, which
-  // deliberately leaves it there rather than snapping to max depth). Only
-  // *after* that pause does it explode and go to full submersion - this
-  // is what replaces the old "teleports straight to 300ft" behavior with
-  // an honest final beat.
+  // The final explosion - fires synchronously, tied directly to the
+  // server's authoritative 'sunk' broadcast arriving. No delay before it
+  // starts: the only setTimeout left here is just cleanup (removing the
+  // shake/flash CSS class after its own 0.75s animation finishes), not a
+  // gate on when the explosion itself begins.
   if(sinkPrevPhase === 'active' && msg.phase === 'sunk'){
     const scene = document.getElementById('sinkShipScene');
     const shipEl = document.getElementById('sinkShip');
-    setTimeout(() => {
-      if(!sinkState || sinkState.phase !== 'sunk') return; // a new round could theoretically have already started
-      scene.classList.add('explosion');
-      sinkApplyDepth(1); // final full submersion, continuing on from wherever it actually was
-      shipEl.classList.add('sunk');
-      setTimeout(() => scene.classList.remove('explosion'), 750);
-    }, 700);
+    scene.classList.add('explosion');
+    // The real depth it actually sank at, not a hardcoded "max" - depth
+    // has no cap now (see sinkProgressFor), so forcing a fixed value here
+    // could show a SMALLER number than what was already on screen for any
+    // round that sank past the old 300ft-equivalent point.
+    sinkApplyDepth(sinkProgressFor(msg.sunkMultiplier || 1));
+    shipEl.classList.add('sunk');
+    setTimeout(() => scene.classList.remove('explosion'), 750);
   }
 
   sinkPrevPhase = msg.phase;
