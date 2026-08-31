@@ -77,6 +77,19 @@ if (!ROBLOX_OAUTH_CLIENT_ID || !ROBLOX_OAUTH_CLIENT_SECRET || !PUBLIC_BASE_URL) 
 // redirect flow - see /roblox/oauth/login and /roblox/oauth/callback.
 const pendingOAuthStates = new Map();
 
+// Successful Roblox avatar lookups are cached here for a while - avatars
+// don't change often, and without this, every single render of every
+// username anywhere on the site (Coinflip lobbies, Case Battle player
+// cards, etc.) across every connected browser was triggering its own
+// fresh outbound call to Roblox for the same handful of usernames, which
+// both wastes requests and raises the odds of tripping Roblox's own rate
+// limits - a likely contributor to the intermittent PFP failures this was
+// built to fix. Deliberately does NOT cache failures/nulls - a username
+// that briefly failed to resolve should be retried on the next request,
+// not permanently remembered as "no avatar" (see /roblox/avatar below).
+const AVATAR_CACHE_TTL_MS = 30 * 60 * 1000;
+const avatarCache = new Map(); // username(lowercase) -> {imageUrl, userId, cachedAt}
+
 // ---------------------------------------------------------------------------
 // Connection + account state
 // ---------------------------------------------------------------------------
@@ -2410,14 +2423,23 @@ const server = http.createServer(async (req, res) => {
 
   if(url.pathname === '/roblox/avatar'){
     const username = url.searchParams.get('username') || '';
+    const cacheKey = username.toLowerCase();
+    const cached = avatarCache.get(cacheKey);
+    if (cached && Date.now() - cached.cachedAt < AVATAR_CACHE_TTL_MS) {
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ imageUrl: cached.imageUrl, userId: cached.userId }));
+      return;
+    }
     try{
       const match = await robloxResolveUsername(username);
       if(!match){ res.writeHead(200, { 'Content-Type': 'application/json' }); res.end(JSON.stringify({ imageUrl: null })); return; }
       const thumbR = await fetchWithRetry(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${match.id}&size=150x150&format=Png&isCircular=false`);
       const thumbData = await thumbR.json();
       const entry = (thumbData.data || [])[0];
+      const imageUrl = entry && entry.imageUrl ? entry.imageUrl : null;
+      if (imageUrl) avatarCache.set(cacheKey, { imageUrl, userId: match.id, cachedAt: Date.now() });
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ imageUrl: entry && entry.imageUrl ? entry.imageUrl : null, userId: match.id }));
+      res.end(JSON.stringify({ imageUrl, userId: match.id }));
     } catch(e){
       res.writeHead(502, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ imageUrl: null, error: 'roblox_unreachable' }));
@@ -2796,6 +2818,20 @@ wss.on('connection', (ws) => {
       case 'mines:cashout': return handleMinesCashout(username);
       case 'sink:join': return handleSinkJoin(username, msg);
       case 'sink:cashout': return handleSinkCashout(username);
+      // Lets the client force a fresh, authoritative sink:state without a
+      // full reconnect - sent when the tab regains visibility, since a
+      // backgrounded/suspended tab can miss processing state updates for a
+      // while and shouldn't keep extrapolating a multiplier from a
+      // possibly-stale local timestamp once it's back.
+      case 'sink:resync': return send(ws, { type: 'sink:state', ...sinkPublicState(sinkRound) });
+      // The client requests this whenever its tab becomes visible again
+      // after being backgrounded - without an explicit resync, a client
+      // that missed a broadcast while backgrounded had no way to recover
+      // other than waiting for the next unrelated state change, which
+      // could leave it computing the multiplier from a very stale
+      // activeStartAt in the meantime. This just re-sends the exact same
+      // payload login already sends, so it's always safe to call.
+      case 'sink:resync': return send(ws, { type: 'sink:state', ...sinkPublicState(sinkRound) });
       case 'leaderboard:request': return handleLeaderboardRequest(username);
       case 'withdraw:request': return handleWithdrawRequest(username, msg);
       case 'withdraw:cancel': return handleWithdrawCancel(username, msg);

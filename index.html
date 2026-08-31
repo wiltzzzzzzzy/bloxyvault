@@ -5136,22 +5136,35 @@ function applyAvatarForUser(username){
 // small cache; kicks off a background fetch + re-render on first miss so
 // real photos progressively swap in over colored initials, the same way
 // the topbar avatar already does.
-const sharedAvatarCache = {}; // username -> imageUrl string, or null if none found
+const sharedAvatarCache = {}; // username -> { url: string|null, cachedAt: number }
 const sharedAvatarPending = new Set();
+// A failed lookup used to be cached as permanent - once ANY transient
+// issue (a rate limit, a brief server hiccup, a flaky CORS-relay fallback)
+// hit on the first attempt for a given username, that user's avatar would
+// never be retried for the rest of the browser session, showing up as
+// "sometimes PFPs just don't appear". Now a failure only sticks for this
+// cooldown before the next render attempt gets to try again.
+const AVATAR_RETRY_COOLDOWN_MS = 30000;
 function getCachedAvatarUrl(username, onLoaded){
   if(users[username] && users[username].avatarUrl){
-    sharedAvatarCache[username] = users[username].avatarUrl;
+    sharedAvatarCache[username] = { url: users[username].avatarUrl, cachedAt: Date.now() };
   }
-  if(Object.prototype.hasOwnProperty.call(sharedAvatarCache, username)) return sharedAvatarCache[username];
+  const entry = sharedAvatarCache[username];
+  const isStaleFailure = entry && entry.url == null && (Date.now() - entry.cachedAt) > AVATAR_RETRY_COOLDOWN_MS;
+  if(entry && !isStaleFailure) return entry.url;
+
   if(!sharedAvatarPending.has(username)){
     sharedAvatarPending.add(username);
     fetchRobloxAvatarUrl(username).then(url => {
-      sharedAvatarCache[username] = url || null;
+      sharedAvatarCache[username] = { url: url || null, cachedAt: Date.now() };
       sharedAvatarPending.delete(username);
       if(url && typeof onLoaded === 'function') onLoaded();
-    }).catch(() => { sharedAvatarPending.delete(username); sharedAvatarCache[username] = null; });
+    }).catch(() => { sharedAvatarPending.delete(username); sharedAvatarCache[username] = { url: null, cachedAt: Date.now() }; });
   }
-  return undefined; // not resolved yet - caller should render the initials fallback for now
+  // While a (re)fetch is in flight, keep showing whatever we last knew
+  // (even a stale failure) instead of flashing back to initials and then
+  // to a photo a moment later.
+  return entry ? entry.url : undefined;
 }
 // Builds the inner HTML for an avatar circle: a real photo if we have one
 // cached, initials otherwise. `onLoaded` re-renders the caller once a photo
@@ -7021,6 +7034,7 @@ mpOn('coinflip:lobbies', (msg) => {
     ownerName: l.creator,
     side: l.side,
     items: l.items,
+    locked: l.locked,
     avatarColor: colorForUsername(l.creator),
     status: 'waiting',
   }));
@@ -7162,7 +7176,7 @@ function mockPickBotStake(targetValue){
 }
 
 function mockBroadcastCfLobbies(){
-  mpDispatch({ type: 'coinflip:lobbies', lobbies: mockCfLobbies.map(l => ({ id:l.id, creator:l.creator, side:l.side, items:l.items })) });
+  mpDispatch({ type: 'coinflip:lobbies', lobbies: mockCfLobbies.map(l => ({ id:l.id, creator:l.creator, side:l.side, items:l.items, locked:l.locked })) });
 }
 
 function mockResolveCoinflip(creator, creatorSide, creatorItems, joiner, joinerSide, joinerItems){
@@ -7187,7 +7201,7 @@ function mockResolveCoinflip(creator, creatorSide, creatorItems, joiner, joinerS
 
 mpOnSend('coinflip:create', (msg) => {
   const id = 'mockcf_you_' + Date.now();
-  mockCfLobbies.push({ id, creator: currentUser, side: msg.side, items: msg.items });
+  mockCfLobbies.push({ id, creator: currentUser, side: msg.side, items: msg.items, locked: !!msg.locked });
   trackWager(cfStakeValue(msg.items));
   mockBroadcastCfLobbies();
 
@@ -8177,6 +8191,7 @@ document.getElementById('minesPlayBtn').addEventListener('click', () => {
 // spoofed into a real payout.
 let sinkState = null; // last sink:state payload received
 let sinkTickHandle = null;
+let sinkResyncInFlight = false; // debounces sink:resync requests so a stuck stale-state situation doesn't spam the server every 100ms while waiting for a reply
 let sinkPrevPhase = null;
 let sinkPrevMyCashedOutAt = undefined; // undefined = hadn't joined / unknown yet
 
@@ -8329,6 +8344,20 @@ function sinkTick(){
     sinkApplyApproach(approachT); // continuous the whole 5s, not a class-toggle fade-in
   } else if(sinkState.phase === 'active'){
     const elapsed = (Date.now() - sinkState.activeStartAt) / 1000;
+    // A legitimate active round can realistically never run this long -
+    // even the most extreme tail of the sink-point distribution resolves
+    // in well under a minute. If elapsed is this large, sinkState itself
+    // is stale (a broadcast was missed, e.g. while this tab was
+    // backgrounded) rather than the round genuinely still being active.
+    // Request a fresh snapshot and skip rendering anything from the bad
+    // data this tick - this is what actually fixes the "10,000,000x"
+    // bug, not a display cap on an otherwise-legitimate number.
+    if(elapsed > 90 && !sinkResyncInFlight){
+      sinkResyncInFlight = true;
+      mpSend({ type: 'sink:resync' });
+      setTimeout(() => { sinkResyncInFlight = false; }, 3000);
+      return;
+    }
     const liveMultiplier = sinkMultiplierAt(elapsed, sinkState.growthRate);
     phaseLabel.textContent = 'SAILING';
     timerEl.textContent = '';
@@ -8378,6 +8407,19 @@ function sinkStartTicking(){
   sinkTick();
   sinkTickHandle = setInterval(sinkTick, 100);
 }
+
+// A backgrounded/suspended tab can miss processing sink:state updates for
+// a while (browsers can pause JS execution in hidden tabs), so the local
+// sinkState can go stale without anything noticing. Rather than let
+// sinkTick keep extrapolating a multiplier from a possibly-ancient
+// activeStartAt timestamp once the tab is visible again, force an
+// immediate resync the instant it regains focus - this is the actual fix
+// for the "absurd multiplier after switching tabs" bug, not a display cap.
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'visible' && mpConnected && !mpMockMode){
+    mpSend({ type: 'sink:resync' });
+  }
+});
 
 mpOn('sink:state', (msg) => {
   const isFreshRound = sinkPrevPhase !== 'joining' && msg.phase === 'joining';
@@ -8435,6 +8477,19 @@ mpOn('sink:state', (msg) => {
   sinkRenderPlayerList();
   sinkRenderControls();
   sinkStartTicking();
+});
+
+// Whenever this tab comes back into view after being backgrounded, get a
+// guaranteed-fresh state snapshot instead of trusting whatever's currently
+// cached locally - a background tab can miss/delay broadcasts for an
+// arbitrary amount of time, and this is what actually prevents that from
+// ever turning into a stale-timestamp-driven bogus multiplier once the
+// tab is active again (see the sinkTick staleness guard too, as a backup
+// for the same underlying problem).
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'visible' && mpConnected){
+    mpSend({ type: 'sink:resync' });
+  }
 });
 
 document.getElementById('sinkHalf').addEventListener('click', () => {
