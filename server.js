@@ -90,6 +90,30 @@ const pendingOAuthStates = new Map();
 const AVATAR_CACHE_TTL_MS = 30 * 60 * 1000;
 const avatarCache = new Map(); // username(lowercase) -> {imageUrl, userId, cachedAt}
 
+const NOTIFICATION_LOAD_LIMIT = 50; // matches the client's own history cap
+
+// Creates a notification for one user - persists it (with a DB-level
+// unique-constraint safety net against duplicates, see db.js), and pushes
+// it straight to their active connection if they're online right now, so
+// the bell updates without needing a refresh. Every call site below is
+// already exactly-once on its own (an atomic pending->resolved DB
+// transition for withdrawals, a single-execution battle resolution for
+// Case Battles) - this never trusts anything client-supplied about who
+// the notification is for or what it says, since it's only ever called
+// from server-side logic with server-computed values.
+async function createNotification({ username, type, title, message, refId }) {
+  let notif;
+  try {
+    notif = await db.insertNotification({ username, type, title, message, refId });
+  } catch (err) {
+    console.error(`[notifications] Failed to persist notification for ${username}:`, err.message);
+    return;
+  }
+  if (!notif) return; // duplicate - already existed, nothing to push
+  const ws = usernameToSocket.get(username);
+  if (ws) send(ws, { type: 'notifications:new', notification: notif });
+}
+
 // ---------------------------------------------------------------------------
 // Connection + account state
 // ---------------------------------------------------------------------------
@@ -335,23 +359,18 @@ function itemValue(id) {
 function isDupedItemId(id) { return typeof id === 'string' && id.startsWith('dup_'); }
 function normalizeItemId(id) { return isDupedItemId(id) ? id.slice(4) : id; }
 
-// Used by handleCoinflipJoin for a locked/unlocked lobby (see
-// handleCoinflipCreate) - every item the joiner stakes must be the SAME
-// underlying pet as something the creator staked (creator's items are
-// already guaranteed all-normal at creation time), and if the lobby is
-// locked, must additionally be the exact normal item, not the duped
-// variant. A lobby with `locked === undefined` was persisted from before
-// this feature existed - deliberately exempt from this check entirely,
-// so an in-flight lobby from before a deploy doesn't suddenly become
-// unjoinable under a restriction it was never created with.
+// Used by handleCoinflipJoin for a Locked/Unlocked lobby (see
+// handleCoinflipCreate). The ONLY thing Locked actually restricts is
+// whether a DUPED item can be staked - it is NOT a "must be the same pet
+// as the creator" rule (an earlier version of this wrongly required that;
+// any normal pet is fine, it doesn't need to relate to the creator's pet
+// at all). A lobby with `locked === undefined` was persisted from before
+// this feature existed - exempt entirely, so an in-flight lobby from
+// before a deploy doesn't suddenly become unjoinable under a restriction
+// it was never created with.
 function joinItemsMatchLockedLobby(lobby, joinItems) {
-  if (lobby.locked === undefined) return true;
-  const creatorIds = new Set(lobby.items);
-  for (const id of joinItems) {
-    if (lobby.locked && isDupedItemId(id)) return false;
-    if (!creatorIds.has(normalizeItemId(id))) return false;
-  }
-  return true;
+  if (lobby.locked === undefined || !lobby.locked) return true; // Unlocked (or legacy): normal or duped, no restriction
+  return joinItems.every((id) => !isDupedItemId(id)); // Locked: normal pets only
 }
 
 function stakeValue(items) {
@@ -611,18 +630,17 @@ function handleCoinflipCreate(username, msg) {
   if (!items.length || !ownsAll(username, items)) {
     return send(usernameToSocket.get(username), { type: 'error', message: "You don't own those items." });
   }
-  // A Coinflip lobby can only ever be CREATED with normal (non-duped)
-  // pets - this applies regardless of whether Locked or Unlocked is
-  // chosen. Duped pets can still be used to JOIN an existing Unlocked
-  // lobby (see handleCoinflipJoin), just never to start one.
-  if (items.some(isDupedItemId)) {
-    return send(usernameToSocket.get(username), { type: 'error', message: 'Duped pets cannot be used to create a Coinflip lobby - only normal pets.' });
+  const locked = !!msg.locked;
+  // Duped pets are only disallowed as the creator's wager in Locked mode -
+  // Unlocked allows either, on both sides (see joinItemsMatchLockedLobby
+  // for the join-side equivalent of this same rule).
+  if (locked && items.some(isDupedItemId)) {
+    return send(usernameToSocket.get(username), { type: 'error', message: 'A Locked Coinflip can only be created with a normal (non-duped) pet.' });
   }
   removeItems(username, items); // escrow
   trackWager(username, stakeValue(items));
   persistUser(username, { type: 'coinflip_create_escrow', amount: 0, itemsTouched: [...new Set(items)] });
   const id = 'cf_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
-  const locked = !!msg.locked;
   const lobby = { id, creator: username, side: msg.side, items, locked };
   cfLobbies.push(lobby);
   // Persisted so a server restart while this lobby is still waiting for an
@@ -654,10 +672,9 @@ function handleCoinflipJoin(username, msg) {
     return send(usernameToSocket.get(username), { type: 'error', message: 'Your stake is outside the allowed ±10% range.' });
   }
   if (!joinItemsMatchLockedLobby(lobby, items)) {
-    const reason = lobby.locked
-      ? 'This lobby is locked - you must join with the matching normal pet.'
-      : 'You must join with the matching normal or duped pet.';
-    return send(usernameToSocket.get(username), { type: 'error', message: reason });
+    // Only Locked can actually land here now - Unlocked never fails this
+    // check (any normal or duped pet is fine there).
+    return send(usernameToSocket.get(username), { type: 'error', message: 'This lobby is Locked - you can only join with a normal (non-duped) pet.' });
   }
   removeItems(username, items); // escrow
   trackWager(username, joinValue);
@@ -1264,6 +1281,13 @@ async function runBattle(b) {
     trackWin(p.username, share);
     persistUser(p.username, { type: 'casebattle_win', amount: share, balanceBefore: before, balanceAfter: u.coins });
     syncAccount(p.username);
+    createNotification({
+      username: p.username,
+      type: 'casebattle_win',
+      title: '🏆 Case Battle won',
+      message: `You won ${share.toLocaleString()} from the Case Battle.`,
+      refId: b.id,
+    });
   });
   b.players.filter((p) => !winningMembers.includes(p) && !p.isBot).forEach((p) => {
     trackLoss(p.username, perPlayerCost);
@@ -2075,6 +2099,16 @@ async function handleAdminWithdrawFulfill(username, msg) {
   persistUser(req.username, { type: 'withdraw_fulfilled', amount: 0, itemsTouched: Object.keys(actuallyRemoved), reason: `Fulfilled by ${ADMIN_USERNAME}`, adminUsername: ADMIN_USERNAME });
   syncAccount(req.username);
   send(usernameToSocket.get(req.username), { type: 'chat:message', username: 'System', text: `Your withdrawal request was fulfilled by ${ADMIN_USERNAME}.`, timestamp: Date.now(), system: true });
+  const removedNames = Object.keys(actuallyRemoved)
+    .map((id) => (petCatalog[id] ? petCatalog[id].name : id))
+    .join(', ');
+  createNotification({
+    username: req.username,
+    type: 'withdraw_fulfilled',
+    title: '✅ Withdrawal fulfilled',
+    message: removedNames ? `Your withdrawal was fulfilled: ${removedNames}.` : 'Your withdrawal request was fulfilled.',
+    refId: req.id,
+  });
   broadcastPendingWithdrawalsToAdmin();
 }
 
@@ -2094,6 +2128,13 @@ async function handleAdminWithdrawReject(username, msg) {
   persistUser(req.username, { type: 'withdraw_rejected', amount: 0, reason: `Rejected by ${ADMIN_USERNAME}`, adminUsername: ADMIN_USERNAME });
   syncAccount(req.username); // unlocks the items back into their available inventory
   send(usernameToSocket.get(req.username), { type: 'error', message: 'Your withdrawal request was declined.' });
+  createNotification({
+    username: req.username,
+    type: 'withdraw_rejected',
+    title: '❌ Withdrawal rejected',
+    message: 'Your withdrawal request was rejected.',
+    refId: req.id,
+  });
   broadcastPendingWithdrawalsToAdmin();
 }
 
@@ -2752,6 +2793,9 @@ wss.on('connection', (ws) => {
       send(ws, { type: 'diceduel:list', duels: diceDuelPublicList() });
       send(ws, { type: 'jackpot:state', ...jackpotPublicState() });
       send(ws, { type: 'sink:state', ...sinkPublicState(sinkRound) });
+      db.loadNotificationsForUser(username, NOTIFICATION_LOAD_LIMIT)
+        .then((notifications) => send(ws, { type: 'notifications:list', notifications }))
+        .catch((err) => console.error(`[notifications] Failed to load for ${username}:`, err.message));
       send(ws, { type: 'rain:state', ...rainPublicState() });
       send(ws, { type: 'feed:recent', entries: liveFeed });
       send(ws, { type: 'chat:history', messages: chatHistory });
@@ -2818,12 +2862,6 @@ wss.on('connection', (ws) => {
       case 'mines:cashout': return handleMinesCashout(username);
       case 'sink:join': return handleSinkJoin(username, msg);
       case 'sink:cashout': return handleSinkCashout(username);
-      // Lets the client force a fresh, authoritative sink:state without a
-      // full reconnect - sent when the tab regains visibility, since a
-      // backgrounded/suspended tab can miss processing state updates for a
-      // while and shouldn't keep extrapolating a multiplier from a
-      // possibly-stale local timestamp once it's back.
-      case 'sink:resync': return send(ws, { type: 'sink:state', ...sinkPublicState(sinkRound) });
       // The client requests this whenever its tab becomes visible again
       // after being backgrounded - without an explicit resync, a client
       // that missed a broadcast while backgrounded had no way to recover
@@ -2832,6 +2870,16 @@ wss.on('connection', (ws) => {
       // activeStartAt in the meantime. This just re-sends the exact same
       // payload login already sends, so it's always safe to call.
       case 'sink:resync': return send(ws, { type: 'sink:state', ...sinkPublicState(sinkRound) });
+      // Both of these use `username` - the identity this connection
+      // authenticated as via login/checkSessionToken earlier, never
+      // anything read from `msg` - so there's no way for a client to mark
+      // (or even address) another user's notifications.
+      case 'notifications:markRead':
+        if (msg.id != null) db.markNotificationRead(username, msg.id).catch((err) => console.error('[notifications] markRead failed:', err.message));
+        return;
+      case 'notifications:markAllRead':
+        db.markAllNotificationsRead(username).catch((err) => console.error('[notifications] markAllRead failed:', err.message));
+        return;
       case 'leaderboard:request': return handleLeaderboardRequest(username);
       case 'withdraw:request': return handleWithdrawRequest(username, msg);
       case 'withdraw:cancel': return handleWithdrawCancel(username, msg);

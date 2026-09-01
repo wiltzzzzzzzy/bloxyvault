@@ -141,6 +141,42 @@
   .bd-exchange-btn{ width:100%; background:var(--green); border:none; color:#04331f; font-weight:800; font-size:13px; padding:10px 0; border-radius:9px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; }
   .bd-exchange-btn:hover{ filter:brightness(1.08); }
   .bd-info{ font-size:11px; color:var(--text-dim); margin-top:10px; text-align:center; cursor:default; }
+  .notif-badge{
+    position:absolute; top:5px; right:5px; width:8px; height:8px; border-radius:50%;
+    background:var(--red); border:1.5px solid var(--panel);
+  }
+  .notif-panel{
+    position:absolute; top:calc(100% + 10px); right:0; width:340px; max-width:88vw;
+    background:var(--panel); border:1px solid var(--border); border-radius:14px;
+    box-shadow:0 16px 36px rgba(0,0,0,0.45); z-index:500;
+    display:none; flex-direction:column; max-height:420px; overflow:hidden;
+  }
+  .notif-panel.open{ display:flex; }
+  .notif-panel-header{
+    display:flex; align-items:center; justify-content:space-between; flex-shrink:0;
+    padding:14px 16px; border-bottom:1px solid var(--border-soft);
+    font-family:var(--font-display); font-weight:800; font-size:14px;
+  }
+  .notif-mark-all-btn{
+    background:none; border:none; color:var(--purple-bright); font-size:11px; font-weight:700; cursor:pointer; padding:4px;
+  }
+  .notif-mark-all-btn:hover{ text-decoration:underline; }
+  .notif-panel-list{ overflow-y:auto; padding:8px; display:flex; flex-direction:column; gap:6px; }
+  .notif-row{
+    display:flex; gap:10px; padding:10px 12px; border-radius:10px; background:var(--bg-panel-2);
+    border:1px solid transparent; cursor:pointer; text-align:left; transition:border-color 0.12s ease;
+  }
+  .notif-row.unread{ border-color:rgba(108,92,231,0.4); background:rgba(108,92,231,0.08); }
+  .notif-row:hover{ border-color:var(--purple); }
+  .notif-row-icon{ font-size:18px; flex-shrink:0; line-height:1.3; }
+  .notif-row-body{ min-width:0; flex:1; }
+  .notif-row-title{ font-weight:700; font-size:12.5px; margin-bottom:2px; }
+  .notif-row-msg{ font-size:11.5px; color:var(--text-dim); line-height:1.4; }
+  .notif-row-time{ font-size:10px; color:var(--text-faint); margin-top:4px; }
+  .notif-empty{ text-align:center; padding:34px 16px; color:var(--text-faint); font-size:12.5px; }
+  @media (max-width: 520px){
+    .notif-panel{ position:fixed; top:64px; right:8px; left:8px; width:auto; max-width:none; }
+  }
   .user-chip{ display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700; background:var(--bg-panel-2); border:1px solid var(--border); border-radius:10px; padding:6px 12px 6px 6px; }
   .avatar-dot{ width:30px;height:30px;border-radius:50%; background:linear-gradient(135deg, var(--purple), var(--teal)); display:flex;align-items:center;justify-content:center; font-size:13px; font-weight:900; overflow:hidden; position:relative; flex-shrink:0; }
   .avatar-dot img{ width:100%; height:100%; object-fit:cover; border-radius:50%; display:none; }
@@ -619,10 +655,12 @@
   .side-opt.selected.tails{ border-color:var(--teal); color:var(--teal); background:rgba(52,211,201,0.08); }
   /* Normal/duped pet lock toggle - sits right next to the side picker in
      the create modal (see #cfLockPick), matching its exact visual style.
-     Locked = only the exact matching normal pet can join. Unlocked = the
-     matching normal OR duped pet can join. The server is always the one
-     that actually enforces this (see joinItemsMatchLockedLobby in
-     server.js) - this UI is just for choosing/displaying it. */
+     Locked = only normal (non-duped) pets, on either side - NOT a
+     "must be the same pet as the creator" rule, any normal pet qualifies.
+     Unlocked = normal or duped pets, on either side, no restriction at
+     all. The server is always the one that actually enforces this (see
+     joinItemsMatchLockedLobby in server.js) - this UI is just for
+     choosing/displaying it. */
   .lock-pick{ display:flex; gap:10px; margin-top:14px; }
   .lock-opt{
     flex:1; background:var(--bg-deep); border:2px solid var(--border); border-radius:10px; padding:14px 0;
@@ -3501,7 +3539,19 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
           </label>
         </div>
       </div>
-      <button class="logout-btn" id="notifBtn" title="Notifications" style="padding:8px;"><span class="nav-icon-slot" data-icon="bell" style="width:16px;height:16px;"></span></button>
+      <div style="position:relative;">
+        <button class="logout-btn" id="notifBtn" title="Notifications" style="padding:8px; position:relative;">
+          <span class="nav-icon-slot" data-icon="bell" style="width:16px;height:16px;"></span>
+          <span class="notif-badge" id="notifBadge" style="display:none;"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-panel-header">
+            <span>Notifications</span>
+            <button type="button" class="notif-mark-all-btn" id="notifMarkAllBtn">Mark all as read</button>
+          </div>
+          <div class="notif-panel-list" id="notifPanelList"></div>
+        </div>
+      </div>
       <button class="logout-btn" id="adminPanelBtn" title="Admin Panel" style="padding:8px; display:none; color:var(--gold); border-color:var(--gold);">🛡️</button>
       <button class="logout-btn" id="profileBtn" title="Profile" style="padding:8px;"><span class="nav-icon-slot" data-icon="user" style="width:16px;height:16px;"></span></button>
       <div class="user-chip"><div class="avatar-dot"><img id="avatarImg" alt=""><span id="avatarInitial">?</span></div><span id="navUsername"></span><span class="nav-icon-slot" data-icon="badgeCheck" style="width:14px;height:14px; color:var(--teal);" title="Verified via Roblox"></span></div>
@@ -4333,8 +4383,8 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
       <div id="cfLockPickWrap" style="margin-bottom:16px;">
         <div class="field-label" style="margin-top:0;">Join Type</div>
         <div class="lock-pick" style="max-width:280px;">
-          <div class="lock-opt unlocked selected" id="cfLockUnlockedOpt" title="Normal or duped pet may join">🔓 UNLOCKED</div>
-          <div class="lock-opt locked" id="cfLockLockedOpt" title="Only the matching normal pet may join">🔒 LOCKED</div>
+          <div class="lock-opt unlocked selected" id="cfLockUnlockedOpt" title="Normal or duped pets allowed, on either side">🔓 UNLOCKED</div>
+          <div class="lock-opt locked" id="cfLockLockedOpt" title="Only normal (non-duped) pets allowed - any normal pet, not just a matching one">🔒 LOCKED</div>
         </div>
       </div>
       <div class="cf-lock-badge" id="cfJoinLockNote" style="display:none; margin-bottom:16px;"></div>
@@ -5313,7 +5363,94 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
   const avatarImgEl = document.getElementById('avatarImg');
   if(avatarImgEl){ avatarImgEl.classList.remove('loaded'); avatarImgEl.removeAttribute('src'); }
 });
-document.getElementById('notifBtn').addEventListener('click', () => showToast("You're all caught up — no new notifications."));
+// ---- Notifications ----
+// Server-authoritative throughout: this array is only ever populated from
+// notifications:list (sent on login) and notifications:new (pushed live
+// when one is created while connected) - there's no client-side way to
+// add, remove, or alter an entry. Marking read is likewise just a request
+// sent to the server (notifications:markRead/markAllRead); the actual
+// read state only becomes real once the server confirms it back via a
+// fresh list/new message, same as everything else in this app.
+let notifications = [];
+const NOTIF_ICONS = { withdraw_fulfilled: '✅', withdraw_rejected: '❌', casebattle_win: '🏆' };
+
+function updateNotifBadge(){
+  const unreadCount = notifications.filter(n => !n.read).length;
+  document.getElementById('notifBadge').style.display = unreadCount > 0 ? 'block' : 'none';
+}
+
+function notifTimeAgo(ts){
+  const diffSec = Math.max(0, Math.floor((Date.now() - ts) / 1000));
+  if(diffSec < 60) return 'just now';
+  const diffMin = Math.floor(diffSec / 60);
+  if(diffMin < 60) return `${diffMin}m ago`;
+  const diffHr = Math.floor(diffMin / 60);
+  if(diffHr < 24) return `${diffHr}h ago`;
+  const diffDay = Math.floor(diffHr / 24);
+  if(diffDay < 7) return `${diffDay}d ago`;
+  return new Date(ts).toLocaleDateString();
+}
+
+function renderNotifPanel(){
+  const list = document.getElementById('notifPanelList');
+  if(notifications.length === 0){
+    list.innerHTML = `<div class="notif-empty">You're all caught up — no notifications yet.</div>`;
+    return;
+  }
+  list.innerHTML = notifications.map(n => `
+    <button type="button" class="notif-row ${n.read ? '' : 'unread'}" data-notif-id="${n.id}">
+      <div class="notif-row-icon">${NOTIF_ICONS[n.type] || '🔔'}</div>
+      <div class="notif-row-body">
+        <div class="notif-row-title">${n.title}</div>
+        <div class="notif-row-msg">${n.message}</div>
+        <div class="notif-row-time">${notifTimeAgo(n.createdAt)}</div>
+      </div>
+    </button>
+  `).join('');
+}
+
+const notifBtn = document.getElementById('notifBtn');
+const notifPanel = document.getElementById('notifPanel');
+notifBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  notifPanel.classList.toggle('open');
+});
+// Closes when clicking anywhere outside the panel/button, without blocking
+// any other click on the page - a normal dropdown pattern, not a modal.
+document.addEventListener('click', (e) => {
+  if(notifPanel.classList.contains('open') && !notifPanel.contains(e.target) && !notifBtn.contains(e.target)){
+    notifPanel.classList.remove('open');
+  }
+});
+document.getElementById('notifPanelList').addEventListener('click', (e) => {
+  const row = e.target.closest('.notif-row');
+  if(!row) return;
+  const id = row.dataset.notifId;
+  const n = notifications.find(x => String(x.id) === id);
+  if(!n || n.read) return;
+  n.read = true; // optimistic - the server is still the one that actually persists this
+  renderNotifPanel();
+  updateNotifBadge();
+  mpSend({ type: 'notifications:markRead', id: n.id });
+});
+document.getElementById('notifMarkAllBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  notifications.forEach(n => { n.read = true; });
+  renderNotifPanel();
+  updateNotifBadge();
+  mpSend({ type: 'notifications:markAllRead' });
+});
+
+mpOn('notifications:list', (msg) => {
+  notifications = msg.notifications || [];
+  renderNotifPanel();
+  updateNotifBadge();
+});
+mpOn('notifications:new', (msg) => {
+  notifications.unshift(msg.notification);
+  renderNotifPanel();
+  updateNotifBadge();
+});
 document.getElementById('profileBtn').addEventListener('click', () => {
   if(!currentUser) return;
   openAccountModal('profile');
