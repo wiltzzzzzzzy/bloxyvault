@@ -2629,6 +2629,14 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // Public privacy policy page - no login/session required, works from a
+  // direct link, and survives a refresh since it's a real server route
+  // rather than client-side SPA state. Intentionally checked before the
+  // catch-all index.html fallback below.
+  if(url.pathname === '/privacy'){
+    return servePrivacyHtml(req, res);
+  }
+
   if(url.pathname.startsWith('/assets/img/')){
     return serveImageAsset(url.pathname, res);
   }
@@ -2730,6 +2738,50 @@ function serveIndexHtml(req, res) {
     ...(canGzip ? { 'Content-Encoding': 'gzip' } : {}),
   });
   res.end(canGzip ? cachedIndexGzip : cachedIndexRaw);
+}
+
+// Same idea as index.html's cache above, for the standalone public privacy
+// policy page. Kept as its own separate static file (not part of the SPA)
+// so it works from a direct URL, survives a refresh, and needs no login or
+// client-side routing to render - a plain GET that always returns the same
+// self-contained HTML page.
+let cachedPrivacyGzip = null;
+let cachedPrivacyRaw = null;
+let cachedPrivacyEtag = null;
+
+function loadPrivacyHtmlCache() {
+  const privacyPath = path.join(__dirname, 'privacy.html');
+  const raw = fs.readFileSync(privacyPath);
+  cachedPrivacyRaw = raw;
+  cachedPrivacyGzip = zlib.gzipSync(raw, { level: zlib.constants.Z_BEST_COMPRESSION });
+  cachedPrivacyEtag = '"' + crypto.createHash('sha1').update(raw).digest('hex') + '"';
+  console.log(`[boot] Cached privacy.html: ${raw.length.toLocaleString()} bytes raw -> ${cachedPrivacyGzip.length.toLocaleString()} bytes gzipped.`);
+}
+
+function servePrivacyHtml(req, res) {
+  try {
+    if (!cachedPrivacyGzip) loadPrivacyHtmlCache(); // lazy fallback if boot-time load somehow didn't run yet
+  } catch (err) {
+    res.writeHead(500, { 'Content-Type': 'text/plain' });
+    res.end('Could not load privacy policy.');
+    return;
+  }
+
+  if (req.headers['if-none-match'] === cachedPrivacyEtag) {
+    res.writeHead(304);
+    res.end();
+    return;
+  }
+
+  const acceptEncoding = req.headers['accept-encoding'] || '';
+  const canGzip = acceptEncoding.includes('gzip');
+  res.writeHead(200, {
+    'Content-Type': 'text/html; charset=utf-8',
+    'ETag': cachedPrivacyEtag,
+    'Cache-Control': 'public, max-age=0, must-revalidate',
+    ...(canGzip ? { 'Content-Encoding': 'gzip' } : {}),
+  });
+  res.end(canGzip ? cachedPrivacyGzip : cachedPrivacyRaw);
 }
 
 const wss = new WebSocketServer({ server });
@@ -2992,6 +3044,7 @@ const PORT = process.env.PORT || 8080;
     console.log(`[boot] Loaded ${loadedCfLobbies.length} pending coinflip lobby(ies) from Postgres.`);
 
     loadIndexHtmlCache();
+    loadPrivacyHtmlCache();
     startSinkJoiningPhase();
     server.listen(PORT, () => console.log(`BloxyVault server listening on :${PORT}`));
   } catch (err) {

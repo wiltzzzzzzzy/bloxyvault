@@ -92,6 +92,21 @@
   .auth-submit:hover{ background:var(--purple-bright); }
   .auth-submit:disabled{ background:#3a3f5c; color:#787ea0; cursor:not-allowed; }
   .auth-note{ text-align:center; font-size:11px; color:var(--text-dim); margin-top:16px; line-height:1.5; }
+  .privacy-link-row{ text-align:center; margin-top:14px; }
+  .privacy-link-row a{ color:var(--teal); font-size:12px; font-weight:700; text-decoration:none; }
+  .privacy-link-row a:hover{ text-decoration:underline; }
+  .privacy-ack-row{
+    display:flex; align-items:flex-start; gap:10px;
+    margin-top:12px; padding:10px 4px;
+    cursor:pointer; user-select:none;
+  }
+  .privacy-ack-row input[type="checkbox"]{
+    flex-shrink:0; width:18px; height:18px; margin-top:1px;
+    accent-color:var(--purple); cursor:pointer;
+  }
+  .privacy-ack-row span{ font-size:12.5px; color:var(--text-dim); line-height:1.5; }
+  .privacy-ack-row a{ color:var(--teal); text-decoration:none; font-weight:600; }
+  .privacy-ack-row a:hover{ text-decoration:underline; }
   .verify-box{ background:var(--bg-deep); border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:14px; }
   .code-display{
     background:var(--bg-panel-2); border:1px dashed var(--purple); border-radius:8px; padding:12px;
@@ -3491,6 +3506,13 @@ body.cbn-open #cbnRoot .backdrop { opacity: 1; pointer-events: auto; }
       <div class="auth-error" id="authErrorStep1"></div>
       <button class="auth-submit" id="genCodeBtn">Generate Verification Code</button>
       <div class="auth-note">We'll generate a one-time code. You'll paste it into your Roblox<br>profile's About section to prove the account is yours.</div>
+
+      <div class="privacy-link-row"><a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>
+      <label class="privacy-ack-row" for="privacyAckCheckbox">
+        <input type="checkbox" id="privacyAckCheckbox">
+        <span>I have read the <a href="/privacy" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Privacy Policy</a>.</span>
+      </label>
+      <div class="auth-error" id="privacyAckError"></div>
     </div>
     <div class="auth-error" id="oauthErrorNote" style="margin-top:10px;"></div>
 
@@ -4754,6 +4776,17 @@ const MP_SERVER_URL = window.BLOXYVAULT_SERVER_URL
 // those are simple GET requests, no need for the WebSocket to even be open.
 const MP_HTTP_BASE = MP_SERVER_URL.replace(/^wss:\/\//, 'https://').replace(/^ws:\/\//, 'http://').replace(/\/ws$/, '');
 document.getElementById('robloxOAuthBtn').href = `${MP_HTTP_BASE}/roblox/oauth/login`;
+// Gate the OAuth entry point behind the same privacy acknowledgement as
+// the manual bio-code flow below - this is the earlier of the two calls
+// (requirePrivacyAck is defined further down with the rest of the auth
+// logic, but by the time a real click can happen the whole script has
+// already finished loading, so the forward reference is safe here).
+document.getElementById('robloxOAuthBtn').addEventListener('click', (e) => {
+  if (!requirePrivacyAck()) { e.preventDefault(); }
+  // else: let the normal href navigation proceed unmodified - this has to
+  // stay a real same-tab navigation (not window.open) because Roblox's
+  // OAuth flow redirects back to this exact page with the login result.
+});
 let mpSocket = null;
 let mpConnGen = 0; // bumped on every mpConnect() call - see mpConnect's comment for why this exists
 let mpConnected = false;
@@ -5046,6 +5079,26 @@ const step2 = document.getElementById('authStep2');
 const errorStep1 = document.getElementById('authErrorStep1');
 const errorStep2 = document.getElementById('authErrorStep2');
 
+// Single source of truth for the "read the Privacy Policy" gate, checked
+// at every entry point into Roblox verification (the OAuth button, the
+// manual bio-code flow's Generate button, and the manual flow's actual
+// Verify call) rather than just once - so this can't be quietly bypassed
+// if any of those get triggered another way later (e.g. a future refactor
+// that calls verifyRobloxBio directly from somewhere else). This is purely
+// a "was the policy presented" acknowledgement, not a GDPR consent record,
+// so it's checked live off the checkbox's current state and never sent to
+// the server or stored anywhere.
+function requirePrivacyAck(){
+  const box = document.getElementById('privacyAckCheckbox');
+  const err = document.getElementById('privacyAckError');
+  if(!box || !box.checked){
+    if(err) err.textContent = 'Please read and check the box for the Privacy Policy before continuing.';
+    return false;
+  }
+  if(err) err.textContent = '';
+  return true;
+}
+
 function genCode(){
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   let code = 'BV-';
@@ -5056,6 +5109,7 @@ function genCode(){
 document.getElementById('genCodeBtn').addEventListener('click', () => {
   const username = document.getElementById('robloxUsername').value.trim();
   errorStep1.textContent = '';
+  if(!requirePrivacyAck()) return;
   if(!username){ errorStep1.textContent = 'Enter your Roblox username first.'; return; }
   pendingUsername = username;
   pendingCode = genCode();
@@ -5074,6 +5128,12 @@ document.getElementById('backToStep1').addEventListener('click', () => {
 
 document.getElementById('verifyBtn').addEventListener('click', async () => {
   errorStep2.textContent = '';
+  // Defense in depth: step 1 already required this before a code could
+  // even be generated, so this should never actually fail here - but
+  // checking again means the gate holds even if step2 were ever reachable
+  // some other way. verifyRobloxBio() itself checks this too, so no path
+  // into it (from here or anywhere else) can skip the acknowledgement.
+  if(!requirePrivacyAck()){ errorStep2.textContent = 'Please read and check the box for the Privacy Policy before continuing.'; return; }
   const username = pendingUsername || document.getElementById('robloxUsername').value.trim() || 'testuser';
   const code = pendingCode;
   const verifyBtnEl = document.getElementById('verifyBtn');
@@ -5333,6 +5393,13 @@ async function fetchRobloxAvatarUrl(username){
 // fetchWithRetry in server.js), so a transient Roblox-API hiccup is
 // usually already absorbed before it ever gets here.
 async function verifyRobloxBio(username, code){
+  // Enforced here too, not just at the button handlers above - this is the
+  // one function that actually calls the server's /roblox/verify endpoint,
+  // so gating it directly means the requirement holds no matter what UI
+  // path ends up calling it.
+  if(!requirePrivacyAck()){
+    return { ok: false, reason: 'Please read and check the box for the Privacy Policy before continuing.' };
+  }
   const ATTEMPTS = 3;
   let lastReason = "Couldn't reach the server right now — try again in a few seconds.";
   for (let attempt = 0; attempt < ATTEMPTS; attempt++) {
