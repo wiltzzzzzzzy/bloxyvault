@@ -1882,7 +1882,7 @@
     },
     "new66": {
       "name": "Mythic King Kitty",
-      "value": 0,
+      "value": 60000000,
       "rarity": "secret"
     },
     "new71": {
@@ -1902,7 +1902,7 @@
     },
     "new75": {
       "name": "Mythic Sircfenner Plushie",
-      "value": 0,
+      "value": 2500000,
       "rarity": "secret"
     },
     "new76": {
@@ -2012,7 +2012,7 @@
     },
     "new109": {
       "name": "Mythic Cardinal Bunny",
-      "value": 0,
+      "value": 5000000,
       "rarity": "secret"
     },
     "new114": {
@@ -2272,7 +2272,7 @@
     },
     "new225": {
       "name": "Mythic Dream Catcher",
-      "value": 0,
+      "value": 20000000,
       "rarity": "secret"
     },
     "new227": {
@@ -2497,7 +2497,7 @@
     },
     "new305": {
       "name": "Mythic Love Thief",
-      "value": 0,
+      "value": 10000000,
       "rarity": "secret"
     },
     "new306": {
@@ -4817,7 +4817,7 @@
     },
     "dup_new66": {
       "name": "Duped Mythic King Kitty",
-      "value": 0,
+      "value": 350000,
       "rarity": "secret"
     },
     "dup_new71": {
@@ -4837,7 +4837,7 @@
     },
     "dup_new75": {
       "name": "Duped Mythic Sircfenner Plushie",
-      "value": 0,
+      "value": 225000,
       "rarity": "secret"
     },
     "dup_new76": {
@@ -4947,7 +4947,7 @@
     },
     "dup_new109": {
       "name": "Duped Mythic Cardinal Bunny",
-      "value": 0,
+      "value": 670000,
       "rarity": "secret"
     },
     "dup_new114": {
@@ -4997,7 +4997,7 @@
     },
     "dup_new137": {
       "name": "Duped Mythic Easter Robot",
-      "value": 0,
+      "value": 1000000,
       "rarity": "secret"
     },
     "dup_new138": {
@@ -5207,7 +5207,7 @@
     },
     "dup_new225": {
       "name": "Duped Mythic Dream Catcher",
-      "value": 0,
+      "value": 800000,
       "rarity": "secret"
     },
     "dup_new227": {
@@ -5432,7 +5432,7 @@
     },
     "dup_new305": {
       "name": "Duped Mythic Love Thief",
-      "value": 0,
+      "value": 600000,
       "rarity": "secret"
     },
     "dup_new306": {
